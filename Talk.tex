@@ -1,0 +1,147 @@
+\documentclass[aspectratio=1610]{beamer}
+
+\title{Imaging of a degenerate Fermi gas of ultracold Lithium atoms}
+\subtitle{Bachelor Thesis in Physics}
+\author{Robin Eberhard}
+\institute{Physics Institute, University of Heidelberg}
+\date{April 5, 2016}
+
+
+\usepackage{pgfpages}
+
+\usetheme[usetitleprogressbar,nooffset]{bsc}
+\usecolortheme{bsc}
+\usefonttheme{bsc}
+%\usefonttheme[onlymath]{serif}
+
+%\hypersetup{pdfpagemode=FullScreen}
+
+\input{include/macros}
+
+\usepackage{pgf}
+\newcommand{\pltpgfbeamer}[3][.79\textheight]{
+	\begin{figure}[h]
+		\begin{center}
+			\resizebox{!}{#1}{\input{plots/#2.pgf}}
+		\end{center}
+		\caption{#3}
+		\label{fig:#2}
+	\end{figure}
+}
+
+\newcommand{\pltsingle}[2][0.8]{
+	\begin{center}
+		\includegraphics[width=#1\textwidth]{talk_media/#2}
+	\end{center}
+}
+
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+\usepackage{siunitx}
+
+\usepackage[style=numeric-comp,backend=biber,maxnames=10,maxcitenames=2]{biblatex}
+\setbeamertemplate{bibliography item}[text]
+\addbibresource{literature/Mixtures.bib}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[c]
+	\frametitle{Introduction into high resolution imaging}
+	\centering
+	\LARGE
+	Before \SI{2}{\micro\meter}\\
+	\pause
+	\Huge
+	Now \SI{2}{\micro\meter}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overview}
+	\textbf{Chapters:}
+	\begin{enumerate}
+		\item Setup of the imaging path
+		\pause
+		\item Features of the new camera
+		\begin{itemize}
+			\item Fast kinetics acquisition mode
+			\item Noise reduction
+		\end{itemize}
+		\pause
+		\item Thermometry of an ideal Fermi gas
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Setup of the imaging path}
+	\pltsingle{renner_setup.jpg}
+	\blfootnote{Image by Carmen Renner}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Setup of the camera}
+	\pltsingle[0.5]{camera.jpg}
+	\blfootnote{Image from http://www.andor.com/}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Setup of the camera}
+	\pltsingle[0.5]{ccd_shifts.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fast kinetics mode}
+	\pltsingle[0.7]{fast__kin_1.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fast kinetics mode}
+	\pltsingle[0.7]{fast__kin_2.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fast kinetics mode}
+	\pltsingle[0.7]{fast__kin_3.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fast kinetics mode}
+	\pltsingle[0.7]{fast__kin_4.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fast kinetics mode}
+	\pltsingle[0.7]{fast__kin_5.pdf}
+\end{frame}
+
+\begin{frame}[c]
+	\frametitle{Noise reduction}
+	%\resizebox{<horizontal size>}{<vertical size>}{%
+	\centering
+	\begin{center}
+		\resizebox{!}{0.8\textheight}{\input{plots/hvspeed.pgf}}
+	\end{center}
+	%}
+\end{frame}
+
+\begin{frame}[c]
+	\frametitle{Noise reduction}
+	%\resizebox{<horizontal size>}{<vertical size>}{%
+	\centering
+	\begin{center}
+		\resizebox{!}{0.8\textheight}{\input{plots/electrpp_single.pgf}}
+	\end{center}
+	%}
+\end{frame}
+
+%\begin{frame}[noframenumbering,plain,allowframebreaks]{References}
+%\printbibliography
+%\end{frame}
+
+\end{document}

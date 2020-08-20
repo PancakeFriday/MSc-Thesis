@@ -1,0 +1,87 @@
+\usepackage{amsmath,amssymb}
+\usepackage{esdiff} % derivatives
+\usepackage{commath} % math macros
+\usepackage{bbm} % blackboard style symbols
+\usepackage{xfrac} % sfrac
+\usepackage{mathtools} % coloneqq
+\usepackage{ifthen} % if structures
+\usepackage[percent]{overpic} % to label over a picture
+\usepackage{textpos} % also to label over pgfs
+
+% Links
+\newcommand{\namedeqref}[2]{\hyperref[#2]{#1}~\eqref{#2}} % macro to reference equations by name
+\renewcommand{\appref}[1]{\hyperref[#1]{Appendix~\ref{#1}}} % macro to print appendix references
+
+% Equations
+\newcommand{\eqpunct}[1]{\mathpunct{#1}} % embed punctuation in equations
+\newcommand{\eqname}[2]{\label{#2} \\[-1em] \tag*{\llap{\emph{#1}}}} % print a title for the equation
+
+% Images
+% my pltB and draftA commands suck balls. But I have no anticipation to make them right right now, since I only have 3 weeks left to finish this thesis.
+\usepackage{pgf}
+% optional argument: two images
+\newcommand{\setCaption}[2]{
+	\ifthenelse{\equal{#1}{}}{}{
+		\ifthenelse{\equal{#2}{}}{
+			\caption[#1]{ \textbf{#1}}
+		}{
+			\caption[#1]{ \textbf{#1.} \enskip #2}
+		}
+	}
+}
+\newcommand{\plt}[4][]{
+	\begin{figure}[!htb]
+		\ifthenelse{\equal{#1}{}}{}{\vspace{1em}}
+		\begin{center}
+			\input{plots/#2.pgf}
+		\end{center}
+		\ifthenelse{\equal{#1}{}}{}{
+			\begin{textblock}{2}(0.2,-2.75)
+				\textbf{a.}
+			\end{textblock}
+			\begin{textblock}{2}(5.7,-2.75)
+				\textbf{b.}
+			\end{textblock}
+		}
+		\setCaption{#3}{#4}
+		\label{fig:#2}
+	\end{figure}
+}
+\newcommand{\pltCustom}[4]{
+	%1: custom body, 2: label title, 3: caption title, 4: caption
+	\begin{figure}[tb]
+		#1
+		\setCaption{#3}{#4}
+		\label{fig:#2}
+	\end{figure}
+}
+\newcommand{\draft}[4][pdf]{
+\begin{figure}[tb]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{drafts/#2.#1}
+	\end{center}
+	\setCaption{#3}{#4}
+	\label{fig:#2}
+\end{figure}
+}
+% Abbreviations
+
+% References
+\newcommand{\refFig}[1]		{Figure~\ref{fig:#1}}
+\newcommand{\refSec}[1]		{Section~\ref{sec:#1}}
+\newcommand{\refSubsec}[1]	{Subsection~\ref{subsec:#1}}
+\newcommand{\refCh}[1]		{Chapter~\ref{ch:#1}}
+\newcommand{\refAp}[1]		{Appendix~\ref{ch:#1}}
+\newcommand{\refTab}[1]		{Table~\ref{tab:#1}}
+\newcommand{\refEq}[1]		{Equation~\ref{eq:#1}}
+
+% Math symbols
+% TBD
+
+% Units
+\RequirePackage{siunitx}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\gauss{G}
+
+% Code
+\newcommand{\mmainline}[1]{\texttt{#1}}

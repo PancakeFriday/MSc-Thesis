@@ -1,0 +1,30 @@
+\documentclass[
+	12pt, % font size
+	parskip=half, % space between paragraphs instead of indentation
+	digital, % digital or print
+	twoside, % oneside / twoside
+	openright, % openright for title page and subsequent chapters on right pages in twosided layout
+]{msc}
+\usepackage{lipsum}
+\usepackage{float}
+
+\geometry{
+	width=155mm,
+%	bindingoffset=5mm,
+}
+\fancyhfoffset{0pt}
+
+\title{Spin selective imaging of ground state potassium atoms}
+\author{Robin Eberhard}
+\date{October 16, 2020}
+
+\input{include/macros}
+
+\begin{document}
+
+% Front matter
+\pagenumbering{Roman}
+
+\input{content/contents}
+
+\end{document}

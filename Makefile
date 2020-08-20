@@ -1,0 +1,4 @@
+
+
+thesis:
+	xelatex Thesis.tex
