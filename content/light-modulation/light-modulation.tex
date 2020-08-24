@@ -1,9 +1,117 @@
 \chapter{Theory of light modulation}
-	\section{Electro-optical modulators}
-		\subsection{Chopping in the experiment}
-		\subsection{Bergmann pockels cell driver}
 
-	\section{Acousto-optical deflectors}
-		\subsection{Operation}
-		\subsection{Usage in the experiment}
+The concepts of our ultracold atom experiment were highlighted in \mbox{Chapter \ref{ch:motivation}}, most importantly, coherent laser systems are used to modify the state of potassium atoms, which allows to induce interactions between the atoms and image them onto a camera. Having control over the electromagnetic waves by means of electronically controlled light modulators therefore gives direct control over the atomic system at each step of an experimental run.
+Two important components are highlighted in the following, these are \acp{eom} and \acp{aom}.
+
+\section{Electro-optical modulators}
+\label{sec:eom}
+
+\todo{ref fundamentals of photonics somewhere}
+
+Materials can change their refractive index by being exposed to an electric field. In \acp{eom}, this is generally a non-linear crystal connected to two electrodes. There are two prominent electro-optical effects which need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. However if it changes with the square of the electric field, the effect is called Kerr effect. For this thesis, two Pockels cells from Leysop Ltd. were studied and therefore we will only discuss the pockels effect after going through some basic polarization theory.
+
+\subsection{Polarization}
+
+\label{sec:pol}
+
+Amongst frequency and amplitude, there is another parameter that can generally be affected in electromagnetic waves, which is the polarization. The polarization is the orientation of the wave in space. In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electromagnetic field in this basis takes the following form:
+
+\begin{equation}
+	E(\mathbf{x}, t) = E_x cos\left(kx - wt + \phi_x\right) \mathbf{e_x} + E_y cos\left(ky - wt + \phi_y\right) \mathbf{e_y} .
+\end{equation}
+
+Here, $k$ and $w$ refer to the wave number and frequency respectively.
+Depending on the amplitudes $E_x$ and $E_y$ and the phases $\phi_x$ and $\phi_y$, the wave can be in different polarization states. If it is not possible to write the wave in this basis, the light is unpolarized. Otherwise, it is \textbf{linear}, when either one of the amplitudes $E_x$ or $E_y$ is zero or when the phase difference $\Delta \phi = \phi_x - \phi_y$ evaluates to 0 or $\pi$. It is \textbf{circular}, when the phase difference $\Delta \phi = \pm \pi/2$ and the amplitudes are the same, $E_x = E_y$. In any other case, the wave is \textbf{elliptically} polarized.
+
+From this point, we can see how to create a device that modifies the polarization. We can do this by retarding one axis stronger than another. Given a material with two refractive indices $n_x$ and $n_y$ along the axes $x$ and $y$, we then get the phase shifts:
+
+\begin{align}
+	\phi_x(z) = k_0 n_x z \\
+	\phi_y(z) = k_0 n_y z
+\end{align}
+\label{eq:pol,phases}
+
+where $k_0$ is the free space wave vector of the light. Then a device that retards the phase difference $\Delta \phi$ by $\pi/2$, which is a quarter of the wavelength, can change linearly polarized light to circularly polarized light (or vice-versa) and is therefore called a $\lambda / 4$ waveplate. Similarily, if the phase difference is changed by $\Delta \phi = \pi$, or a half wavelength, then we can turn linear polarization around a given axis or change the orientation of circularly polarized light. This is then called a $\lambda / 2$ waveplate.
+
+\subsection{Pockels effect}
+
+The derivation of the pockels effect is fairly straightforward and as such, we follow the argumentation from the book Fundamentals of Photonics \todo{ref}.
+
+Knowing that the refractive index $n$ of the crystal in the pockels cell depends on the electric field, we can write it as $n(E)$. Applying a taylor expansion, we get the following expression:
+
+\begin{equation}
+	n(E) = n_0 + \frac{dn}{dE} E + \mathcal{O}(E^2)
+\end{equation}
+
+As was motivated before in Section \ref{sec:eom}, the pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. To write the expression in terms of a more physically relevant quantity, we need to look at the electric impermeability $\eta$ and its error $\Delta \eta$:
+
+\begin{align}
+	\eta & = \frac{1}{n_0^2} \\
+	\Delta \eta = \frac{d \eta}{dn_0} \Delta n & = -\frac{2}{n_0^3} \frac{dn}{dE} E = \mathfrak{r} E .
+\end{align}
+\label{eq:pockel,refr}
+
+This results in the quantity $\mathfrak{r} = -\frac{2}{n_0^3} \frac{dn}{dE}$, which is called the Pockels coefficient given in units of $\SI{}{\meter\per\volt}$. It can be measured by evaluating the refractive index of the material:
+
+\begin{equation}
+	n(E) = n_0 - \frac{1}{2} \mathfrak{r} n_0^3 E .
+\end{equation}
+
+The pockels cells in this application act as dynamic wave retarders, therefore with the results from section \ref{sec:pol}, we can tune the phase difference $\Delta \phi = \phi_x - \phi_y$ along the axes $x$ and $y$ by applying an electric field.
+
+%The phase shift due to the pockels effect is then calculated via \ref{eq:pol,phases} and \ref{eq:pockel,refr}:
+We can see the effect on the phase difference by combining \ref{eq:pol,phases} and \ref{eq:pockel,refr}:
+
+\begin{align}
+	\phi & = k_0 L n \\
+		 & = k_0 L n_0 - \frac{k_0}{2} L \mathfrak{r} n_0^3 E \\
+		 & = \phi_0 - \frac{k_0}{2} L \mathfrak{r} n_0^3 E \\
+		 & = \phi_0 - \frac{\pi}{\lambda_0} L \mathfrak{r} n_0^3 E \\
+\end{align}
+
+where the relation $k_0 = 2 \pi / \lambda_0$ of the wave number was used.
+
+It is now instructive to calculate the phase difference, which gives information about the change in polarization. The relations for the refractive indices in the two axis basis are labeled as:
+
+\begin{align}
+	n_x(E) = n_{0,x} - \frac{1}{2} \mathfrak{r}_x n_{0,x}^3 E \\
+	n_y(E) = n_{0,y} - \frac{1}{2} \mathfrak{r}_y n_{0,y}^3 E
+\end{align}
+
+and then the phase difference becomes:
+
+\begin{align}
+	\Delta \phi & = \phi_{0,x} - \phi_{0,y} - \frac{\pi}{\lambda_0} E L \left(\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3\right) \\
+	\Delta \phi & = \Delta \phi_{0} - \frac{\pi}{\lambda_0} E L \left(\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3\right) .
+\end{align}
+
+The electric field is generated by applying a voltage $V$ to two electrodes that are separated by a distance $d$ and therefore $E = V/d$. We can then define a half-wave voltage $V_\pi$:
+
+\begin{align}
+	V_\pi = \frac{d}{L} \frac{\lambda_0}{\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3}
+\end{align}
+
+and the phase difference becomes:
+
+\begin{align}
+	\Delta \phi = \Delta \phi_0 - \pi \frac{V}{V_\pi} .
+\end{align}
+
+With this it is clear, that applying the voltage $V_\pi$, the pockels cell will act as a lambda-half waveplate.
+
+\begin{figure}[h]
+\centering{
+\input{content/light-modulation/eom_schematic.pdf_tex}
+\caption{A schematic view of an \ac{eom}. The light enters on the front side and exits on the back. A voltage is applied to two electrodes which are connected on the same faces.}
+\label{fig:topView}
+}
+\end{figure}
+
+\subsection{Theory}
+	\subsection{Chopping in the experiment}
+	\subsection{Bergmann pockels cell driver}
+
+\section{Acousto-optical modulators}
+	\subsection{Operation}
+	\subsection{Usage in the experiment}
 
