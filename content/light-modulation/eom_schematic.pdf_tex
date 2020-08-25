@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{127.06926711bp}%
+    \setlength{\unitlength}{185.88232104bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,13 +50,18 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.7909632)%
+  \begin{picture}(1,0.54070292)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{content/light-modulation/eom_schematic.pdf}}%
-    \put(0.58266823,0){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}V\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{content/light-modulation/eom_schematic.pdf}}%
-    \put(0.59001175,0.73359273){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{content/light-modulation/eom_schematic.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{{content/light-modulation/eom_schematic.pdf}}}%
+    \put(0.410331,-0){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}V\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{{content/light-modulation/eom_schematic.pdf}}}%
+    \put(0.41535104,0.50148444){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{{content/light-modulation/eom_schematic.pdf}}}%
+    \put(0.06680538,0.1623201){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}z\end{tabular}}}}%
+    \put(0.03286949,0.12191296){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}y\end{tabular}}}}%
+    \put(-0.0009299,0.23389372){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}x\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{{content/light-modulation/eom_schematic.pdf}}}%
+    \put(0.65764503,0.17537782){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Delta \Phi$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
