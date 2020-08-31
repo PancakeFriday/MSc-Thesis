@@ -1,20 +1,14 @@
-\chapter{Theory of light modulation}
+\chapter{Light modulation}
 
-The concepts of our ultracold atom experiment were highlighted in \mbox{Chapter \ref{ch:motivation}}, most importantly, coherent laser systems are used to modify the state of potassium atoms, which allows to induce interactions between the atoms and image them onto a camera. Having control over the electromagnetic waves by means of electronically controlled light modulators therefore gives direct control over the atomic system at each step of an experimental run.
-Two important components are highlighted in the following, these are \acp{eom} and \acp{aom}.
+%The concepts of our ultracold atom experiment were highlighted in \mbox{Chapter \ref{ch:motivation}}, most importantly,
+Coherent laser systems are used in ultracold atom experiments to modify the state of atoms, which for example allows to induce interactions or image them onto a camera. Having control over the laser light by means of electronically controlled light modulators therefore gives direct control over the atomic system at each step of an experimental run.
+Two important components are highlighted in the following, these are \acp{eom} and \acp{aom}. Some preliminary theory is discussed, which is followed by experimental evaluations and implementations.
 
-\section{Electro-optical modulators}
-\label{sec:eom}
-
-\todo{ref fundamentals of photonics somewhere}
-
-Materials can change their refractive index by being exposed to an electric field. In \acp{eom}, this is generally a non-linear crystal connected to two electrodes. There are two prominent electro-optical effects which need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. However if it changes with the square of the electric field, the effect is called Kerr effect. For this thesis, two Pockels cells from Leysop Ltd. were studied and therefore we will only discuss the pockels effect after going through some basic polarization theory.
-
-\subsection{Polarization}
+\section{Polarization}
 
 \label{sec:pol}
 
-Amongst frequency and amplitude, there is another parameter that can generally be affected in electromagnetic waves, which is the polarization. The polarization is the orientation of the wave in space. In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electromagnetic field in this basis takes the following form:
+Amongst frequency and amplitude, there is another parameter that can generally be affected in electromagnetic waves, which is the polarization. The polarization is the orientation of the wave in space, transverse to the direction of movement. In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electromagnetic field in this basis takes the following form:
 
 \begin{equation}
 	E(\mathbf{x}, t) = E_x cos\left(kx - wt + \phi_x\right) \mathbf{e_x} + E_y cos\left(ky - wt + \phi_y\right) \mathbf{e_y} .
@@ -33,6 +27,14 @@ From this point, we can see how to create a device that modifies the polarizatio
 
 where $k_0$ is the free space wave vector of the light. Then a device that retards the phase difference $\Delta \phi$ by $\pi/2$, which is a quarter of the wavelength, can change linearly polarized light to circularly polarized light (or vice-versa) and is therefore called a $\lambda / 4$ waveplate. Similarily, if the phase difference is changed by $\Delta \phi = \pi$, or a half wavelength, then we can turn linear polarization around a given axis or change the orientation of circularly polarized light. This is then called a $\lambda / 2$ waveplate.
 
+\section{Electro-optical modulators}
+\label{sec:eom}
+
+\todo{ref fundamentals of photonics somewhere}
+
+Light travelling through a material generally has a speed smaller than the speed of light. This property of the material is the refractive index and is the ratio of the speed of light in the material to the speed of light in vacuum. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a non-linear crystal connected to two electrodes. There are two prominent electro-optical effects that need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. However if it changes with the square of the electric field, the effect is called Kerr effect. For this thesis, two Pockels cells from Leysop Ltd. were studied and therefore we will only discuss the pockels effect.
+
+
 \subsection{Pockels effect}
 
 The derivation of the pockels effect is fairly straightforward and as such, we follow the argumentation from the book Fundamentals of Photonics \todo{ref}.
@@ -43,10 +45,15 @@ Knowing that the refractive index $n$ of the crystal in the pockels cell depends
 	n(E) = n_0 + \frac{dn}{dE} E + \mathcal{O}(E^2)
 \end{equation}
 
-As was motivated before in Section \ref{sec:eom}, the pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. To write the expression in terms of a more physically relevant quantity, we need to look at the electric impermeability $\eta$ and its error $\Delta \eta$:
+\todo{To the reviewers: the book does the derivation using the electric impermeability, but maybe it makes sense to drop the pockels coefficient, because it's not needed in my case and write everything using dn/dE and then I don't need to write about the impermeability at all?}
+
+As was motivated before in Section \ref{sec:eom}, the pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor can also be found by the change of electric impermeability $\Delta \eta$, which is \todo{what exactly?}. From
 
 \begin{align}
-	\eta & = \frac{1}{n_0^2} \\
+	\eta & = \frac{1}{n_0^2},
+\end{align}
+we get
+\begin{align}
 	\Delta \eta = \frac{d \eta}{dn_0} \Delta n & = -\frac{2}{n_0^3} \frac{dn}{dE} E = \mathfrak{r} E .
 \end{align}
 \label{eq:pockel,refr}
@@ -85,31 +92,76 @@ and then the phase difference becomes:
 	\Delta \phi & = \Delta \phi_{0} - \frac{\pi}{\lambda_0} E L \left(\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3\right) .
 \end{align}
 
-The electric field is generated by applying a voltage $V$ to two electrodes that are separated by a distance $d$ and therefore $E = V/d$. We can then define a half-wave voltage $V_\pi$:
-
-\begin{align}
-	V_\pi = \frac{d}{L} \frac{\lambda_0}{\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3}
-\end{align}
-
-and the phase difference becomes:
-
-\begin{align}
-	\Delta \phi = \Delta \phi_0 - \pi \frac{V}{V_\pi} .
-\end{align}
-
-With this it is clear, that applying the voltage $V_\pi$, the pockels cell will act as a lambda-half waveplate.
-
 \begin{figure}[h]
 \centering{
-\input{content/light-modulation/eom_schematic.pdf_tex}
-\caption{Schematic view of light passing through an \ac{eom}. The electrodes are positioned on the front and back side of the modulator, the same faces the light enters and exits.}
-\label{fig:topView}
+	\import{content/light-modulation}{eom_schematic.pdf_tex}
+	\caption{Schematic view of light passing through an \ac{eom}. The electrodes are positioned on the front and back side of the modulator, the same faces the light enters and exits. The light exiting the \ac{eom} has a relative phase shift $\Delta \Phi$ depending on the change of refractive index due to the applied voltage $V$.}
+\label{fig:eom_schem}
 }
 \end{figure}
 
-\subsection{Theory}
-	\subsection{Chopping in the experiment}
-	\subsection{Bergmann pockels cell driver}
+The electric field is generated by applying a voltage $V$ to two electrodes that are separated by a distance $d$ and therefore $E = V/d$. We can then define a half-wave voltage $V_\pi$:
+
+\begin{align}
+	V_\pi = \frac{d}{L} \frac{\lambda_0}{\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3}.
+\end{align}
+
+\todo{Did I write phase difference too much?}
+Thus, the phase difference can be rewritten as:
+
+\begin{align}
+	\label{eq:eom_phase_diff}
+	\Delta \phi = \Delta \phi_0 - \pi \frac{V}{V_\pi} .
+\end{align}
+
+With this it is clear, that applying the voltage $V_\pi$, the pockels cell will act as a lambda-half waveplate. A visual represantation of the modulator and the light passing through it is given in Figure \ref{fig:eom_schem}.
+
+\subsection{Driving a pockels cell}
+
+Rise and fall times of pockels cells can go as low as nanoseconds. To make use of this speed, one has to deploy clever ways to drive the voltages, especially when these potentials are in the kilovolt-regime. For the two Pockels cells discussed in this thesis, specialized drivers by BME-Bergmann \todo{ref} were used.
+
+Schematically, the driver is divided into four inputs that are controlled from the user: ON A, ON B, OFF A and OFF B. These inputs control switches on either side of the pockels cell, so A controls one side and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X will also send a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure \ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side.
+
+A requirement for our experiment is to have the \acp{eom} work consistently. This means it is preferrable to only apply one type of voltage, because it can not be guaranteed that applying the same voltage with different polarity results in the same shift polarization. Most notably, the linearly polarized light has to be perfectly aligned on the axis of the EOM to rotate it $\SI{90}{\degree}$ in either direction. This is in general unrealistic, not only due to human error, but also because the polarization may drift with time.
+
+This means, only positive voltages will be applied, which results in the timing diagrams in Figure \ref{fig:eom_timings}.
+
+\begin{figure}[h]
+\centering{
+	\begin{multicols}{2}
+	\import{content/light-modulation}{bpp_switches.pdf_tex}
+	\import{content/light-modulation}{dpp_switches.pdf_tex}
+	\end{multicols}
+	\caption{Schematic of the high voltage switches used inside the bpp-type (left) and dpp-type (right) pockels cell driver from BME Bergmann. Not-Gates on both A and B sides ensure that there is always a potential over the pockels cell. The blue and red paths indicate the connection to apply a positive and negative voltage over the pockels cell respectively.}
+\label{fig:eom_driver_switches}
+}
+\end{figure}
+
+\begin{figure}[h]
+\centering{
+	\import{content/light-modulation}{bpp_timings.pdf_tex}
+	\caption{Timing diagrams for the pockels cell drivers to turn the polarization of the \ac{eom} $\SI{90}{\degree}$. To get a positive high voltage from the bpp-type driver, the A and B side ON/OFF switches are flipped simultaneously. The dpp-type driver is more flexible, since it also allows negative voltages. The timings displayed here are an example to only apply positive voltages across the pockels cell.}
+\label{fig:eom_timings}
+}
+\end{figure}
+
+\subsection{Evaluation of Leysop Pockels cells}
+
+One specific application in the experiment requires light to be turned on and off quickly. Pockels cells can fulfill this requirement by exploiting the fact that linearly polarized light can be filtered out. This is best achieved by placing a polarizing beam splitter directly after the modulator. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter.
+Using this setup, it is also possible to measure the rise and fall times of the \acp{eom}, by placing a photodiode on either end of the beam splitter. Two  pockels cells from Leysop Ltd. were tested, which are labeled by the material of their nonlinear crystal, \ac{rtp} and \ac{bbo}. Their characteristics are summarized in table \ref{tbl:eom_crystals}.
+
+\begin{table}[h]
+\begin{tabular}{l|l|l}
+\label{tbl:eom_crystals}
+                                                                                     & RTP                                       & BBO \\ \hline
+Aperture (crystal dimensions)                                                        & $\SI{3}{\milli\meter}$                    &     \\ \hline
+Total crystal length (2 crystals)                                                    & $\SI{30}{\milli\meter}$                   &     \\ \hline
+\begin{tabular}[c]{@{}l@{}}Approximate half wave voltage\\  (1064nm)\end{tabular}    & $\SI{1.0}{\kilo \volt}$                   &     \\ \hline
+Typical dynamic extinction ratio (1064nm)                                           & $> 200:1$                                 &     \\ \hline
+\begin{tabular}[c]{@{}l@{}}Peak damage threshold (1064nm, 1ns \\ pulse)\end{tabular} & $> \SI{1}{\giga \watt \per \cm \squared}$ &     \\ \hline
+Insertion loss                                                                       & $< \SI{2}{\percent}$                      &    
+\end{tabular}
+\end{table}
 
 \section{Acousto-optical modulators}
 	\subsection{Operation}

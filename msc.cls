@@ -7,6 +7,12 @@
 
 \ProcessOptions\relax
 
+% Multicols
+\usepackage{multicol}
+
+% import
+\usepackage{import}
+
 % Todo lists
 \usepackage{todonotes}
 
