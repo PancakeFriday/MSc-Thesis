@@ -7,6 +7,12 @@
 
 \ProcessOptions\relax
 
+% plots
+\usepackage{pgfplots}
+\usetikzlibrary[pgfplots.groupplots]
+\newlength\figureheight
+\newlength\figurewidth
+
 % Multicols
 \usepackage{multicol}
 

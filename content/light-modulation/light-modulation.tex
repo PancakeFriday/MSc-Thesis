@@ -1,17 +1,18 @@
 \chapter{Light modulation}
 
 %The concepts of our ultracold atom experiment were highlighted in \mbox{Chapter \ref{ch:motivation}}, most importantly,
-Coherent laser systems are used in ultracold atom experiments to modify the state of atoms, which for example allows to induce interactions or image them onto a camera. Having control over the laser light by means of electronically controlled light modulators therefore gives direct control over the atomic system at each step of an experimental run.
+Coherent light produced by lasers is the key ingredient in ultracold atom experiments in order to work with the atoms on a quantum level. This allows, amongst other things, to drive interactions between the atoms or select specific spin states out of the system. It is important to have control over the full parameter space of the electromagnetic waves interacting with the atoms, which is where light modulators serve as a powerful tool. Light passing through such an optical component will have its frequency, amplitude or phase changed, based on inputs that can be placed onto the modulators.
+
 Two important components are highlighted in the following, these are \acp{eom} and \acp{aom}. Some preliminary theory is discussed, which is followed by experimental evaluations and implementations.
 
-\section{Polarization}
+\section{Theory on Polarization}
 
 \label{sec:pol}
 
-Amongst frequency and amplitude, there is another parameter that can generally be affected in electromagnetic waves, which is the polarization. The polarization is the orientation of the wave in space, transverse to the direction of movement. In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electromagnetic field in this basis takes the following form:
+Amongst frequency and amplitude, there is another parameter that can generally be affected in monochromatic electromagnetic waves, which is the polarization. It is the orientation of the wave in space, transverse to the direction of movement. \todo{Reviewers: I only discuss transverse polarization, should I keep it this way or do I make a comment about longitudinal polarization?} In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electric field component of the light in this basis takes the following form:
 
 \begin{equation}
-	E(\mathbf{x}, t) = E_x cos\left(kx - wt + \phi_x\right) \mathbf{e_x} + E_y cos\left(ky - wt + \phi_y\right) \mathbf{e_y} .
+	\mathbf{E}(\mathbf{x}, t) = E_x cos\left(kx - wt + \phi_x\right) \mathbf{e_x} + E_y cos\left(ky - wt + \phi_y\right) \mathbf{e_y} .
 \end{equation}
 
 Here, $k$ and $w$ refer to the wave number and frequency respectively.
@@ -32,14 +33,13 @@ where $k_0$ is the free space wave vector of the light. Then a device that retar
 
 \todo{ref fundamentals of photonics somewhere}
 
-Light travelling through a material generally has a speed smaller than the speed of light. This property of the material is the refractive index and is the ratio of the speed of light in the material to the speed of light in vacuum. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a non-linear crystal connected to two electrodes. There are two prominent electro-optical effects that need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. However if it changes with the square of the electric field, the effect is called Kerr effect. For this thesis, two Pockels cells from Leysop Ltd. were studied and therefore we will only discuss the pockels effect.
+Light travelling through a material generally has a speed smaller than the speed of light. This property of the material is the refractive index and is the ratio of the speed of light in the material to the speed of light in vacuum \todo{Reviewers: Philip proposed to mention the dispersion relation, but I'm not sure if it's relevant and how to work it in}. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a crystal connected to two electrodes. There are two prominent electro-optical effects that need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. However if it changes with the square of the electric field, the effect is called Kerr effect. For this thesis, two Pockels cells were studied and therefore we will only discuss the pockels effect.
 
 
 \subsection{Pockels effect}
 
-The derivation of the pockels effect is fairly straightforward and as such, we follow the argumentation from the book Fundamentals of Photonics \todo{ref}.
-
-Knowing that the refractive index $n$ of the crystal in the pockels cell depends on the electric field, we can write it as $n(E)$. Applying a taylor expansion, we get the following expression:
+%The derivation of the pockels effect follows the argumentation from the book Fundamentals of Photonics \todo{ref}.
+Following the argumentation from the book Fundamentals of Photonics \todo{ref}, the pockels effect can be found by evaluating the refractive index with respect to the electric field applied to the modulator. Writing this as $n(E)$ and applying a taylor expansion, we get the following expression:
 
 \begin{equation}
 	n(E) = n_0 + \frac{dn}{dE} E + \mathcal{O}(E^2)
@@ -47,7 +47,7 @@ Knowing that the refractive index $n$ of the crystal in the pockels cell depends
 
 \todo{To the reviewers: the book does the derivation using the electric impermeability, but maybe it makes sense to drop the pockels coefficient, because it's not needed in my case and write everything using dn/dE and then I don't need to write about the impermeability at all?}
 
-As was motivated before in Section \ref{sec:eom}, the pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor can also be found by the change of electric impermeability $\Delta \eta$, which is \todo{what exactly?}. From
+The pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor can also be found by the change of electric impermeability $\Delta \eta$, which is the ability of a material to be penetrated by an electromagnetic field. From
 
 \begin{align}
 	\eta & = \frac{1}{n_0^2},
@@ -73,7 +73,7 @@ We can see the effect on the phase difference by combining \ref{eq:pol,phases} a
 	\phi & = k_0 L n \\
 		 & = k_0 L n_0 - \frac{k_0}{2} L \mathfrak{r} n_0^3 E \\
 		 & = \phi_0 - \frac{k_0}{2} L \mathfrak{r} n_0^3 E \\
-		 & = \phi_0 - \frac{\pi}{\lambda_0} L \mathfrak{r} n_0^3 E \\
+		 & = \phi_0 - \frac{\pi}{\lambda_0} L \mathfrak{r} n_0^3 E
 \end{align}
 
 where the relation $k_0 = 2 \pi / \lambda_0$ of the wave number was used.
@@ -106,7 +106,6 @@ The electric field is generated by applying a voltage $V$ to two electrodes that
 	V_\pi = \frac{d}{L} \frac{\lambda_0}{\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3}.
 \end{align}
 
-\todo{Did I write phase difference too much?}
 Thus, the phase difference can be rewritten as:
 
 \begin{align}
@@ -147,8 +146,8 @@ This means, only positive voltages will be applied, which results in the timing 
 
 \subsection{Evaluation of Leysop Pockels cells}
 
-The following pockels cells from Leysop Ltd. where chosen with the application in mind of switching light on the nanoseond scale on and off. Pockels cells can fulfill this requirement by exploiting the fact that linearly polarized light can be filtered out. This is best achieved by placing a polarizing beam splitter directly after the modulator. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter. \todo{diagram}
-Using this setup, it is also possible to measure the rise and fall times of the \acp{eom}, by placing a photodiode on either end of the beam splitter. Two  pockels cells were tested, which are labeled by the material of their nonlinear crystal, \ac{rtp} and \ac{bbo}. Their characteristics are summarized in table \ref{tbl:eom_crystals}.
+The following pockels cells from Leysop Ltd. where chosen with the application in mind of switching light on the nanoseond scale on and off. Pockels cells can fulfill this requirement by exploiting the fact that linearly polarized light can be filtered out. This is best achieved by placing a polarizing beam splitter directly after the modulator. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter. \todo{schematic}
+Two  pockels cells were characterized by placing a photodiode on either end of the beam splitter. The \acp{eom} are labeled by the material of their nonlinear crystal, \ac{rtp} and \ac{bbo}. Their characteristics are summarized in table \ref{tbl:eom_crystals}.
 
 \begin{table}
 \label{tbl:eom_crystals}
@@ -165,26 +164,42 @@ Insertion loss                                                                  
 \caption{Characteristics of the two pockels cells with their respective non-linear crystal materials being RTP and BBO. The aperture, damage threshold and insertion loss are given for future reference.}
 \end{table}
 
-During evaluation of the \ac{rtp} pockels cell, it was found that the amplitude laser on the output of the \ac{eom} is not consistent when the pockels cell is driven for long times (on the order of seconds) and high frequencies (on the order of megahertz). The reason for this has likely to do with stress on the crystal, but was not further researched, instead solutions for this problem were sought out. To relieve the stress on the crystal, it is possible to alternate the voltages going into the \ac{eom}. The effect is still visible after this adjustment, but less pronounced and can be seen in Figure \ref{fig:eom_strange}.
-\todo{do the diagram correctly}
+Example traces for the \ac{rtp} and \ac{bbo} are given in Figure \ref{fig:eom_example_traces}. The peak at the start of the switch is an artifact of the photodiode. Moreover, the rise and fall times could not be resolved due to the limitations of the photodiode, a home-built model with a bandwidth of roughly $\SI{22}{\mega \hertz}$.
 
 \begin{figure}[h]
-\label{fig:eom_strange}
+\label{fig:eom_example_traces}
 \centering{
-	\includegraphics[width=\textwidth]{content/light-modulation/eom_strange.png}
+	\setlength{\figureheight}{2in}
+	\setlength{\figurewidth}{\textwidth/2-2.5em}
+	\input{content/light-modulation/eom_example_traces.tikz}
 }
-\caption{The amplitude of the pockels cell depends on the repitition rate of the signal. The signal in this case was applying $0$, $V_\pi$, $0$ and $-V_\pi$ repeatedly.}
+\caption{Example traces of light passing through an \ac{eom} and filtered using a polarizing beam splitter. The materials used are \ac{rtp} (left) and \ac{bbo} (right). The absolute value of the amplitude depends on the input power of the laser and was different for both measurements.}
 \end{figure}
 
-The photodiode that is used is a home-built model, which has roughly a bandwidth of $\SI{22}{\mega \hertz}$. This is limiting the measurement of the rise time of the pockels cells, however it is possible to measure the extinction ratio. For this, the repitition rate is set to $\SI{200}{\kilo \hertz}$, where the amplitude is consistent. Measuring first the dark current of the photodiode and then taking the signal on the output of the beam splitter results in a extinction ratio of $>100:1$ as can be seen in Figure \ref{fig:eom_rtp_extc}.
-\todo{do the diagram correctly}
+Stress on the crystal causes the amplitude of the laser on the output of the \ac{eom} to be inconsistent when driving the pockels cell for long times (\~{}$\SI{1}{\second}$) and high repetition rates (\~{}\SI{}{MHz}). This effect can be reduced by alternating the voltage applied to the crystal, which results in Figure \ref{fig:eom_amp_time}, however the effect can only be seen on the \ac{rtp} crystal and not on the \ac{bbo}. With this information, it is clear that the \ac{rtp} crystal should be driven with frequencies up to $\SI{1.2}{\mega \hertz}$ or in the range $1.5$ to $\SI{1.7}{\mega \hertz}$. The amplitude was extracted from the traces by fitting a fourier series.
 
 \begin{figure}[h]
-\label{fig:eom_rtp_extc}
+\label{fig:eom_amp_time}
 \centering{
-	\includegraphics[width=\textwidth]{content/light-modulation/rtp_extc.png}
+	%\includegraphics[width=\textwidth]{content/light-modulation/eom_amp_time.png}
+	\setlength{\figureheight}{2in}
+	\setlength{\figurewidth}{\textwidth}
+	\input{content/light-modulation/eom_amp_time.tikz}
 }
-\caption{The \ac{rtp} pockels cell was driven with $\SI{200}{\kilo\hertz}$ at optimal beam parameters. By fitting a fourier series to the photodiode signal, it is possible to measure the extinction ratio, which is here $>100:1$. The peak at the beginning of the switching is an effect of the photodiode.}
+\caption{Shown is the amplitude of a laser whose polarization was rotated by a pockels cell and then filtered using a polarizing beam splitter. The frequency is the repetition rate of the voltage placed into the \ac{eom}. The two materials are \ac{rtp} (orange) \ac{bbo} (blue). The curves are normalized to their maximum value.}
+	%The amplitude of the pockels cell depends on the repitition rate of the signal. The signal in this case was applying $0$, $V_\pi$, $0$ and $-V_\pi$ repeatedly.}
+\end{figure}
+
+In order to measure the extinction ratio, the repetition rate is set to $\SI{100}{\kilo \hertz}$, where the amplitude is consistent. Measuring first the dark current of the photodiode and then taking the signal on the output of the beam splitter results in the extinction ratio found in Figure \ref{fig:eom_extc}.
+
+\begin{figure}[h]
+\label{fig:eom_extc}
+\centering{
+	\setlength{\figureheight}{2in}
+	\setlength{\figurewidth}{\textwidth/2-2.5em}
+	\input{content/light-modulation/eom_extinction.tikz}
+}
+\caption{Measurements of extinction ratio for \ac{rtp} (left) and \ac{bbo} (right). The dashed lines indicate the fourier series fit in order to find the high and low level of the signal. The results are $>108:1$ for \ac{rtp} and $>129:1$ for \ac{bbo}.}
 \end{figure}
 
 \todo{BBO}
