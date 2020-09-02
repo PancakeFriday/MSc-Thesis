@@ -95,7 +95,7 @@ and then the phase difference becomes:
 \begin{figure}[h]
 \centering{
 	\import{content/light-modulation}{eom_schematic.pdf_tex}
-	\caption{Schematic view of light passing through an \ac{eom}. The electrodes are positioned on the front and back side of the modulator, the same faces the light enters and exits. The light exiting the \ac{eom} has a relative phase shift $\Delta \Phi$ depending on the change of refractive index due to the applied voltage $V$.}
+	\caption{Schematic view of light passing through an \ac{eom} of length $L$. The electrodes are positioned on the front and back side of the modulator, the same faces the light enters and exits. The light exiting the \ac{eom} has a relative phase shift $\Delta \Phi$ depending on the change of refractive index due to the applied voltage $V$.}
 \label{fig:eom_schem}
 }
 \end{figure}
@@ -120,7 +120,7 @@ With this it is clear, that applying the voltage $V_\pi$, the pockels cell will 
 
 Rise and fall times of pockels cells can go as low as nanoseconds. To make use of this speed, one has to deploy clever ways to drive the voltages, especially when these potentials are in the kilovolt-regime. For the two Pockels cells discussed in this thesis, specialized drivers by BME-Bergmann \todo{ref} were used.
 
-Schematically, the driver is divided into four inputs that are controlled from the user: ON A, ON B, OFF A and OFF B. These inputs control switches on either side of the pockels cell, so A controls one side and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X will also send a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure \ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side.
+Schematically, the driver is divided into four inputs that are controlled from the user: ON A, ON B, OFF A and OFF B. These inputs control switches on either side of the pockels cell, so A controls one electrode and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X will also send a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure \ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side.
 
 A requirement for our experiment is to have the \acp{eom} work consistently. This means it is preferrable to only apply one type of voltage, because it can not be guaranteed that applying the same voltage with different polarity results in the same shift polarization. Most notably, the linearly polarized light has to be perfectly aligned on the axis of the EOM to rotate it $\SI{90}{\degree}$ in either direction. This is in general unrealistic, not only due to human error, but also because the polarization may drift with time.
 
@@ -147,21 +147,47 @@ This means, only positive voltages will be applied, which results in the timing 
 
 \subsection{Evaluation of Leysop Pockels cells}
 
-One specific application in the experiment requires light to be turned on and off quickly. Pockels cells can fulfill this requirement by exploiting the fact that linearly polarized light can be filtered out. This is best achieved by placing a polarizing beam splitter directly after the modulator. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter.
-Using this setup, it is also possible to measure the rise and fall times of the \acp{eom}, by placing a photodiode on either end of the beam splitter. Two  pockels cells from Leysop Ltd. were tested, which are labeled by the material of their nonlinear crystal, \ac{rtp} and \ac{bbo}. Their characteristics are summarized in table \ref{tbl:eom_crystals}.
+The following pockels cells from Leysop Ltd. where chosen with the application in mind of switching light on the nanoseond scale on and off. Pockels cells can fulfill this requirement by exploiting the fact that linearly polarized light can be filtered out. This is best achieved by placing a polarizing beam splitter directly after the modulator. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter. \todo{diagram}
+Using this setup, it is also possible to measure the rise and fall times of the \acp{eom}, by placing a photodiode on either end of the beam splitter. Two  pockels cells were tested, which are labeled by the material of their nonlinear crystal, \ac{rtp} and \ac{bbo}. Their characteristics are summarized in table \ref{tbl:eom_crystals}.
 
-\begin{table}[h]
-\begin{tabular}{l|l|l}
+\begin{table}
 \label{tbl:eom_crystals}
+\centering
+\begin{tabular}{l|l|l}
                                                                                      & RTP                                       & BBO \\ \hline
-Aperture (crystal dimensions)                                                        & $\SI{3}{\milli\meter}$                    &     \\ \hline
-Total crystal length (2 crystals)                                                    & $\SI{30}{\milli\meter}$                   &     \\ \hline
-\begin{tabular}[c]{@{}l@{}}Approximate half wave voltage\\  (1064nm)\end{tabular}    & $\SI{1.0}{\kilo \volt}$                   &     \\ \hline
-Typical dynamic extinction ratio (1064nm)                                           & $> 200:1$                                 &     \\ \hline
-\begin{tabular}[c]{@{}l@{}}Peak damage threshold (1064nm, 1ns \\ pulse)\end{tabular} & $> \SI{1}{\giga \watt \per \cm \squared}$ &     \\ \hline
-Insertion loss                                                                       & $< \SI{2}{\percent}$                      &    
+Aperture (crystal dimensions)                                                        & $\SI{3}{\milli\meter}$                    & $\SI{3}{\milli\meter}$   \\ \hline
+Total crystal length (2 crystals)                                                    & $\SI{30}{\milli\meter}$                   & $\SI{50}{\milli\meter}$    \\ \hline
+\begin{tabular}[c]{@{}l@{}}Approximate half wave voltage\\  (1064nm)\end{tabular}    & $\SI{1.0}{\kilo \volt}$                   & $\SI{2.8}{\kilo\volt}$    \\ \hline
+%Typical dynamic extinction ratio (1064nm)                                           & $> 200:1$                                 &     \\ \hline
+\begin{tabular}[c]{@{}l@{}}Peak damage threshold (1064nm, 1ns \\ pulse)\end{tabular} & $> \SI{1}{\giga \watt \per \cm \squared}$ & $> \SI{1}{\giga \watt \per \cm \squared}$   \\ \hline
+Insertion loss                                                                       & $< \SI{2}{\percent}$                      & $< \SI{1.5}{\percent} $
 \end{tabular}
+\caption{Characteristics of the two pockels cells with their respective non-linear crystal materials being RTP and BBO. The aperture, damage threshold and insertion loss are given for future reference.}
 \end{table}
+
+During evaluation of the \ac{rtp} pockels cell, it was found that the amplitude laser on the output of the \ac{eom} is not consistent when the pockels cell is driven for long times (on the order of seconds) and high frequencies (on the order of megahertz). The reason for this has likely to do with stress on the crystal, but was not further researched, instead solutions for this problem were sought out. To relieve the stress on the crystal, it is possible to alternate the voltages going into the \ac{eom}. The effect is still visible after this adjustment, but less pronounced and can be seen in Figure \ref{fig:eom_strange}.
+\todo{do the diagram correctly}
+
+\begin{figure}[h]
+\label{fig:eom_strange}
+\centering{
+	\includegraphics[width=\textwidth]{content/light-modulation/eom_strange.png}
+}
+\caption{The amplitude of the pockels cell depends on the repitition rate of the signal. The signal in this case was applying $0$, $V_\pi$, $0$ and $-V_\pi$ repeatedly.}
+\end{figure}
+
+The photodiode that is used is a home-built model, which has roughly a bandwidth of $\SI{22}{\mega \hertz}$. This is limiting the measurement of the rise time of the pockels cells, however it is possible to measure the extinction ratio. For this, the repitition rate is set to $\SI{200}{\kilo \hertz}$, where the amplitude is consistent. Measuring first the dark current of the photodiode and then taking the signal on the output of the beam splitter results in a extinction ratio of $>100:1$ as can be seen in Figure \ref{fig:eom_rtp_extc}.
+\todo{do the diagram correctly}
+
+\begin{figure}[h]
+\label{fig:eom_rtp_extc}
+\centering{
+	\includegraphics[width=\textwidth]{content/light-modulation/rtp_extc.png}
+}
+\caption{The \ac{rtp} pockels cell was driven with $\SI{200}{\kilo\hertz}$ at optimal beam parameters. By fitting a fourier series to the photodiode signal, it is possible to measure the extinction ratio, which is here $>100:1$. The peak at the beginning of the switching is an effect of the photodiode.}
+\end{figure}
+
+\todo{BBO}
 
 \section{Acousto-optical modulators}
 	\subsection{Operation}
