@@ -15,4 +15,4 @@ thesis: get_figures
 
 clean:
 	rm -f *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg  \
-		*.inx *.ps *.dvi *.pdf *.toc *.out
+		*.inx *.ps *.dvi *.pdf *.toc *.out *.bcf *.run.xml

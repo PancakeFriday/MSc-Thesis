@@ -53,6 +53,10 @@
 \newcolumntype{!}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 \renewcommand{\arraystretch}{1.4}
 
+% Itemize
+\usepackage{enumitem}
+\setlist{nosep}
+
 % Language
 \usepackage[ngerman,english]{babel} % all languages being used, with main language last in list
 

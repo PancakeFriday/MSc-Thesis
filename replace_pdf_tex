@@ -1,9 +1,0 @@
-#!/bin/bash
-shopt -s globstar
-for i in **/bpp_timings.pdf_tex; do # Whitespace-safe and recursive
-	DIR=$(dirname $i)
-	FNAME=$(basename $i)
-	PDFNAME=${FNAME::-4}
-	echo "Replacing $FNAME"
-	sed 's/{$PDFNAME/{$DIR\/$PDFNAME/' $i
-done
