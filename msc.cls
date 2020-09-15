@@ -1,11 +1,28 @@
+% vim: set ft=tex:
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{bsc}[2020/18/08 Style for my master thesis]
+\ProvidesClass{msc}[2020/18/08 Style for my master thesis]
+
+% General
+\LoadClassWithOptions{scrreprt}
 
 \newif\if@print
 \DeclareOption{print}{\@printtrue}
 \DeclareOption{digital}{\@printfalse}
 
 \ProcessOptions\relax
+
+% Headline color
+% \usepackage{xcolor}
+% \usepackage{sectsty}
+% \chapterfont{\color{blue}}  % sets colour of chapters
+% \sectionfont{\color{cyan}}  % sets colour of sections
+
+%
+\usepackage{layouts}
+
+% Chemical symbols
+\usepackage{mhchem}
 
 % plots
 \usepackage{pgfplots}
@@ -25,9 +42,6 @@
 % Acronyms
 \usepackage{acronym}
 
-% General
-\LoadClassWithOptions{scrreprt}
-
 % Table
 \usepackage{array}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
@@ -37,6 +51,7 @@
 	\futurelet \reserved@a \@xhline
 }
 \newcolumntype{!}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
+\renewcommand{\arraystretch}{1.4}
 
 % Language
 \usepackage[ngerman,english]{babel} % all languages being used, with main language last in list
@@ -63,6 +78,9 @@
 %\setmainfont{palatino}
 %\setsansfont{Optima}
 %\setmonofont[Scale=MatchLowercase]{Menlo}
+
+% Greek letters
+\usepackage{textgreek}
 
 \if@print
 \else
@@ -134,8 +152,17 @@
 
 
 % Bibliography
-\usepackage{cite}
-%\nocite{*} % print all references, even those not used
+\usepackage[natbib=true, sorting=none, style=nature, backend=biber, hyperref=true, url=false, isbn=false, doi=false, backref=true, block=none, urldate=short]{biblatex}
+% Grey out page numbers
+\DeclareFieldFormat{pagerefformat}{{\color{gray}\mkbibparens{#1}
+	\hypersetup{linkcolor=gray}}}
+	\renewbibmacro*{pageref}{%
+		\iflistundef{pageref}{}{
+			\printtext[pagerefformat]{%
+				\ifnumgreater{
+					\value{pageref}}{1}{\bibstring{backrefpages}\ppspace}
+				{\bibstring{backrefpage}\ppspace}%
+				\hypersetup{linkcolor=gray}\printlist[pageref][-\value{listtotal}]{pageref}\hypersetup{linkcolor=gray}}}}
 
 % Appendix
 \usepackage[toc,page]{appendix}

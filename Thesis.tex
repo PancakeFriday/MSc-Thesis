@@ -8,9 +8,27 @@
 \usepackage{lipsum}
 \usepackage{float}
 
+\addbibresource{bib/references.bib}
+
+% Convert misc with url field to online
+\DeclareSourcemap{
+	\maps[datatype=bibtex, overwrite=true]{
+		\map{
+			\step[fieldsource=url, final]
+			\step[typesource=misc, typetarget=online]
+		}
+		\map{
+			\step[typesource=misc, typetarget=patent, final]
+			\step[fieldsource=institution, final]
+			\step[fieldset=holder, origfieldval]
+		}
+	}
+}
+
 \geometry{
+	a4paper,
 	width=155mm,
-%	bindingoffset=5mm,
+	%bindingoffset=5mm,
 }
 \fancyhfoffset{0pt}
 

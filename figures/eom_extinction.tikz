@@ -10,20 +10,21 @@ height=\figureheight,
 minor xtick={},
 minor ytick={},
 scaled y ticks=false,
-tick align=outside,
+tick align=inside,
 tick pos=both,
 width=\figurewidth,
 x grid style={white!69.0196078431373!black},
-xlabel={Time [\(\displaystyle ns\)]},
+xlabel={Time (ms)},
 xmin=-5.00806, xmax=5.88194,
 xtick style={color=black},
 xtick={-6,-4,-2,0,2,4,6},
 y grid style={white!69.0196078431373!black},
 y tick label style={/pgf/number format/fixed},
-ylabel={Amplitude [arb. un.]},
+ylabel style={align=center},
+ylabel={Amplitude (a. u.)},
 ymin=-0.00684806308564516, ymax=0.0267013484143548,
 ytick style={color=black},
-ytick={-0.01,0,0.01,0.02,0.03}
+ytick={-0.01,-0.005,0,0.005,0.01,0.015,0.02,0.025,0.03}
 ]
 \addplot [line width=1.5pt, color0]
 table {%
@@ -1029,20 +1030,21 @@ height=\figureheight,
 minor xtick={},
 minor ytick={},
 scaled y ticks=false,
-tick align=outside,
+tick align=inside,
 tick pos=both,
 width=\figurewidth,
 x grid style={white!69.0196078431373!black},
-xlabel={Time [\(\displaystyle ns\)]},
+xlabel={Time (ms)},
 xmin=-10.4293315, xmax=11.3507015,
 xtick style={color=black},
 xtick={-15,-10,-5,0,5,10,15},
 y grid style={white!69.0196078431373!black},
 y tick label style={/pgf/number format/fixed},
-ylabel={Amplitude [arb. un.]},
+ylabel style={align=center},
+ylabel={Amplitude (a. u.)},
 ymin=-0.0147315379356452, ymax=0.0722397662643548,
 ytick style={color=black},
-ytick={-0.02,0,0.02,0.04,0.06,0.08}
+ytick={-0.02,-0.01,0,0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08}
 ]
 \addplot [line width=1.5pt, color0]
 table {%

@@ -1,8 +1,99 @@
 \chapter{Sorting of atoms}
-	\section{Motivation}
-	\section{Algorithms}
-		\subsection{Pathfinding}
-		\subsection{Compression}
-	\section{Implementation}
-		\subsection{Spectrum M4i 66xx}
+
+%Tweezer arrays are especially suitable to study interactions between atoms, as distances and geometries can be changed on a run-by-run basis. However, during loading of the tweezers, sites can sometimes be filled with two atoms and subsequent light assisted collision will heat them out of the trap. This leads to an average loading of $50\%$ \cite{Cooper2018} and will make it difficult to study interactions in detail.
+
+Tweezer arrays are especially suitable to study interactions between atoms, as arbitrary patterns can be set on a run-by-run basis. In order to load atoms into the tweezers, an ultracold atomic gas of \ce{^{39}K} is cooled in a grey molasses setup, before the tweezer beams are overlapped onto the gas \cite{Duda2017}. Each trap then has equal probability of containing either even or odd numbers of atoms. However, due to light-assisted collision \cite{Cooper2018}, pairs of bosons are heated out of the trap and lost, leaving only those traps occupied, which originally had an uneven number of atoms. This results in holes in the pattern, which makes it difficult to study interactions and requires a lot of effort in post-selection.
+
+Consequently, it has become customary to rearrange the atoms of the system \cite{Barredo2016, Endres2016}, which is possible by using optical tweezers. Their dynamic nature allows repositioning of laser beams along arbitrary trajectories. By doing so adiabatically, atoms are moved along pre-calculated paths to fill gaps of the pattern. In the following is discussed the sorting of atoms by using \acp{aod} as the device of choice for programmatically deflecting a laser beam. Using this device, the beam can be split up, generating tweezers, and also make the beams move along paths to rearrange the atoms into the new pattern.
+
+
+\section{Generating dynamic tweezers}
+
+Being able to quickly change the position of a laser beam is the most fundamental prerequisite of sorting atoms. The process has to happen on short timescales compared to the lifetime of atoms and with high accuracy. As such, it can't be accomplished using mechanical mirrors. However, light passing through a crystal can deflect off sound waves travelling transverse to the light direction through the medium. This is achieved using \acp{aod} and is discussed in the following.
+
+\subsection{Acousto-optical effect}
+
+The action that describes optical waves deflecting off sound waves is called the acousto-optical effect. It works similar to the Pockels effect from Section \ref{sec:pockels_effect}, however in this case, the medium is mechanically modulated using sound. Here, planar acoustic waves travelling through a crystal modify the refractive index \cite{Saleh1991}, such that it varies with time:
+
+\begin{align}
+	n(x, t) = n - \Delta n_0 \cos{\left(\Omega t - q x\right)} .
+\end{align}
+
+Using this relation, the next step is to calculate the deflection angle off the medium. In the following, a short summary is given for the steps in \cite{Saleh1991}. The medium is broken up into slices, off which the optical wave partly reflects. Each slice has a partial reflectance amplitude $\Delta r$, depending on the refractive index $n$ and the angle of the incident optical beam with respect to the medium. The total reflectance amplitude $r$ can then be found by integrating over all slices and will carry over the dependence on the angle. By maximizing this relation, it is then found, that the angle resulting in the maximum reflectance amplitude is given by the Bragg condition:
+
+%With this relation, it is already intuitive to see, that light entering the medium will change. 
+%By assuming planar optical light passing through the medium, an approach based on calculating the reflectance in the medium using Fresnel equations \cite{Saleh1991} finds that the reflectance is maximal, whenever the incident angle $\theta_B$ of the optical wave on the sound wave meets the Bragg condition:
+
+\begin{align}
+	\sin \theta = \frac{\lambda_l}{2 \lambda_s},
+\end{align}
+
+where $\lambda_l$ and $\lambda_s$ refer to the wavelength of the light and sound waves respectively.
+
+The maximum of the reflectance amplitude with respect to the angle is very sharp, such that in general, we can say that only if the angle between the wave vectors of the optical wave $\mathbf{k}_l$ and the sound wave $\mathbf{k}_s$ matches the Bragg condition will there be a deflected beam. Thus, another way to arrive at the Bragg condition is by finding the trigonomic relation in Figure \ref{fig:aod_schematic}. Using
+
+\begin{align}
+	\abs{\mathbf{k}_l} &= \abs{\mathbf{k}_{l,r}} = \frac{2\pi}{\lambda_l} \\
+	\abs{\mathbf{k}_s} &= \frac{2\pi}{\lambda_s},
+\end{align}
+
+it follows directly, that
+\begin{align}
+	\label{eq:bragg_trigonometry}
+	\sin{\theta} = \frac{\abs{\mathbf{k}_s} / 2}{\abs{\mathbf{k}_{l,r}}} = \frac{\lambda_l}{2\lambda_s}.
+\end{align}
+
+\begin{figure}[t]
+\centering{
+	\import{figures}{aod_schematic.pdf_tex}
+	\caption{Schematic operation of an \ac{aod}.
+		Light waves travelling in direction $\mathbf{k}_l$ are deflected off the sound waves with direction $\mathbf{k}_s$, resulting in a reflected beam $\mathbf{k}_{l,r}$. The deflection is successful, if the Bragg condition is met, which can be calculated via the vector relation $\mathbf{k}_{l,r} = \mathbf{k}_l + \mathbf{k}_s$.}
+\label{fig:aod_schematic}
+}
+\end{figure}
+
+%It is now possible to exploit this acousto-optical effect in order to deflect an optical wave by an arbitrary angle. For this, the acoustic wave is modelled as a gaussian distribution of planar waves. Then the acoustic wave has planar waves travelling in every direction, such that it is always possible to fulfill the Bragg condition, independent of the angle
+
+%Then it will always be possible to fulfill the Bragg condition, due to the fact that there is a k-vector in every direction for the sound wave.
+
+Using the acousto-optical effect in order to modify tweezer positions, it is necessary to break the dependence of the angle between incoming optical wave and acoustic wave, while keeping the dependence on the angle of the outgoing light. This is achieved by now modelling the sound wave as a gaussian distribution of planar waves. As such, there are waves travelling radially outwards from the origin of the sound. As a consequence of this, it will always be possible to fulfill the Bragg condition, no matter how the light enters the medium.
+
+In Figure \ref{fig:aod_schematic_2}, an optical beam enters a medium straight and exits on a diffracted angle $\pm \theta$, given by the Bragg condition. Using again the trigonometric relations from above \ref{eq:bragg_trigonometry}, the fact that there are acoustic waves travelling in opposing directions needs to be taken into account. In the approximation where the angle is small, the Bragg condition then simplifies to:
+
+\begin{align}
+	\sin \theta_\pm = \pm \frac{\lambda_l}{\lambda_s}
+\end{align}
+or even simpler:
+\begin{align}
+	\theta_\pm \approx \pm \frac{\lambda_l}{\lambda_s}
+\end{align}
+
+\begin{figure}[t]
+\centering{
+	\import{figures}{aod_schematic_2.pdf_tex}
+	\caption{Schematic operation of an \ac{aod}.
+		Light waves travelling in direction $\mathbf{k}_l$ are deflected off the sound waves with wave vector $\mathbf{k}_s$, resulting in a reflected beam $\mathbf{k}_{l,r}$. The deflection is successful, if the Bragg condition is met, which can be calculated via the vector relation $\mathbf{k}_{l,r} = \mathbf{k}_l + \mathbf{k}_s$.}
+\label{fig:aod_schematic_2}
+}
+\end{figure}
+
+\subsection{Acousto-optically deflected tweezers}
+
+With the derivation above, it is now possible to programmatically adjust the position of laser beams. To make this work in two dimensions, two acousto-optical deflectors are placed in series of each other. 
+
+The details of the configuration and characterization of the devices used in the experiment are given in \cite{Osterholz2020}. The setup used to test the programming and homogeneity of the tweezers is discussed in the following.
+
+\begin{figure}[t]
+\centering
+	\import{figures}{setup_aod.pdf_tex}
+	\caption{Beam path to generate acousto-optically deflected tweezers. Two beams used for sorting and spin-resolved imaging are combined using a \ac{pbs}. They pass the \ac{aod} after which the beam is shaped to match the objective into the experimental chamber.}
+\label{fig:setup_aod}
+\end{figure}
+
+\section{Algorithms}
+
+\subsection{Pathfinding}
+\subsection{Compression}
+\section{Implementation}
+\subsection{Spectrum M4i 66xx}
 
