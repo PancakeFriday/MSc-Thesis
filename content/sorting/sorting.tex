@@ -325,3 +325,5 @@ and therefore the required memory is
 	M_{req} = \SI{5}{\mega\byte} n_{seq}.
 \end{align}
 
+With the calculations above, it is possible to apply the pathfinding sorting algorithm to the atoms in a timely manner. However for the compression algorithm, a much larger amount of signals needs to be sampled to cover all possible combinations. These will not fit on the $\SI{4}{\giga\byte}$ internal memory. Therefore, the compression algorithm can only be used when the signals are sampled during the run, when needed. To do this efficiently, parallelization on a \ac{gpu} can be used, however at the time of this writing, it has not been implemented yet.
+
