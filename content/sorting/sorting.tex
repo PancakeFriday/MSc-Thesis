@@ -102,7 +102,7 @@ In Figure~\ref{fig:setup_aod}, the setup used to test the programming and homoge
 
 The beams then pass a $\lambda/2$ waveplate to further adjust the polarization, which in turn affects the efficiency of the \ac{aod}. The deflector, which is connected to an RF-synthesizer, then produces the 2x2 grid of laser beams. Afterwards, a $\SI{75}{\milli\meter}$ lens, projecting the center of the \ac{aod}-array, extends the beam spatially until it is collimated on the $\SI{1000}{\milli\meter}$ lens. This sets the correct beam size in order for the objective to project the beam onto the atoms.
 
-\section{Algorithms}
+\section{Sorting algorithms}
 
 The ability to change the beam position at will directly leads to being able to rearrange atoms. To do so requires the knowledge about gaps in the pattern, which means when the atoms are loaded into the initial tweezers, an image is acquired, without destroying the system. From then on, atoms need to move along paths in order to fill the gaps. This has to be done adiabatically, such that no atoms are lost, but also as quickly as possible, since they have a finite, non-negligible, lifetime.
 
@@ -116,15 +116,28 @@ Two algorithms are presented in the following, one is based on solving a pathfin
 
 The pathfinding problem is trying to find the shortest path between two points. For sorting of atoms, this means finding the shortest set of movements to relocate an atom from the reservoir region to an empty spot in the target region.
 The algorithm in question was developed by Jan Werkmann\footnote{https://github.com/PhyNerd/GridRouting} \todo{reviewers: is it ok to link the github?} and is discussed in \cite{OhldeMello2020}. One requirement for this implementation is, to reduce the number of $\SI{90}{\degree}$ turns the atom makes along the path. This results in a simplification that can be made on the algorithm, meaning that an atom moves first along one axis and then the other. This way, there are only two possible paths every atom can take. The optimal path is then the one with the least amount of obstacles in it. Here, an obstacle is simply another atom. If there is one, it segmentizes the path, moving the atom out of the way and the initial atom into its place.
-\todo{explain in more detail}
+\todo{explain in more detail and reference figure}
+
+\begin{figure}[ht]
+\label{fig:sorting_path}
+\centering
+	\import{figures}{sorting_path.pdf_tex}
+	\caption{Conceptual illustration of the pathfinding algorithm for resorting. The atom tries to move into a hole but is met with an obstacle. The obstacle is first moved out of the way, after which the atom follows. The target area is then further filled with the remaining atom.}
+\end{figure}
 
 \subsection{Compression}
 \label{sec:compression}
 
 One advantage of using a digitizer as an RF-synthesizer is the ability to drive the \ac{aod} with multiple frequencies at once. This opens the door to moving multiple atoms at the same time. The compression algorithm discussed here makes use of this in order to reduce the total time of the sorting, as well as having a lower computation time with respect to the pathfinding algorithm.
-\todo{fig}
 
-The compression algorithm works by picking a full line of atoms. It then moves the selected atoms along the line towards the target area, grid point by grid point. If an atom would collide with an obstacle, that is, either another atom not currently inside an \ac{aod} tweezer, or the end of the target area, then that atom is released and not moved in the next step. When one line is finished moving according to this end condition, the next line is picked up and the process repeated. This is done first for all rows, then for all columns, and finally, all atoms are found in one corner of the grid. Doing it this way, effectively compresses all atoms in the grid into an area.
+The compression algorithm works by picking a full line of atoms. It then moves the selected atoms along the line towards the target area, grid point by grid point. If an atom would collide with an obstacle, that is, either another atom not currently inside an \ac{aod} tweezer, or the end of the target area, then that atom is released and not moved in the next step. This process is how in \ref{fig:sorting_compression}. When one line is finished moving according to this end condition, the next line is picked up and the process repeated. This is done first for all rows, then for all columns, and finally, all atoms are found in one corner of the grid. Doing it this way, effectively compresses all atoms in the grid into an area.
+
+\begin{figure}[ht]
+\label{fig:sorting_compression}
+\centering
+	\import{figures}{sorting_compression.pdf_tex}
+	\caption{Sorting atoms using the compression algorithm is done by selecting a full line of atoms. They are then moved towards the left edge. An atom that meets the edge is released before the others continue moving. When the steps for the rows have are completed, the same process follows for the columns.}
+\end{figure}
 
 Due to the nature of the algorithm, there can still be holes in the target area when the sequence is finished. To overcome this problem, the pathfinding algorithm is called at the end of this step, whose runtime is favorable towards low hole numbers.
 
@@ -137,24 +150,37 @@ As the pathfinding and compression algorithm are both solving the same sorting p
 Relevant parameters that need to be compared, are the sorting and computation time, as they need to be much slower than the lifetime of the atoms. Atom loss can also occur, whenever the atoms are transferred from the initial tweezer grid to the \ac{aod} tweezer grid used for the sorting. This way, the number of transfers are also recorded in the following.
 Simulations were performed, by populating the full grid with atoms with $\SI{50}{\percent}$ probability of occupying a grid point. Then each algorithm was run over this grid and relevant parameters recorded. Simulations were run for various grid sizes, while trying to keep the fraction of number of atoms in the target area $N_{target}$ to the number of atoms in the reservoir area $N_{reservoir}$ around $\frac{N_{target}}{N_{reservoir}} \approx 0.65$. This has to be compromised for low grid sizes, as the integer nature of grid points only allows natural numbers for reservoir sizes.
 
+The results in Figure~\ref{fig:sorting_algos} show that the compression algorithm has a faster sorting and computation time, but has to transfer more atoms into the \ac{aod} tweezer grid. However, it also shows that it scales better for increasing grid sizes. A polynomial fit is shown for the second half of the points, where the rounding issue is less present. The fit parameters are given in Table~\ref{tbl:sorting_algo_fit}, from where it can be seen, that the second order prefactor is negligible. Therefore, from the given data, the algorithms both scale effectively linear to large atom numbers.
+
 \begin{table}[bt]
-\label{tbl:spec_m4i}
+\label{tbl:sorting_algo_fit}
 \centering
-\begin{tabular}{l|l|l|l|l|l|l}
+\begin{tabular}{l|l|l|l}
 	\hline \hline
-	 & \multicolumn{3}{c}{Pathfinding} & \multicolumn{3}{c}{Compression} \\ \hline
-	 & $a_0$ & $a_1$ & $a_2$ & $a_0$ & $a_1$ & $a_2$ \\
-	 Resorting time & 1 & 2 & 3 & 1 & 2 & 3 \\
+	\multicolumn{4}{c}{Pathfinding} \\ \thickhline
+	& $a_0$ & $a_1$ & $a_2$ \\ \hline
+	Resorting time & \num{-3.0e+02} & \num{7.2e-01} & \num{3.7e-05} \\ \hline
+	Computation time & \num{-9.9e-03} & \num{1.5e-05} & \num{9.9e-09} \\ \hline
+	Number of transfers & \num{-5.8e+02} & \num{1.1e+00} & \num{7.4e-05} \\ 
+
 	\hline \hline
+	\multicolumn{4}{c}{} \\
+	\hline \hline
+	\multicolumn{4}{c}{Compression} \\ \thickhline
+	& $a_0$ & $a_1$ & $a_2$ \\ \hline
+	Resorting time & \num{1.2e+01} & \num{2.8e-01} & \num{-1.1e-06} \\ \hline
+	Computation time & \num{-5.0e-03} & \num{6.8e-06} & \num{8.4e-10} \\ \hline
+	Number of transfers & \num{5.9e+01} & \num{5.5e-01} & \num{-2.4e-06} \\ \hline
+	\hline
 \end{tabular}
-\caption{Relevant parameters of the Spectrum M4i.6600-x8 card, plugged into a PCIe x8 slot.}
+\caption{Fit parameters for Figure~\ref{fig:sorting_algos} by assuming parabola $f(x) = a_0 + a_1 x + a_2 x^2$, $x$ being the atom number.}
 \end{table}
 
 \begin{figure}[h]
 \label{fig:sorting_algos}
 \centering
 	\includegraphics{figures/sorting_algos_155.pdf}
-	\caption{Comparison of pathfinding algorithm (orange) and compression algorithm (blue) for sorting atoms into a target region. For each data point, 50 simulations were run and the mean of the result is shown. Standard deviation is on the size of the dots drawn and as as such are not visible. The fraction of atoms in the target versus the reservoir area are shown in the last diagram. Since only integer values are allowed for the reservoir size, the fraction between the two sees a rounding effect. The fit values are given in Table \ref{tbl:sorting_algo_fit}.}
+	\caption{Comparison of pathfinding algorithm (orange) and compression algorithm (blue) for sorting atoms into a target region. For each data point, 50 simulations were run and the mean of the result is shown. Standard deviation is on the size of the dots drawn and as as such are not visible. The fraction of atoms in the target versus the reservoir area are shown in the last diagram. Since only integer values are allowed for the reservoir size, the fraction between the two sees a rounding effect. For this reason, the fit is only done for the upper half of the data points, where the effect is less pronounced. The values to the fit are given in Table~\ref{tbl:sorting_algo_fit}.}
 \end{figure}
 
 \section{Driving an RF-synthesizer for arbitrary pattern generation}
@@ -163,14 +189,14 @@ One of the most powerful aspects about \acp{aod} is the fact, that a superpositi
 
 To overcome this issue, we implement a digitizer card from Spectrum Instrumentation. Doing so allows to sample arbitrary signals, for example sines, rectangles or even non-periodic ones. A \ac{dac} on the board converts the sampled points into an analog signal, which can be passed into the \ac{aod}.
 
-\subsubsection*{Functionality of the Spectrum driver}
+\subsection{Functionality of the Spectrum driver}
 
 The specific card used in this experiment is the Spectrum M4i.6600-x8 and its specs are summarized in Table~\ref{tbl:spec_m4i}. Communication with the card is provided through a low-level interface from the official drivers. In the following is discussed two replay modes of the spectrum card, which are standard replay mode and sequence replay mode. In single replay mode, a signal is sent onto the card, which is played back a set number of times, from start to finish. The sequence replay mode allows to upload sequences during initialization. It is then possible to play any arbitrary combination of the sequences one after another.
 
 \begin{table}[bt]
 \label{tbl:spec_m4i}
 \centering
-\begin{tabular}{l|l|l}
+\begin{tabular}{l|l}
 	\hline \hline
 	Maximum sampling rate & $\SI{1.25}{\giga\hertz}$ \\
 	Output level (at max sampling rate) & $\pm \SI{4}{\volt}$ \\
@@ -233,7 +259,7 @@ On the other hand, for the sequence replay mode, the structure is:
 
 The maximum transfer speed for transferring data from the PC to the spectrum card is $\SI{2.8}{\giga\byte\per\second}$, this means that it will always be preferrable to move as few data as possible. Consequently, if possible, it is advantageous to use the sequence replay mode, as here, almost all data is already transferred in the initialization phase. All that is left to transfer, is the sequence the data pointer is following.
 
-\subsubsection*{Limits of using the card in the experiment}
+\subsection{Limits of using the card in the experiment}
 
 There are some considerations to make when using a digitizer card as a driver for acousto-optical tweezers. The first one being, that the transfer of the data onto the card takes time and is given by the sampling rate. This means, that transferring data onto the card while atoms are loaded can be problematic, if the transfer time is on the order of the lifetime of the atoms, since that means that atoms are lost during this time. This can be solved by making use of the sequence replay mode, however to make use of this mode means that a large amount of memory needs to be available on the card.
 
@@ -242,7 +268,7 @@ In order to calculate the transfer time and memory usage, some assumptions need 
 \begin{table}[tb]
 \label{tbl:spectrum_assumptions}
 \centering
-\begin{tabular}{l|l|l}
+\begin{tabular}{l|l}
 	\hline \hline
 	Variable & Used or assumed value \\ \thickhline
 	Sampling rate & $\SI{1.25}{\giga\hertz}$ \\
@@ -264,7 +290,7 @@ Assuming now, that adiabatically transferring an atom from the initial tweezer g
 	M_{sig} &= \SI{2}{\byte} * n_{points} = \SI{2.5}{\mega\byte},
 \end{align}
 
-where $\SI{1}{\byte}$ is one byte. From the simulations of the algorithms in \todo{As soon as the chapter is done!}, we see that assuming a 10x10 grid, there are about 60 tweezer transfers and 40 movements for one sorting. This means 100 sequences need to be played per channel, which is $n_{seq}=200$ in total. Lastly, the memory for all signals needs to be aligned to a power of two. Therefore, from the transfer speed $v_{trf}$ in Table~\ref{tbl:spec_m4i} follows the time it takes for one transfer $t_{trf}$:
+where $\SI{1}{\byte}$ is one byte. From the simulations of the algorithms in Figure~\ref{fig:sorting_algos}, we see that assuming a 10x10 grid, there are about 60 tweezer transfers and 40 movements for one sorting. This means 100 sequences need to be played per channel, which is $n_{seq}=200$ in total. Lastly, the memory for all signals needs to be aligned to a power of two. Therefore, from the transfer speed $v_{trf}$ in Table~\ref{tbl:spec_m4i} follows the time it takes for one transfer $t_{trf}$:
 
 \begin{align}
 	t_{trf} = \textrm{cpow2}(n_{seq} M_{sig}) v_{trf} = \SI{183}{\milli\second},

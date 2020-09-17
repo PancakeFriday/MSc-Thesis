@@ -101,6 +101,7 @@
 
 % Units
 \usepackage[separate-uncertainty, binary-units = true]{siunitx}
+%\sisetup{output-exponent-marker=\ensuremath{\mathrm{\,e}}}
 \DeclareSIUnit\px{px}
 
 % BraKets

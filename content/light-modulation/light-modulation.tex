@@ -6,9 +6,18 @@
 
 %Two important components are highlighted in the following, these are \acp{eom} and \acp{aod}. Some preliminary theory is discussed, which is followed by experimental evaluations and implementations.
 
-Optical tweezers are a fundamental tool in the experiment allowing to have full control over the distribution of potassium atoms. To maintain control over long times, heating of atoms needs to be compensated. For potassium atoms which are cooled on the D1 line, the excited state is strongly anti-trapped, making it impossible to trap atoms that haven't decayed back to the ground state, while simultaneously cooling them. For this reason, cooling and trapping beams alternate out of phase, which can be done on a frequency scale up to the lifetime of the $2$P$_{1/2}$ state. For reference, the cooling scheme for \ce{^{39}K} is discussed in \cite{Duda2017}.
+Optical tweezers are a fundamental tool in the experiment allowing to have full control over the distribution of potassium atoms. To maintain control over long times, heating of atoms needs to be compensated. For potassium atoms which are cooled on the D1 line, the excited state is strongly anti-trapped, making it impossible to trap atoms that haven't decayed back to the ground state, while simultaneously cooling them. For this reason, cooling and trapping beams alternate out of phase, which can be done on a frequency scale up to the lifetime of the $^2$P$_{1/2}$ state. For reference, the cooling scheme for \ce{^{39}K} is discussed in \cite{Duda2017}.
 
-So far, alternating between the two laser beams, called chopping, was achieved using an \ac{aom}, a device, that can deflect a laser beam based on an input sound wave and thus acting as a fast flip-mirror. This effect is limited by the speed of sound in the medium and results in a chopping frequency of $\SI{1.4}{\mega\hertz}$, governed by the \ac{aom} with the slowest rise time, which can be seen in Figure \ref{fig:aom_chopping}. By increasing the chopping frequency, the atoms will heat less during each trapping cycle, therefore new ways of alternating the beams are sought out. In the following is discussed an \ac{eom}, which is not limited by sound waves. The modulator is governed by the electro-optical effect, which makes it possible to change the refractive index based on an applied electric field, therefore only limiting it by the electronics that generate the field.
+So far, alternating between the two laser beams, called chopping, was achieved using an \ac{aom}, a device, that can deflect a laser beam based on an input sound wave and thus acting as a fast flip-mirror. This effect is limited by the speed of sound in the medium and results in a chopping frequency of $\SI{1.4}{\mega\hertz}$, governed by the \ac{aom} with the slowest rise time, which can be seen in Figure~\ref{fig:aom_chopping}. By increasing the chopping frequency, the atoms will heat less during each trapping cycle, therefore new ways of alternating the beams are sought out. In the following is discussed an \ac{eom}, which is not limited by sound waves. The modulator is governed by the electro-optical effect, which makes it possible to change the refractive index based on an applied electric field, therefore only limiting it by the electronics that generate the field.
+
+\begin{figure}[t]
+	\label{fig:aom_chopping}
+\centering{
+	\includegraphics{figures/chopping_155.pdf}
+	\caption{Chopping in the experiment. Laser beams alternate between each other, with blue being the MOT cooler, orange the MOT repumper and green the SLM tweezer. The amplitude of the MOT beams is limited due to the risetime of the \acp{aom}.}
+}
+\end{figure}
+\todo{acronyms? MOT, SLM}
 
 The devices tested in this thesis are both capable of switching on nanosecond scales, improving the current chopping rate by three orders of magnitude. The theory behind the linear electro-optical effect is discussed after a short recourse on polarization of electromagnetic waves. Lastly, experimental evaluations for two \acp{eom} are presented and discussed.
 
