@@ -12,6 +12,9 @@
 
 \ProcessOptions\relax
 
+% Don't spread text vertically when a section ends
+\raggedbottom
+
 % Headline color
 % \usepackage{xcolor}
 % \usepackage{sectsty}

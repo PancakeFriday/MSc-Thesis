@@ -1,32 +1,44 @@
 \chapter{Chopping}
 \todo{Better headline}
 
-%The concepts of our ultracold atom experiment were highlighted in \mbox{Chapter \ref{ch:motivation}}, most importantly,
-%Coherent light produced by lasers is the key ingredient in ultracold atom experiments in order to work with the atoms on a quantum level. This allows, amongst other things, to drive interactions between the atoms or select specific spin states out of the system. It is important to have control over the full parameter space of the electromagnetic waves interacting with the atoms, which is where light modulators serve as a powerful tool. Light passing through such an optical component will have its frequency, amplitude or phase changed, based on inputs that can be placed onto the modulators.
+\subsection*{General idea and length}
+\begin{itemize}
+	\item Explain the problem (want to do chopping, but current setup is too slow and limited by rise times) (1 page)
+	\item Give solution which is EOMs (1 page)
+	\item Give theory behind eoms (length as is)
+	\item Give experimental results of the two pockels cells that were tested (because we are finding the extinction ratio, I should also give an error and maybe implement the other fit (sign(sin(x))) (maybe 1-2 pages longer).
+\end{itemize}
+Maybe the problem (chopping can be better) could be written in its own section and explained in more detail.
+\todo{chapter start}
 
-%Two important components are highlighted in the following, these are \acp{eom} and \acp{aod}. Some preliminary theory is discussed, which is followed by experimental evaluations and implementations.
+In the experiment, optical tweezers are used to generate two-dimensional arrays of single atoms. By using optical tweezers, each atom can be addressed individually and therefore parameters such as inter-atomic distances and trap depths can be adjusted freely. In order to load atoms into the optical tweezers, they have to undergo some cooling stages first. Being vaporized from a solid sample of \ce{^{39}K}, the atoms move towards the center of a vacuum chamber through a Zeeman slower. The slower cools the atoms longitudinally, after which they are trapped and compressed in a \ac{mot}. Cooling is done in a gray molasses on the D1-line, after which the atoms will be loaded into the tweezers. However, loading directly from the gray molasses proves difficult, due to the large light shifts of the D1 excited state, making it highly anti-trapped. To overcome this issue, trapping and cooling beams can be alternated \cite{Hutzler2017}. By having the frequency of alternating the beams much larger than the trapping frequency, the atoms see an effective, averaged, trap. This way, they don't scatter near-resonant photons, effectively eliminating light shifts.
 
-Optical tweezers are a fundamental tool in the experiment allowing to have full control over the distribution of potassium atoms. To maintain control over long times, heating of atoms needs to be compensated. For potassium atoms which are cooled on the D1 line, the excited state is strongly anti-trapped, making it impossible to trap atoms that haven't decayed back to the ground state, while simultaneously cooling them. For this reason, cooling and trapping beams alternate out of phase, which can be done on a frequency scale up to the lifetime of the $^2$P$_{1/2}$ state. For reference, the cooling scheme for \ce{^{39}K} is discussed in \cite{Duda2017}.
-
-So far, alternating between the two laser beams, called chopping, was achieved using an \ac{aom}, a device, that can deflect a laser beam based on an input sound wave and thus acting as a fast flip-mirror. This effect is limited by the speed of sound in the medium and results in a chopping frequency of $\SI{1.4}{\mega\hertz}$, governed by the \ac{aom} with the slowest rise time, which can be seen in Figure~\ref{fig:aom_chopping}. By increasing the chopping frequency, the atoms will heat less during each trapping cycle, therefore new ways of alternating the beams are sought out. In the following is discussed an \ac{eom}, which is not limited by sound waves. The modulator is governed by the electro-optical effect, which makes it possible to change the refractive index based on an applied electric field, therefore only limiting it by the electronics that generate the field.
+So far, alternating between molasses cooling and trapping light, called chopping, was achieved using an \ac{aom}. However, the switching speed in an \ac{aom} is limited by the speed of sound in the medium (here, TeO2 has \SI{4.2}{\milli\meter\per\micro\second}) and results in a chopping frequency of $\SI{1.4}{\mega\hertz}$, governed by the \ac{aom} with the slowest rise time, which can be seen in Figure~\ref{fig:aom_chopping}. By increasing the chopping frequency, the atoms will heat less during each trapping cycle. However, more importantly, as the atoms only see an averaged trap given by the duty cycle of the trapping beam, more laser power can be used per tweezer if the beam remains on for a longer time. This also means, that more tweezers can be deployed and larger systems explored.
+\todo{Why does it say Figure 3?}
 
 \begin{figure}[t]
 	\label{fig:aom_chopping}
-\centering{
+\centering{%
 	\includegraphics{figures/chopping_155.pdf}
 	\caption{Chopping in the experiment. Laser beams alternate between each other, with blue being the MOT cooler, orange the MOT repumper and green the SLM tweezer. The amplitude of the MOT beams is limited due to the risetime of the \acp{aom}.}
 }
 \end{figure}
 \todo{acronyms? MOT, SLM}
 
+Achieving larger duty cycles and higher chopping frequencies is possible by using \acp{eom}, which are not limited by acoustic waves. The optical medium is modulated using electric fields, and in fact, can be switched as fast as common condensators. Light entering the modulator will have its polarization turned, depending on the electric field that is applied. Therefore, in the following, polarization of electro-magnetic waves is discussed briefly, which is followed by the main effect governing the devices tested in this thesis - the pockels effect. The devices are then evaluated by filtering one polarization component and the rise times and extinction ratio measured. The new system will be able to switch with rise times on the order of nanoseconds, improving the current system by at least two orders of magnitude.
+
 The devices tested in this thesis are both capable of switching on nanosecond scales, improving the current chopping rate by three orders of magnitude. The theory behind the linear electro-optical effect is discussed after a short recourse on polarization of electromagnetic waves. Lastly, experimental evaluations for two \acp{eom} are presented and discussed.
+
+\todo{say something about that chopping reduces lifetime}
 
 
 \section{Theory on Polarization}
 
 \label{sec:pol}
 
-Amongst frequency and amplitude, there is another parameter that can generally be affected in monochromatic electromagnetic waves, which is the polarization. It is the orientation of the wave in space, transverse to the direction of movement. \todo{Reviewers: I only discuss transverse polarization, should I keep it this way or do I make a comment about longitudinal polarization?} In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electric field component of the light in this basis takes the following form:
+Switching laser beams using \acp{eom} means turning and filtering the polarization of the light. Therefore in the following is discussed the theory behind polarized monochromatic electromagnetic waves, leading to the pockels effect governing \acp{eom}.
+
+Polarization of electromagnetic waves is understood as the orientation of the wave in space, transverse to the direction of movement. In general, a wave travelling along the z-axis can be oriented somewhere in the x-y plane. Therefore, writing the electric field component of the light in this basis takes the following form:
 
 \begin{equation}
 	\mathbf{E}(\mathbf{x}, t) = E_x cos\left(kx - wt + \phi_x\right) \mathbf{e_x} + E_y cos\left(ky - wt + \phi_y\right) \mathbf{e_y} .
@@ -35,44 +47,40 @@ Amongst frequency and amplitude, there is another parameter that can generally b
 Here, $k$ and $w$ refer to the wave number and frequency respectively.
 Depending on the amplitudes $E_x$ and $E_y$ and the phases $\phi_x$ and $\phi_y$, the wave can be in different polarization states. If it is not possible to write the wave in this basis, the light is unpolarized. Otherwise, it is \textbf{linear}, when either one of the amplitudes $E_x$ or $E_y$ is zero or when the phase difference $\Delta \phi = \phi_x - \phi_y$ evaluates to 0 or $\pi$. It is \textbf{circular}, when the phase difference $\Delta \phi = \pm \pi/2$ and the amplitudes are the same, $E_x = E_y$. In any other case, the wave is \textbf{elliptically} polarized.
 
-From this point, we can see how to create a device that modifies the polarization. We can do this by retarding one axis stronger than another. Given a material with two refractive indices $n_x$ and $n_y$ along the axes $x$ and $y$, we then get the phase shifts:
+By changing the phases of the wave relative to each other therefore gives the ability to affect the polarization. Light traversing a medium will accumulate a phase shift, depending on the refractive index, which affects the speed of light in the medium. Therefore, media that have different refractive indices $n_x, n_y$ along the two axes $x$ and $y$ means changing the relative phases of the wave:
 
 \begin{align}
+	\label{eq:pol,phases}
 	\phi_x(z) = k_0 n_x z \\
 	\phi_y(z) = k_0 n_y z
 \end{align}
-\label{eq:pol,phases}
 
-where $k_0$ is the free space wave vector of the light. Then a device that retards the phase difference $\Delta \phi$ by $\pi/2$, which is a quarter of the wavelength, can change linearly polarized light to circularly polarized light (or vice-versa) and is therefore called a $\lambda / 4$ waveplate. Similarily, if the phase difference is changed by $\Delta \phi = \pi$, or a half wavelength, then we can turn linear polarization around a given axis or change the orientation of circularly polarized light. This is then called a $\lambda / 2$ waveplate.
+where $k_0$ is the free space wave vector of the light. Then a device that retards the phase difference $\Delta \phi$ by $\pi/2$, which is a quarter of the wavelength, can change linearly polarized light to circularly polarized light (or vice-versa) and is therefore called a $\lambda / 4$ waveplate. Similarily, if the phase difference is changed by $\Delta \phi = \pi$, or a half wavelength, then we can turn linear polarization around a given axis or change the orientation of circularly polarized light. This is then called a $\lambda / 2$ waveplate. In the experiment, linearly polarized light will enter the \ac{eom}, which will act as a $\lambda / 2$ waveplate, turning the polarization by $\SI{90}{\degree}$, making it easy to filter unwanted polarization components and switching the light on and off.
 
 \section{Electro-optical modulators}
 \label{sec:eom}
 
-Light travelling through a material generally has a speed smaller than the speed of light. This property of the material is the refractive index and is the ratio of the speed of light in the material to the speed of light in vacuum. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a crystal connected to two electrodes. There are two prominent electro-optical effects that need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. However if it changes with the square of the electric field, the effect is called Kerr effect. For this thesis, two Pockels cells were studied and therefore we will only discuss the pockels effect.
-\todo{Reviewers: Philip proposed to mention the dispersion relation, but I'm not sure if it's relevant and how to work it in}
-
+Light travelling through a material generally has a speed smaller than the speed of light. This property of the material is the refractive index and is the ratio of the speed of light in the material to the speed of light in vacuum. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a crystal connected to two electrodes. There are two prominent electro-optical effects that need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a pockels cell. The effect is discussed in the following and the pockels cells evaluated afterwards.
 
 \subsection{Pockels effect}
 \label{sec:pockels_effect}
 
-Following the argumentation from the book Fundamentals of Photonics \cite{Saleh1991}, the pockels effect can be found by evaluating the refractive index with respect to the electric field applied to the modulator. Writing this as $n(E)$ and applying a taylor expansion, we get the following expression:
+As was motivated in the previous section, the goal of modulating light polarization is to change the relative refractive index of a medium in two axes. Following the argumentation from the book Fundamentals of Photonics \cite{Saleh1991}, the pockels effect can be found by evaluating the refractive index with respect to the electric field applied to the modulator. Writing this as $n(E)$ and applying a taylor expansion, we get the following expression:
 
 \begin{equation}
 	n(E) = n_0 + \frac{dn}{dE} E + \mathcal{O}(E^2)
 \end{equation}
 
-\todo{To the reviewers: the book does the derivation using the electric impermeability, but maybe it makes sense to drop the pockels coefficient, because it's not needed in my case and write everything using dn/dE and then I don't need to write about the impermeability at all?}
-
-The pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor can also be found by the change of electric impermeability $\Delta \eta$, which is the ability of a material to be penetrated by an electromagnetic field. From
+The pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor $dn / dE$ can be found from the change of electric impermeability $\Delta \eta$, which is the ability of a material to be penetrated by an electromagnetic field. From
 
 \begin{align}
-	\eta & = \frac{1}{n_0^2},
+	\eta & = \frac{1}{n^2},
 \end{align}
 we get
 \begin{align}
-	\Delta \eta = \frac{d \eta}{dn_0} \Delta n & = -\frac{2}{n_0^3} \frac{dn}{dE} E = \mathfrak{r} E .
+	\label{eq:pockel,refr}
+	\Delta \eta = \frac{d \eta}{dn} \Delta n & = -\frac{2}{n_0^3} \frac{dn}{dE} E = \mathfrak{r} E .
 \end{align}
-\label{eq:pockel,refr}
 
 This results in the quantity $\mathfrak{r} = -\frac{2}{n_0^3} \frac{dn}{dE}$, which is called the Pockels coefficient given in units of $\SI{}{\meter\per\volt}$. It can be measured by evaluating the refractive index of the material:
 
@@ -80,10 +88,7 @@ This results in the quantity $\mathfrak{r} = -\frac{2}{n_0^3} \frac{dn}{dE}$, wh
 	n(E) = n_0 - \frac{1}{2} \mathfrak{r} n_0^3 E .
 \end{equation}
 
-The pockels cells in this application act as dynamic wave retarders, therefore with the results from section \ref{sec:pol}, we can tune the phase difference $\Delta \phi = \phi_x - \phi_y$ along the axes $x$ and $y$ by applying an electric field.
-
-%The phase shift due to the pockels effect is then calculated via \ref{eq:pol,phases} and \ref{eq:pockel,refr}:
-We can see the effect on the phase difference by combining \ref{eq:pol,phases} and \ref{eq:pockel,refr}:
+As was seen in Equation \ref{eq:pol,phases}, the refractive index directly affects the phase shift, which in turn changes the polarization of the light wave. Combining the results leads to an equation using parameters typically found in \acp{eom}:
 
 \begin{align}
 	\phi & = k_0 L n \\
@@ -94,18 +99,21 @@ We can see the effect on the phase difference by combining \ref{eq:pol,phases} a
 
 where the relation $k_0 = 2 \pi / \lambda_0$ of the wave number was used.
 
-It is now instructive to calculate the phase difference, which gives information about the change in polarization. The relations for the refractive indices in the two axis basis are labeled as:
+The pockels cells in this application act as dynamic wave retarders, therefore with the results from Section~\ref{sec:pol}, we can tune the phase difference $\Delta \phi = \phi_x - \phi_y$ along the axes $x$ and $y$ by applying an electric field. With the correct parameters, the phase difference lets the \ac{eom} act as a $\lambda / 2$ or $\lambda / 4$ waveplate. The following relations will help find the main formula governing pockels cells, resulting in the voltage that needs to be applied to the \ac{eom} in order to turn the polarization a given amount.
+
+Labeling the refractive index in two dimensions as:
 
 \begin{align}
 	n_x(E) = n_{0,x} - \frac{1}{2} \mathfrak{r}_x n_{0,x}^3 E \\
 	n_y(E) = n_{0,y} - \frac{1}{2} \mathfrak{r}_y n_{0,y}^3 E
 \end{align}
 
-and then the phase difference becomes:
+then the phase difference becomes:
 
 \begin{align}
 	\Delta \phi & = \phi_{0,x} - \phi_{0,y} - \frac{\pi}{\lambda_0} E L \left(\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3\right) \\
 	\Delta \phi & = \Delta \phi_{0} - \frac{\pi}{\lambda_0} E L \left(\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3\right) .
+	\label{eq:eom_phase_diff}
 \end{align}
 
 \begin{figure}[t]
@@ -116,7 +124,7 @@ and then the phase difference becomes:
 }
 \end{figure}
 
-The electric field is generated by applying a voltage $V$ to two electrodes that are separated by a distance $d$ and therefore $E = V/d$. We can then define a half-wave voltage $V_\pi$:
+The next step is to replace the electric field by a voltage that can be applied to the pockels cell. For this, two electrodes are connected to the \ac{eom}, separated by a distance $d$. This gives the electric field as $E=V/d$. This quantity is replaced into Equation~\ref{eq:eom_phase_diff} and by realizing that the phase is unitless, all other prefactors of the voltage can be combined into one quantity, called the half-wave voltage $V_\pi$:
 
 \begin{align}
 	V_\pi = \frac{d}{L} \frac{\lambda_0}{\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3}.
@@ -129,7 +137,9 @@ Thus, the phase difference can be rewritten as:
 	\Delta \phi = \Delta \phi_0 - \pi \frac{V}{V_\pi} .
 \end{align}
 
-With this it is clear, that applying the voltage $V_\pi$, the pockels cell will act as a lambda-half waveplate. A visual represantation of the modulator and the light passing through it is given in Figure \ref{fig:eom_schem}.
+With this it is clear, that applying the voltage $V_\pi$, the pockels cell will act as a lambda-half waveplate. A visual represantation of the modulator and the light passing through it is given in Figure \ref{fig:eom_schem}, highlighting the change in relative phase of the two components of the electro-magnetic wave.
+
+We have seen, how applying a voltage to an electro-optical medium changes the refractive index and therefore affects the phase of an electromagnetic wave. By having two refractive indices in two axes, whose relative change depends on the applied voltage, it is therefore possible to modify the circularity and linearity of the polarization in an \acl{eom}.
 
 \subsection{Driving a pockels cell}
 
@@ -137,7 +147,7 @@ Rise and fall times of pockels cells can go as low as nanoseconds. To make use o
 
 Schematically, the driver is divided into four inputs that are controlled from the user: ON A, ON B, OFF A and OFF B. These inputs control switches on either side of the pockels cell, so A controls one electrode and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X will also send a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure \ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side.
 
-A requirement for our experiment is to have the \acp{eom} work consistently. This means it is preferrable to only apply one type of voltage, because it can not be guaranteed that applying the same voltage with different polarity results in the same shift polarization. Most notably, the linearly polarized light has to be perfectly aligned on the axis of the EOM to rotate it $\SI{90}{\degree}$ in either direction. This is in general unrealistic, not only due to human error, but also because the polarization may drift with time.
+A requirement for our experiment is to have the \acp{eom} work consistently. This means it is preferrable to only apply one type of voltage, because it can not be guaranteed that applying the same voltage with different polarity results in the same shift polarization. Most notably, the linearly polarized light has to be perfectly aligned on the axis of the EOM to rotate it $\SI{90}{\degree}$ in either direction, as the polarization may drift with time.
 
 This means, only positive voltages will be applied, which results in the timing diagrams in Figure \ref{fig:eom_timings}.
 

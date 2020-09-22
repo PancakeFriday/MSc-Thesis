@@ -1,5 +1,16 @@
 \chapter{Sorting of atoms}
 
+\subsection*{General idea and length}
+
+\begin{itemize}
+	\item Give the problem, which is to study interactions, but for this we need geometries where atoms are always next to each other + idea how to solve it using aod tweezers (1 page) (I think I should explain at some point that we have slm tweezers and then would transfer into the aod tweezers)
+	\item Explain how aods work (length as is)
+	\item Setup of the aod tweezer lasers (1-2 pages)
+	\item Sorting using algorithms. Could say more about other sorting experiments. Highlight differences between sorting algorithms. (6 pages?)
+	\item I am fairly sure I should explain both algorithms in more detail
+	\item Programming the aod using the spectrum card. Explain how it works, how much memory it has and how that has an effect on the sorting algorithms. Could definitely talk more about the program that I wrote, but I don't think it's relevant. (5-6 pages)
+\end{itemize}
+
 %Tweezer arrays are especially suitable to study interactions between atoms, as distances and geometries can be changed on a run-by-run basis. However, during loading of the tweezers, sites can sometimes be filled with two atoms and subsequent light assisted collision will heat them out of the trap. This leads to an average loading of $50\%$ \cite{Cooper2018} and will make it difficult to study interactions in detail.
 
 Tweezer arrays are especially suitable to study interactions between atoms, as arbitrary patterns can be set on a run-by-run basis. In order to load atoms into the tweezers, an ultracold atomic gas of \ce{^{39}K} is cooled in a grey molasses setup, before the tweezer beams are overlapped onto the gas \cite{Duda2017}. Each trap then has equal probability of containing either even or odd numbers of atoms. However, due to light-assisted collision \cite{Cooper2018}, pairs of bosons are heated out of the trap and lost, leaving only those traps occupied, which originally had an uneven number of atoms. This results in holes in the pattern, which makes it difficult to study interactions and requires a lot of effort in post-selection.
@@ -99,6 +110,7 @@ In Figure~\ref{fig:setup_aod}, the setup used to test the programming and homoge
 	\import{figures}{setup_aod.pdf_tex}
 	\caption{Beam path to generate acousto-optically deflected tweezers. Two beams used for sorting and spin-resolved imaging are combined using a \ac{pbs}. They pass the \ac{aod} after which the beam is shaped to match the objective into the experimental chamber.}
 \end{figure}
+\todo{legend}
 
 The beams then pass a $\lambda/2$ waveplate to further adjust the polarization, which in turn affects the efficiency of the \ac{aod}. The deflector, which is connected to an RF-synthesizer, then produces the 2x2 grid of laser beams. Afterwards, a $\SI{75}{\milli\meter}$ lens, projecting the center of the \ac{aod}-array, extends the beam spatially until it is collimated on the $\SI{1000}{\milli\meter}$ lens. This sets the correct beam size in order for the objective to project the beam onto the atoms.
 
