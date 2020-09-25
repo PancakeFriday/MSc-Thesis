@@ -55,6 +55,7 @@
 }
 \newcolumntype{!}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 \renewcommand{\arraystretch}{1.4}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 % Itemize
 \usepackage{enumitem}
@@ -106,6 +107,7 @@
 \usepackage[separate-uncertainty, binary-units = true]{siunitx}
 %\sisetup{output-exponent-marker=\ensuremath{\mathrm{\,e}}}
 \DeclareSIUnit\px{px}
+\DeclareSIUnit\samples{S}
 
 % BraKets
 \usepackage{braket}

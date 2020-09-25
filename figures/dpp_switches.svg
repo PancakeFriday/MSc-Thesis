@@ -28,9 +28,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="560.75341"
-     inkscape:cx="350.33107"
-     inkscape:zoom="3.7799746"
+     inkscape:cy="534.57018"
+     inkscape:cx="299.60639"
+     inkscape:zoom="5.3456913"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -272,20 +272,34 @@
        d="m 100.27708,134.62751 2.38126,4.76252"
        style="fill:none;stroke:#000000;stroke-width:0.18000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.18000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect929-0"
-       width="0.56079483"
-       height="2.8825471"
-       x="85.697235"
-       y="142.69881" />
-    <rect
-       y="142.69881"
-       x="86.996078"
-       height="2.8825471"
-       width="0.56079483"
-       id="rect929-0-3"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.18000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       id="g14877">
+      <rect
+         y="140.89722"
+         x="84.534958"
+         height="6.4857311"
+         width="1.2617884"
+         id="rect929-0"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.18;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.18;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect929-0-3"
+         width="1.2617884"
+         height="6.4857311"
+         x="87.457359"
+         y="140.89722" />
+      <text
+         id="text1286-4"
+         y="138.43117"
+         x="81.965172"
+         style="font-style:normal;font-weight:normal;font-size:3.1750021px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18000004;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-size:3.1750021px;stroke-width:0.18000004;stroke-miterlimit:4;stroke-dasharray:none"
+           y="138.43117"
+           x="81.965172"
+           id="tspan1284-52"
+           sodipodi:role="line">EOM</tspan></text>
+    </g>
     <text
        id="text1218"
        y="132.02071"
@@ -356,12 +370,12 @@
        transform="rotate(-90)"
        id="text1264-0-6"
        y="85.054245"
-       x="-155.72896"
+       x="-156.78728"
        style="font-style:normal;font-weight:normal;font-size:1.26999903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"><tspan
          style="font-size:1.26999903px;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
          y="85.054245"
-         x="-155.72896"
+         x="-156.78728"
          id="tspan1262-6-9"
          sodipodi:role="line">$\SI{33}{\mega\relax}$</tspan></text>
     <ellipse
@@ -416,13 +430,13 @@
     <text
        id="text1264-0-6-5"
        y="90.729485"
-       x="-155.72896"
+       x="-156.78728"
        style="font-style:normal;font-weight:normal;font-size:1.26999903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"
        transform="rotate(-90)"><tspan
          style="font-size:1.26999903px;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
          y="90.729485"
-         x="-155.72896"
+         x="-156.78728"
          id="tspan1262-6-9-2"
          sodipodi:role="line">$\SI{33}{\mega\relax}$</tspan></text>
     <ellipse

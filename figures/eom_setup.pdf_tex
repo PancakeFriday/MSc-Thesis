@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{398.10854996bp}%
+    \setlength{\unitlength}{242.57214454bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,15 +50,17 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.41793748)%
+  \begin{picture}(1,0.55431653)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{eom_setup.pdf}}%
-    \put(0.6442774,0.36942616){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Fiber coupler}\end{tabular}}}}%
-    \put(0.6442774,0.04737436){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{\ac{pbs}}\end{tabular}}}}%
-    \put(0.6442774,0.11178475){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Beam dump}\end{tabular}}}}%
-    \put(0.6442774,0.1761952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{\ac{eom}}\end{tabular}}}}%
-    \put(0.6442774,0.24060543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda / 2$ \textsf{waveplate}\end{tabular}}}}%
-    \put(0.6442774,0.30501571){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Photodiode}\end{tabular}}}}%
+    \put(0.65452047,0.03552738){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{\ac{pbs}}\end{tabular}}}}%
+    \put(0.14136369,0.03552738){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Beam dump}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{eom_setup.pdf}}%
+    \put(0.65452047,0.1134801){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{\ac{eom}}\end{tabular}}}}%
+    \put(0.14092085,0.11315807){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda / 2$ \textsf{waveplate}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{eom_setup.pdf}}%
+    \put(0.14136369,0.19143263){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Fiber coupler}\end{tabular}}}}%
+    \put(0.65452047,0.19143263){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Photodiode}\end{tabular}}}}%
   \end{picture}%
 \endgroup%

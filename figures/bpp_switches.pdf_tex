@@ -54,17 +54,18 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{bpp_switches.pdf}}%
-    \put(0.67660465,0.40285461){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\SI{33}{\mega\relax}$\end{tabular}}}}}%
+    \put(0.68432476,0.40285461){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\SI{33}{\mega\relax}$\end{tabular}}}}}%
     \put(0.22238981,0.67441901){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+HV\end{tabular}}}}%
     \put(0.22440736,0.00045235){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
     \put(0.69279542,0.67441901){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}GND\end{tabular}}}}%
     \put(0.70329398,0.00045235){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}-HV\end{tabular}}}}%
-    \put(0.4891333,0.17852006){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\SI{33}{\mega\relax}$\end{tabular}}}}}%
+    \put(0.4891333,0.16308005){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\SI{33}{\mega\relax}$\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{bpp_switches.pdf}}%
     \put(-0.00022783,0.52376257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}On A\end{tabular}}}}%
     \put(0.00022708,0.14359938){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Off A\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{bpp_switches.pdf}}%
     \put(0.88404295,0.13042846){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}On B\end{tabular}}}}%
     \put(0.86987907,0.52511828){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Off B\end{tabular}}}}%
+    \put(0.44437501,0.43087939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}EOM\end{tabular}}}}%
   \end{picture}%
 \endgroup%

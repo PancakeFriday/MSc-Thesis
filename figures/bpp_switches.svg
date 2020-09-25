@@ -28,9 +28,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="588.70733"
-     inkscape:cx="339.36193"
-     inkscape:zoom="5.3456913"
+     inkscape:cy="587.06658"
+     inkscape:cx="340.77914"
+     inkscape:zoom="10.691383"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -206,31 +206,39 @@
        d="m 100.25591,134.62743 2.38126,4.76252"
        style="fill:none;stroke:#000000;stroke-width:0.18000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.18000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect929-0"
-       width="0.56079483"
-       height="2.8825471"
-       x="85.676064"
-       y="142.69873" />
-    <rect
-       y="142.69873"
-       x="86.974915"
-       height="2.8825471"
-       width="0.56079483"
-       id="rect929-0-3"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.18000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       id="g14885"
+       transform="matrix(2.25,0,0,2.25,-108.25736,-180.17501)">
+      <g
+         id="g14880"
+         style="stroke-width:0.08;stroke-miterlimit:4;stroke-dasharray:none">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect929-0"
+           width="0.56079483"
+           height="2.8825471"
+           x="85.676064"
+           y="142.69873" />
+      </g>
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect929-0-3"
+         width="0.56079483"
+         height="2.8825471"
+         x="86.974915"
+         y="142.69873" />
+    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:1.26999903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
        x="-140.3521"
-       y="97.883102"
+       y="98.41227"
        id="text1264-0"
        transform="rotate(-90)"><tspan
          sodipodi:role="line"
          id="tspan1262-6"
          x="-140.3521"
-         y="97.883102"
+         y="98.41227"
          style="font-size:1.26999903px;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none">$\SI{33}{\mega\relax}$</tspan></text>
     <text
        id="text1286"
@@ -280,12 +288,12 @@
        transform="rotate(-90)"
        id="text1264-0-6"
        y="85.033081"
-       x="-155.72887"
+       x="-156.78719"
        style="font-style:normal;font-weight:normal;font-size:1.26999903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"><tspan
          style="font-size:1.26999903px;stroke-width:0.18000001;stroke-miterlimit:4;stroke-dasharray:none"
          y="85.033081"
-         x="-155.72887"
+         x="-156.78719"
          id="tspan1262-6-9"
          sodipodi:role="line">$\SI{33}{\mega\relax}$</tspan></text>
     <circle
@@ -467,5 +475,16 @@
          x="111.13089"
          y="131.97166"
          style="font-size:2.51460695px;text-align:end;text-anchor:end;stroke-width:0.17820004;stroke-miterlimit:4;stroke-dasharray:none">Off B</tspan></text>
+    <text
+       id="text1286-4"
+       y="138.43117"
+       x="81.965172"
+       style="font-style:normal;font-weight:normal;font-size:3.1750021px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18000002;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"><tspan
+         style="font-size:3.1750021px;stroke-width:0.18000002;stroke-miterlimit:4;stroke-dasharray:none"
+         y="138.43117"
+         x="81.965172"
+         id="tspan1284-52"
+         sodipodi:role="line">EOM</tspan></text>
   </g>
 </svg>

@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{407.35269169bp}%
+    \setlength{\unitlength}{410.68823627bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,13 +50,42 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.54267195)%
+  \begin{picture}(1,0.84732189)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{setup_aod.pdf}}%
-    \put(0.76496011,0.09489249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f=1000$\end{tabular}}}}%
-    \put(0.7499844,0.30279399){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f=75$\end{tabular}}}}%
-    \put(0.57979841,0.03342825){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Experiment}\end{tabular}}}}%
+    \put(0.76599507,0.08218658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Photodiode}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{setup_aod.pdf}}%
+    \put(0.37053947,0.02957238){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Mirror}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{setup_aod.pdf}}%
+    \put(0.11813822,0.13391936){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Beamsampler}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{setup_aod.pdf}}%
+    \put(0.33239815,0.13391936){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda/2$ \textsf{waveplate}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{setup_aod.pdf}}%
+    \put(0.59395933,0.13391936){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Periscope}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{setup_aod.pdf}}%
+    \put(0.11825502,0.08218658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Lenses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{setup_aod.pdf}}%
+    \put(0.87645476,0.13356138){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Iris}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{setup_aod.pdf}}%
+    \put(0.52956863,0.08254455){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Fiber coupler}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{setup_aod.pdf}}%
+    \put(0.78191498,0.13356138){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{PBS}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{setup_aod.pdf}}%
+    \put(0.27329962,0.08218658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Crossed AODs}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{setup_aod.pdf}}%
+    \put(0.11837182,0.03081177){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Dichroic mirror}\end{tabular}}}}%
+    \put(0.58237898,0.02957238){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Objective}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{setup_aod.pdf}}%
+    \put(0.68780253,0.66529388){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f=\SI{75}{\milli\meter}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{setup_aod.pdf}}%
+    \put(0.59442368,0.21135734){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{SLM tweezers}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{setup_aod.pdf}}%
+    \put(0.00606894,0.49466346){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Sorting laser}\end{tabular}}}}%
+    \put(0.26326525,0.35291224){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Spin-selecting laser}\end{tabular}}}}%
+    \put(0.69077679,0.40051125){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f=\SI{1000}{\milli\meter}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{setup_aod.pdf}}%
+    \put(0.66138922,0.60517328){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Crossed AODs}\end{tabular}}}}%
+    \put(0.72994102,0.73481293){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{0th orders}\end{tabular}}}}%
   \end{picture}%
 \endgroup%
