@@ -199,25 +199,25 @@ The results in Figure~\ref{fig:sorting_algos} show that the compression algorith
 \begin{table}[bt]
 \label{tbl:sorting_algo_fit}
 \centering
-\begin{tabular}{l|l|l|l}
+\begin{tabular}{l|l|l}
 	\hline \hline
-	\multicolumn{4}{c}{Pathfinding} \\ \thickhline
-	& $N$ & $a$ & $c$ \\ \hline
-	Resorting time & \num{1.3e+00} & \num{5.0e-02} & \num{4.2e+01} \\ \hline
-	Computation time & \num{1.9e+00} & \num{4.1e-08} & \num{3.1e-03} \\ \hline
-	Number of transfers & \num{1.4e+00} & \num{5.3e-02} & \num{3.0e+01} \\ 
+	\multicolumn{3}{c}{Pathfinding} \\ \thickhline
+	& $N$ & $a$ \\ \hline
+	Resorting time & \num{1.3e+00} & \num{5.8e-02} \\ \hline
+	Computation time & \num{1.8e+00} & \num{4.8e-08} \\ \hline
+	Number of transfers & \num{1.4e+00} & \num{5.7e-02} \\ 
 
 	\hline \hline
-	\multicolumn{4}{c}{} \\
+	\multicolumn{3}{c}{} \\
 	\hline \hline
-	\multicolumn{4}{c}{Compression} \\ \thickhline
-	& $N$ & $a$ & $c$ \\ \hline
-	Resorting time & \num{9.8e-01} & \num{3.3e-01} & \num{1.2e+01} \\ \hline
-	Computation time & \num{1.5e+00} & \num{1.1e-07} & \num{-5.7e-04} \\ \hline
-	Number of transfers & \num{9.7e-01} & \num{7.1e-01} & \num{3.9e+01} \\ \hline
+	\multicolumn{3}{c}{Compression} \\ \thickhline
+	& $N$ & $a$ \\ \hline
+	Resorting time & \num{9.7e-01} & \num{3.6e-01} \\ \hline
+	Computation time & \num{1.6e+00} & \num{9.0e-08} \\ \hline
+	Number of transfers & \num{9.5e-01} & \num{8.3e-01} \\ \hline
 	\hline
 \end{tabular}
-\caption{Fit parameters for Figure~\ref{fig:sorting_algos} by assuming $f(x) = a x^N + c$, $x$ being the atom number.}
+\caption{Fit parameters for Figure~\ref{fig:sorting_algos} by assuming $f(x) = a x^N$, $x$ being the atom number.}
 \end{table}
 
 \begin{figure}[h]
