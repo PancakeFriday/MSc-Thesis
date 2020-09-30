@@ -42,6 +42,9 @@
 % Todo lists
 \usepackage{todonotes}
 
+% Bold vectors
+\usepackage{bm}
+
 % Acronyms
 \usepackage{acronym}
 

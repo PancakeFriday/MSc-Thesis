@@ -1,19 +1,20 @@
-\chapter{Sorting of atoms}
+\chapter{Sorting of atoms}%
+\label{sec:sorting}
 
 \subsection*{General idea and length}
 
-\begin{itemize}
-	\item Give the problem, which is to study interactions, but for this we need geometries where atoms are always next to each other + idea how to solve it using aod tweezers (1 page) (I think I should explain at some point that we have slm tweezers and then would transfer into the aod tweezers)
-	\item Explain how aods work (length as is)
-	\item Setup of the aod tweezer lasers (1-2 pages)
-	\item Sorting using algorithms. Could say more about other sorting experiments. Highlight differences between sorting algorithms. (6 pages?)
-	\item I am fairly sure I should explain both algorithms in more detail
-	\item Programming the aod using the spectrum card. Explain how it works, how much memory it has and how that has an effect on the sorting algorithms. Could definitely talk more about the program that I wrote, but I don't think it's relevant. (5-6 pages)
-\end{itemize}
+%\begin{itemize}
+	%\item Give the problem, which is to study interactions, but for this we need geometries where atoms are always next to each other + idea how to solve it using aod tweezers (1 page) (I think I should explain at some point that we have slm tweezers and then would transfer into the aod tweezers)
+	%\item Explain how aods work (length as is)
+	%\item Setup of the aod tweezer lasers (1-2 pages)
+	%\item Sorting using algorithms. Could say more about other sorting experiments. Highlight differences between sorting algorithms. (6 pages?)
+	%\item I am fairly sure I should explain both algorithms in more detail
+	%\item Programming the aod using the spectrum card. Explain how it works, how much memory it has and how that has an effect on the sorting algorithms. Could definitely talk more about the program that I wrote, but I don't think it's relevant. (5-6 pages)
+%\end{itemize}
 
-Tweezer arrays are especially suitable to study manybody systems, as arbitrary patterns can be configured, which is not possible when using laser lattices. Before atoms are trapped in tweezers, they are first cooled in optical molasses and are then loaded by making use of chopping. During loading, light assisted collisions result in parity projection of the atoms \cite{Cooper2018}, which effectively heat paris of atoms out of the trap. This leaves only sites occupied, that originally had odd number of atoms, resulting in a total occupation of 50\% of atoms across the tweezer array. It is desired to have a fully occupied grid of atoms each run, however post-selection is unfeasible, as even on a 3x3 grid of atoms, the chance of fully occupying the array is only $0.5^9 = 0.2\%$.
+Tweezer arrays are especially suitable to study manybody systems, as arbitrary patterns can be configured, which is not possible when using laser lattices. Before atoms are trapped in tweezers, they are first cooled in optical molasses and are then loaded by making use of chopping. During loading, light assisted collisions result in parity projection of the atoms~\cite{Cooper2018}, which effectively heat paris of atoms out of the trap. This leaves only sites occupied, that originally had odd number of atoms, resulting in a total occupation of 50\% of atoms across the tweezer array. It is desired to have a fully occupied grid of atoms each run, however post-selection is unfeasible, as even on a $3\times3$ grid of atoms, the chance of fully occupying the array is only $0.5^9 = 0.2\%$.
 
-Consequently, the solution is to rearrange the atoms of the system \cite{Barredo2016, Endres2016}, which is possible by using optical tweezers. Initially, the atoms are loaded in \ac{slm}-tweezers. The atoms are then transferred into a new tweezer, which adiabatically moves them to new positions, while keeping the rest stationary. In this way, atoms are moved along pre-calculated paths to fill gaps of the pattern. In the following is discussed the sorting of atoms by using \acp{aod} as the device of choice for programmatically deflecting a laser beam. Using this device, the beam can be split up, generating tweezers, and also make the beams move along paths to rearrange the atoms into the new pattern.
+Consequently, the solution is to rearrange the atoms of the system~\cite{Barredo2016, Endres2016}, which is possible by using optical tweezers. Initially, the atoms are loaded in \ac{slm}-tweezers. The atoms are then transferred into a new tweezer, which adiabatically moves them to new positions, while keeping the rest stationary. In this way, atoms are moved along pre-calculated paths to fill gaps of the pattern. In the following is discussed the sorting of atoms by using \acp{aod} as the device of choice for programmatically deflecting a laser beam. Using this device, the beam can be split up, generating tweezers, and also make the beams move along paths to rearrange the atoms into the new pattern.
 
 
 \section{Acousto-optically deflected tweezers}
@@ -24,13 +25,13 @@ After going through the theory of acousto-optical deflection, the \acp{aod} in q
 
 \subsection{Acousto-optical effect}
 
-The acousto-optical effect describes the way optical waves deflect off sound waves in a solid medium, which is generally a crystal. This means, sound waves propagating the crystal modulate the positions of the atoms in the lattice, which in turn affects the refractive index on a macroscopic scale. Is the sound wave a planar wave, then the modulated refractive index is written as a function of position and time \cite{Saleh1991}:
+The acousto-optical effect describes the way optical waves deflect off sound waves in a solid medium, which is generally a crystal. This means, sound waves propagating the crystal modulate the positions of the atoms in the lattice, which in turn affects the refractive index on a macroscopic scale. Is the sound wave a planar wave, then the modulated refractive index is written as a function of position and time~\cite{Saleh1991}:
 
 \begin{align}
 	n(x, t) = n - \Delta n_0 \cos{\left(\Omega t - q x\right)}.
 \end{align}
 
-Using this relation, the next step is to calculate the deflection angle off the medium. In the following, a short summary is given, the detailed analysis can be found in \cite{Saleh1991}. Starting from the assumption, that the incident optical wave has a much higher frequency than the sound wave, then the light entering the medium will see the sound waves as stationary and the medium's crystalline shape is given by the sound wave.
+Using this relation, the next step is to calculate the deflection angle off the medium. In the following, a short summary is given, the detailed analysis can be found in~\cite{Saleh1991}. Starting from the assumption, that the incident optical wave has a much higher frequency than the sound wave, then the light entering the medium will see the sound waves as stationary and the medium's crystalline shape is given by the sound wave.
 
 Then, Bragg diffraction describes how light moves through the medium, which in turn is used to calculate how light is partially reflected when leaving the medium. To find this quantity, the medium is broken up into slices, off which the optical wave partly reflects, given by the Bragg diffraction. Each slice has a partial reflectance amplitude $\Delta r$, depending on the refractive index $n$ and the angle of the incident optical beam with respect to the medium. The total reflectance amplitude $r$ can then be found by integrating over all slices and will carry over the dependence on the angle. By maximizing this relation, it is then found, that the angle resulting in the maximum reflectance amplitude is given by the Bragg condition:
 
@@ -60,7 +61,7 @@ it follows directly, that
 \centering{%
 	\import{figures}{aod_schematic.pdf_tex}
 	\caption{Schematic operation of an \ac{aod}.
-		Light waves travelling in direction $\mathbf{k}_l$ are deflected off the sound waves with direction $\mathbf{k}_s$, resulting in a reflected beam $\mathbf{k}_{l,r}$. The optical waves is deflected under the Bragg condition, which can be calculated via the vector relation $\mathbf{k}_{l,r} = \mathbf{k}_l + \mathbf{k}_s$.}
+		Light waves travelling in direction $\mathbf{k}_l$ are deflected off the sound waves with direction $\mathbf{k}_s$, resulting in a reflected beam $\mathbf{k}_{l,r}$. The optical waves is deflected under the Bragg condition, which can be calculated via the vector relation $\mathbf{k}_{l,r} = \mathbf{k}_l + \mathbf{k}_s$.}%
 \label{fig:aod_schematic}
 }
 \end{figure}
@@ -76,7 +77,7 @@ In Figure~\ref{fig:aod_schematic_2}, an optical beam enters a medium straight an
 \begin{figure}[t]
 \centering{%
 	\import{figures}{aod_schematic_2.pdf_tex}
-	\caption{Similar to Figure~\ref{fig:aod_schematic}, light is deflected off sound waves in an acousto-optical medium. This time, the sound wave is modelled as a gaussian distribution of planar waves, such that besides the transmitted component, two more orders are deflected.}
+	\caption{Similar to Figure~\ref{fig:aod_schematic}, light is deflected off sound waves in an acousto-optical medium. This time, the sound wave is modelled as a gaussian distribution of planar waves, such that besides the transmitted component, two more orders are deflected.}%
 \label{fig:aod_schematic_2}
 }
 \end{figure}
@@ -94,53 +95,55 @@ This way, a beam can be moved by driving a frequency ramp on the sound wave, thu
 
 Thus, all parameters required for manipulating the position of laser beam have been calculated, such that the tweezers can be operated for resorting. We have seen how optical light is deflected off sound waves in media and how that can be used to reposition laser beams and in the long run, move atoms along paths. When selecting \ac{aod} for an application, there are generally two modes available, that are normal mode and shear mode. In a normal mode \ac{aom}, the shape of the crystal viewed from the top, is rectangluar, while a sheaer mode has it front and back sides cut at an angle. This means, sound waves won't be gaussian anymore, but instead be shear waves, meaning their velocity is slower. This is in general preferable, as we made the assumption, that the speed of the sound wave is much slower than the speed of the light wave, and thus this condition is reinforced. All in all, after having understood operation of \acp{aod}, the following chapter will discuss the setup in place for sorting the atoms.
 
-\subsection{Preparation of the tweezers beams}
+\subsection{Preparation of the tweezers beams}%
+\label{sec:tweezer_beams}
 
 With the derivations from the previous chapter, it is possible to calculate the position of the laser beam, depending on the frequency of the sound wave propagating the \ac{aod}. However, the beam has to be prepared before entering the deflector, meaning its polarization has to be adjusted, as well as after the deflector, as the beam will pass an objective into the vacuum chamber. The following is discussed, as well as the configuration of \acp{aod}, in order to sort in two dimensions.
 
-The deflectors ((AA DTSXY-400-800.860) from Pegasus optics) and their characteristics are given in Table~\ref{tbl:pegasus_aod}. The \acp{aod} is driven by RF-frequencies, which map 1:1 to the frequency of the sound wave.  In order to deflect in two dimensions, two deflectors are placed in series, which are turned by $\SI{90}{\degree}$ with respect to each other. This way, the first order on the first \ac{aod} will extend e.g.\ into the x-axis, while the first order of the second \ac{aod} will then extend along the y-axis. Together, exiting the deflectors will be a 2x2 grid of laser beams, which can be seen in Figure~\ref{fig:aod_pass}. These are the $(x=0, y=0)$, $(1, 0)$, $(0, 1)$ and $(1, 1)$ orders, however, only the $(1,1)$ order will be used, as this is the one that is deflected based on the sound wave placed into the \ac{aod}.
+The deflectors ((AA DTSXY-400--800.860) from Pegasus optics) and their characteristics are given in Table~\ref{tbl:pegasus_aod}. The \acp{aod} is driven by RF-frequencies, which map 1:1 to the frequency of the sound wave.  In order to deflect in two dimensions, two deflectors are placed in series, which are turned by $\SI{90}{\degree}$ with respect to each other. This way, the first order on the first \ac{aod} will extend e.g.\ into the x-axis, while the first order of the second \ac{aod} will then extend along the y-axis. Together, exiting the deflectors will be a $2\times2$ grid of laser beams, which can be seen in Figure~\ref{fig:aod_pass}. These are the $(x=0, y=0)$, $(1, 0)$, $(0, 1)$ and $(1, 1)$ orders, however, only the $(1,1)$ order will be used, as this is the one that is deflected based on the sound wave placed into the \ac{aod}.
 
-\begin{table}[h]
+\begin{table}[h]%
 \label{tbl:pegasus_aod}
 \centering
-\begin{tabular}{l|l}
-	\hline \hline
+\begin{tabular}{l l}
+	%\hline \hline
+	\toprule \toprule
 	Central drive frequency at $\SI{795}{\nano\meter}$ & $\SI{102(4)}{\mega\hertz}$ \\
 	Bandwidth & $\SI{36}{\mega\hertz}$ \\
 	Max optical power density & $\SI{5}{\watt\per\milli\meter\squared}$ \\
 	Max RF power & $\SI{2}{\watt}$ \\
 	Laser beam diameter [$D$] & $\SI{500}{\micro\meter}$ < D < $\SI{6}{\milli\meter}$ \\
 	Material (speed of sound) & TeO2 ($\SI{650}{\meter\per\second}$) \\
-	Scan angle & $(\SI{44}{\milli\radian})^2$ \\
-	\hline \hline
+	Scan angle & ${(\SI{44}{\milli\radian})}^2$ \\
+	\bottomrule \bottomrule
 \end{tabular}
-\caption{Properties of AA DTSXY-400-800.860 crossed \acp{aod} from Pegasus optics.}
+\caption{Properties of AA DTSXY-400--800.860 crossed \acp{aod} from Pegasus optics.}
 \end{table}
 
-\begin{figure}[ht]
-	\label{fig:aod_pass}
+\begin{figure}[ht]%
+\label{fig:aod_pass}
 \centering{%
 	\import{figures}{aod_pass.pdf_tex}
-	\caption{Light passing through two \acp{aod} is deflected into a 2-dimensional grid. The colors refer to the optimized power going into the respective order, from lightest color being lowest power to darkest color being highest power. This way, the least amount of power goes into the (0,0) order and most into the (1,1) order.}
+	\caption{Light passing through two \acp{aod} is deflected into a 2-dimensional grid. The colors refer to the optimized power going into the respective order, from lightest color being lowest power to darkest color being highest power. This way, the least amount of power goes into the (0,0) order and most into the (1,1) order.}%
 \label{fig:aod_schematic_2}
 }
 \end{figure}
 
-The details of the configuration and characterization of the devices used in the experiment are given in \cite{Osterholz2020}.
-In Figure~\ref{fig:setup_aod}, the setup used to test the programming and homogeneity of the tweezers is drawn, where two laser beams are passing through the \ac{aod} configuration. This is due to two different things that are being studied, that both depend on movable optical tweezers. The first laser is used for the characterization in \cite{Osterholz2020} and later sorting of atoms, as well as testing everything regarding the tweezers in the following and has a wavelength of $\SI{795}{\nano\meter}$. The second effect is a spin-resolved imaging, which works by trapping a singular spin species and moving it around with a wavelength of $\SI{768}{\nano\meter}$. This is further discussed in Chapter~\ref{ch:spin_resolved}.
+The details of the configuration and characterization of the devices used in the experiment are given in~\cite{Osterholz2020}.
+In Figure~\ref{fig:setup_aod}, the setup used to test the programming and homogeneity of the tweezers is drawn, where two laser beams are passing through the \ac{aod} configuration. This is due to two different things that are being studied, that both depend on movable optical tweezers. The first laser is used for the characterization in~\cite{Osterholz2020} and later sorting of atoms, as well as testing everything regarding the tweezers in the following and has a wavelength of $\SI{795}{\nano\meter}$. The second effect is a spin-resolved imaging, which works by trapping a singular spin species and moving it around with a wavelength of $\SI{768}{\nano\meter}$. This is further discussed in Chapter~\ref{ch:spin_resolved}.
 
-\begin{figure}[t]
+\begin{figure}[t]%
 \label{fig:setup_aod}
 \centering
 	\import{figures}{setup_aod.pdf_tex}
 	\caption{Beam path to generate acousto-optically deflected tweezers. Two beams used for sorting and spin-resolved imaging are combined using a \ac{pbs}. They pass the \ac{aod} after which the beam is shaped to match the objective into the experimental chamber.}
 \end{figure}
 
-The intensity of laser beams is first stabilized, by measuring their power on a photodiode and using proportional-integral controllers to adjust the signal. They then pass a $\lambda/2$ waveplate to further adjust the polarization, which in turn affects the efficiency of the \ac{aod}. The deflectors, which are connected to RF-synthesizers, then produces the 2x2 grid of laser beams. Afterwards, a $\SI{75}{\milli\meter}$ lens, projecting the center of the \ac{aod}-array, extends the beam spatially until it is collimated on the $\SI{1000}{\milli\meter}$ lens. This sets the correct beam size in order for the objective to project the beam onto the atoms.
+The intensity of laser beams is first stabilized, by measuring their power on a photodiode and using proportional-integral controllers to adjust the signal. They then pass a $\lambda/2$ waveplate to further adjust the polarization, which in turn affects the efficiency of the \ac{aod}. The deflectors, which are connected to RF-synthesizers, then produces the $2\times2$ grid of laser beams. Afterwards, a $\SI{75}{\milli\meter}$ lens, projecting the center of the \ac{aod}-array, extends the beam spatially until it is collimated on the $\SI{1000}{\milli\meter}$ lens. This sets the correct beam size in order for the objective to project the beam onto the atoms.
 
 \section{Sorting algorithms}
 
-With the laser now passing through the crossed \acp{aod} and being shaped for the objective, it is time to rearrange the atoms for the experiment. To do so requires the knowledge about gaps in the pattern, which means when the atoms are loaded into the initial tweezers, an image is acquired. For this, the imaging beam is chopped together with the cooling, such that no atoms are lost in the process. From then on, atoms need to be moved along paths in order to fill the gaps. They can be lost, if the move is on the order of the scattering rate, as then the trap moves out of range while an atom is in the excited state. Generally speaking, the move needs to be as fast as possible, since heating effects discussed in Chapter~\ref{ch:chopping} lead to $1/e$ lifetimes on the order of 80 seconds. This in turn means, already $1.2\%$ of atoms are lost after one second, or at least one atom in a 10x10 grid.
+With the laser now passing through the crossed \acp{aod} and being shaped for the objective, it is time to rearrange the atoms for the experiment. To do so requires the knowledge about gaps in the pattern, which means when the atoms are loaded into the initial tweezers, an image is acquired. For this, the imaging beam is chopped together with the cooling, such that no atoms are lost in the process. From then on, atoms need to be moved along paths in order to fill the gaps. They can be lost, if the move is on the order of the scattering rate, as then the trap moves out of range while an atom is in the excited state. Generally speaking, the move needs to be as fast as possible, since heating effects discussed in Chapter~\ref{ch:chopping} lead to $1/e$ lifetimes on the order of 80 seconds. This in turn means, already $1.2\%$ of atoms are lost after one second, or at least one atom in a $10\times10$ grid.
 
 Sorting the atoms as fast as possible in order to reach $100\%$ filling means, finding paths that minimize the total sorting time. An obvious choice here would be using Dijkstra's algorithm, wich is designed to find the minimal path between two points, in an arbitrary landscape. However, since the paths have to be calculated while the atoms are loaded, this means computation has to be taken into account as well. Since Dijkstra's algorithm scales with $\mathcal{O}(n^4)$, where $n$ is the number of atoms, the question is, if there is a better solution of sorting the atoms. Indeed, some simplifications can be made, which can help find an algorithm that is both fast in calculation speed, as well as find fast sorting speeds.
 For one, we are operating on a rectangular grid and thus make the simplificataion to only move vertically or horizontally and not diagonally. Secondly, atoms that have started moving, stay in the tweezer until they arrive at their destination, and thus the tweezer does not suddenly jump to a new target. This is a sensible simplification, as an atom has to be transferred from the initial tweezer array to the moving tweezers (and back again when it arrives at the destination), which also takes up time. In the description of the algorithms, the grid is separated into a target and a reservoir region. This means we are trying to get a $100\%$ filling in the target region, by moving atoms out of the reservoir region. Any atoms left in the reservoir after the sorting is finished, will be discarded. On the other hand, while there are still holes in the target region, the algorithm will find a way to fill the gaps using atoms from the reservoir region.
@@ -151,25 +154,25 @@ Two algorithms are presented in the following, one is based on solving a pathfin
 \subsection{Pathfinding}
 
 The pathfinding problem is trying to find the shortest path between two points. For sorting of atoms, this means finding the shortest set of movements to relocate an atom from the reservoir region to an empty spot in the target region.
-The algorithm in described in the following was developed by Jan Werkmann\footnote{https://github.com/PhyNerd/GridRouting} and is discussed in \cite{OhldeMello2020}. With the simplifications of above, atoms only move either horizontally or vertically. The algorithm will then find a path that first moves the full distance of the one dimension, then the full distance in the other, at which point the atom has arrived at its destination. This is a sensible approach, as that means only driving one frequency ramp per dimension, but does not change the total distance moved, since the atom won't move on diagonals.
+The algorithm in described in the following was developed by Jan Werkmann\footnote{https://github.com/PhyNerd/GridRouting} and is discussed in~\cite{OhldeMello2020}. With the simplifications of above, atoms only move either horizontally or vertically. The algorithm will then find a path that first moves the full distance of the one dimension, then the full distance in the other, at which point the atom has arrived at its destination. This is a sensible approach, as that means only driving one frequency ramp per dimension, but does not change the total distance moved, since the atom won't move on diagonals.
 This way, there are only two possible paths every atom can take. The optimal path is then the one with the least amount of obstacles in it. Here, an obstacle is simply another atom. If there is one, it segmentizes the path, moving the atom out of the way and the initial atom into its place.
 \todo{explain in more detail and reference figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht]%
 \label{fig:sorting_path}
 \centering
 	\import{figures}{sorting_path.pdf_tex}
 	\caption{Conceptual illustration of the pathfinding algorithm for resorting. The atom tries to move into a hole but has an obstacle (which is just another atom) in its way. The obstacle is first moved out of the way, after which the atom follows. The target area is then further filled with the remaining atom.}
 \end{figure}
 
-\subsection{Compression}
+\subsection{Compression}%
 \label{sec:compression}
 
 As was just discussed, the pathfinding algorithm moves atoms one by one. However, one might want to find a way to parallelize sorting, therefore decreasing the sorting time. By supplying an \ac{aod} with multiple RF-frequencies, it is possible to create multiple movable tweezers. One way to generate these multiple RF-frequencies, is by using a digitizer as an RF-synthesizer, by sampling a digital signal. The compression algorithm discussed here makes use of this in order to reduce the total time of the sorting, as well as having a lower computation time with respect to the pathfinding algorithm.
 
-The compression algorithm works by picking a full line of atoms. It then moves the selected atoms along the line towards the target area, grid point by grid point. If an atom would collide with an obstacle, that is, either another atom not currently inside an \ac{aod} tweezer, or the end of the target area, then that atom is transferred back to the initial tweezer grid, and not moved in the next step. This process is how in \ref{fig:sorting_compression}. When one line is finished moving according to this end condition, the next line is picked up and the process repeated. This is done first for all rows, then for all columns, and finally, all atoms are found in one corner of the grid. Doing it this way, effectively compresses all atoms in the grid into an area.
+The compression algorithm works by picking a full line of atoms. It then moves the selected atoms along the line towards the target area, grid point by grid point. If an atom would collide with an obstacle, that is, either another atom not currently inside an \ac{aod} tweezer, or the end of the target area, then that atom is transferred back to the initial tweezer grid, and not moved in the next step. This process is how in~\ref{fig:sorting_compression}. When one line is finished moving according to this end condition, the next line is picked up and the process repeated. This is done first for all rows, then for all columns, and finally, all atoms are found in one corner of the grid. Doing it this way, effectively compresses all atoms in the grid into an area.
 
-\begin{figure}[ht]
+\begin{figure}[ht]%
 \label{fig:sorting_compression}
 \centering
 	\import{figures}{sorting_compression.pdf_tex}
@@ -180,7 +183,7 @@ Due to the nature of the algorithm, there can still be holes in the target area 
 
 To further take advantage of the compression algorithm, a geometry is chosen, which has the target area in the center of the grid and the reservoir surrounding it, as seen in Figure \todo{fig}. As the algorithm pushes the atoms into a corner, the grid can simply be split up into four sections. Then the moves for each section is individually calculated. Ending up with moves in the row-dimension and moves in the column-dimension for each section, they can then be merged together, if they operate on the same line. As such, the sorting time of moving atoms into one corner is effectively the same as moving the atoms into the central area, by splitting it up into sections and merging the steps.
 
-\begin{figure}[ht]
+\begin{figure}[ht]%
 \label{fig:compression_split}
 \centering
 	\import{figures}{compression_split.pdf_tex}
@@ -196,31 +199,31 @@ Simulations were performed, by populating the full grid with atoms with $\SI{50}
 
 The results in Figure~\ref{fig:sorting_algos} show that the compression algorithm has a faster sorting and computation time, but has to transfer more atoms into the \ac{aod} tweezer grid. However, it also shows that it scales better for increasing grid sizes. A polynomial fit is shown for the second half of the points, where the rounding issue is less present. The fit parameters are given in Table~\ref{tbl:sorting_algo_fit}, from where it can be seen, that the compression algorithm scales more linearly than the pathfinding algorithm.
 
-\begin{table}[bt]
+\begin{table}[bt]%
 \label{tbl:sorting_algo_fit}
 \centering
-\begin{tabular}{l|l|l}
-	\hline \hline
-	\multicolumn{3}{c}{Pathfinding} \\ \thickhline
-	& $N$ & $a$ \\ \hline
-	Resorting time & \num{1.3e+00} & \num{5.8e-02} \\ \hline
-	Computation time & \num{1.8e+00} & \num{4.8e-08} \\ \hline
-	Number of transfers & \num{1.4e+00} & \num{5.7e-02} \\ 
+\begin{tabular}{l l l}
+	\toprule \toprule
+	\multicolumn{3}{c}{Pathfinding} \\ \thickhline%
+	& $N$ & $a$ \\ \midrule
+	Resorting time & \num{1.3e+00} $\pm$ \num{1.7e-02} & \num{5.8e-02}  $\pm$ \num{8.8e-03} \\ \midrule
+	Computation time & \num{1.8e+00}  $\pm$ \num{8.9e-03} & \num{4.8e-08}  $\pm$ \num{3.8e-09} \\ \midrule
+	Number of transfers & \num{1.4e+00}  $\pm$ \num{1.8e-02} & \num{5.7e-02}  $\pm$ \num{9.2e-03} \\ 
 
-	\hline \hline
+	\midrule \midrule
 	\multicolumn{3}{c}{} \\
-	\hline \hline
-	\multicolumn{3}{c}{Compression} \\ \thickhline
-	& $N$ & $a$ \\ \hline
-	Resorting time & \num{9.7e-01} & \num{3.6e-01} \\ \hline
-	Computation time & \num{1.6e+00} & \num{9.0e-08} \\ \hline
-	Number of transfers & \num{9.5e-01} & \num{8.3e-01} \\ \hline
-	\hline
+	\midrule \midrule
+	\multicolumn{3}{c}{Compression} \\ \thickhline%
+	& $N$ & $a$ \\ \midrule
+	Resorting time & \num{9.7e-01} $\pm$ \num{1.7e-02}  & \num{3.6e-01} $\pm$ \num{5.3e-02}  \\ \midrule
+	Computation time & \num{1.6e+00} $\pm$ \num{3.1e-02}  & \num{9.0e-08} $\pm$ \num{2.5e-08}  \\ \midrule
+	Number of transfers & \num{9.5e-01} $\pm$ \num{1.2e-02}  & \num{8.3e-01} $\pm$ \num{8.6e-02}  \\
+	\bottomrule \bottomrule
 \end{tabular}
 \caption{Fit parameters for Figure~\ref{fig:sorting_algos} by assuming $f(x) = a x^N$, $x$ being the atom number.}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[h]%
 \label{fig:sorting_algos}
 \centering
 	\includegraphics{figures/sorting_algos_155.pdf}
@@ -237,22 +240,22 @@ To overcome this issue, we implement a digitizer card (M4i.6600-x8, Spectrum Ins
 
 Communication with the card is provided through a low-level interface from the official drivers over a PCIe slot. In the following, two replay modes of the spectrum card are discussed, which are standard replay mode and sequence replay mode. In single replay mode, a signal is sent onto the card, which is played back a set number of times, from start to finish. The sequence replay mode allows to upload sequences during initialization. It is then possible to play any arbitrary combination of the sequences one after another.
 
-\begin{table}[bt]
+\begin{table}[bt]%
 \label{tbl:spec_m4i}
 \centering
-\begin{tabular}{l|l}
-	\hline \hline
+\begin{tabular}{l l}
+	\toprule \toprule
 	Maximum sampling rate & $\SI{1.25}{\giga\samples\per\second}$ \\
 	Output level (at max sampling rate) & $\pm \SI{4}{\volt}$ \\
 	Transfer speed PC to card & $\SI{2.8}{\giga\byte\per\second}$ \\
 	Memory & $\SI{4}{\giga\byte}$ \\
-	\hline \hline
+	\bottomrule \bottomrule
 \end{tabular}
 \caption{Relevant parameters of the Spectrum M4i.6600-x8 card from the specifications given by the manufacturer.}
 \end{table}
 
 The functionality of the card depends on two factors: The layout of the memory, and the readout speed (the sampling rate) of the memory. In the following implementation, two output channels of the spectrum card are used. Doing so, the memory is formatted, such that two bytes of channel 1 data are followed by two bytes of channel 2 data as seen in Figure~\ref{fig:spectrum_memory}. Transferring data onto the memory then requires to fill a buffer, that is, memory on the computer running the driver, that has the same layout as the spectrum card's memory.
-\begin{figure}[ht]
+\begin{figure}[ht]%
 \label{fig:spectrum_memory}
 \centering
 	\import{figures}{spectrum_memory.pdf_tex}
@@ -261,30 +264,30 @@ The functionality of the card depends on two factors: The layout of the memory, 
 
 With this information, the structure of a program driving the digitizer card follows the format given in Table~\ref{tbl:replay_modes}.
 
-\begin{table}[t]
+\begin{table}[ht]%
 	\label{tbl:replay_modes}
 	\centering
-	\begin{tabular}{p{0.2\textwidth}|p{0.7\textwidth}}
-		\hline \hline
+	\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+		\midrule \midrule
 		&
 		Single replay mode \\
-		\thickhline
+		\thickhline%
 		Initialization phase &
-		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem Set sampling rate\\ \tabitem Set replay mode to single replay mode\\ \tabitem Allocate the buffer memory\end{tabular} \\
-		\hline
+		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem{} Set sampling rate\\ \tabitem{} Set replay mode to single replay mode\\ \tabitem{} Allocate the buffer memory\end{tabular} \\
+		\midrule
 		Main loop &
-		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem Sample datapoints of the signal to play and move into the buffer\\ \tabitem Transfer datapoints from the buffer to the card\\ \tabitem Replay signal $N$ times\end{tabular} \\
+		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem{} Sample datapoints of the signal to play and move into the buffer\\ \tabitem{} Transfer datapoints from the buffer to the card\\ \tabitem{} Replay signal $N$ times\end{tabular} \\
 		\\
-		\hline \hline
+		\bottomrule \bottomrule
 		&
 		Sequence replay mode \\
-		\thickhline
+		\thickhline%
 		Initialization phase &
-		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem Set sampling rate\\ \tabitem Set replay mode to sequence replay mode\\ \tabitem Sample signals to use in the sequence programmed later\\ \tabitem Transfer signals onto the card\\ \tabitem Allocate the buffer memory (will contain information about the sequence)\end{tabular} \\
-		\hline
+		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem{} Set sampling rate\\ \tabitem{} Set replay mode to sequence replay mode\\ \tabitem{} Sample signals to use in the sequence programmed later\\ \tabitem{} Transfer signals onto the card\\ \tabitem{} Allocate the buffer memory (will contain information about the sequence)\end{tabular} \\
+		\midrule
 		Main loop &
-		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem Fill buffer with information about which singals to play\\ \tabitem Transfer buffer to the card\\ \tabitem Play sequence\end{tabular} \\
-		\hline \hline
+		\begin{tabular}[c]{@{}p{0.7\textwidth}@{}}\tabitem{} Fill buffer with information about which singals to play\\ \tabitem{} Transfer buffer to the card\\ \tabitem{} Play sequence\end{tabular} \\
+		\bottomrule \bottomrule
 	\end{tabular}
 	\caption{Difference in programming when using either the signle replay or the sequence replay mode of the Spectrum M4i card. In this case, it is instructive to see, that the single replay mode has an overhead during the main loop compared to the sequence replay mode, which has all sequences stored in memory already.}
 \end{table}
@@ -297,25 +300,25 @@ There are some considerations to make when using a digitizer card as a driver fo
 
 In order to calculate the transfer time and memory usage, some assumptions need to be made. The assumptions and all necessary variables are summarized in Table~\ref{tbl:spectrum_assumptions}. First of all, the central frequency of the AOD is approximately $f_{AOD} = \SI{100}{\mega\hertz}$. Therefore, in order to sample a sine at this frequency with at least 10 points per oscillation, means a sampling rate of at least $\SI{1}{\giga\samples\per\second}$. For the M4i digitizer card, this means the next available setting is $\SI{1.25}{\giga\samples\per\second}$ and gives about 13 samples per oscillation. Being able to resolve the signal clearly, has the advantage to generate the frequency more accurately, therefore the $10$ samples per oscillation is a good limit.
 
-\begin{table}[tb]
+\begin{table}[tb]%
 \label{tbl:spectrum_assumptions}
 \centering
-\begin{tabular}{l|l}
-	\hline \hline
-	Variable & Used or assumed value \\ \thickhline
+\begin{tabular}{l l}
+	\toprule \toprule
+	Variable & Used or assumed value \\ \thickhline%
 	Sampling rate & $\SI{1.25}{\giga\hertz}$ \\
 	Central \ac{aod} driving frequency & $\SI{100}{\mega\hertz}$ \\
 	Adiabatic transfer time to new grid & $\SI{1}{\milli\second}$ \\
 	Adiabatic movement time to next grid point & $\SI{1}{\milli\second}$ \\
-	Grid size & 10x10 \\
+	Grid size & $10\times10$ \\
 	Number of tweezer transfers for sorting & 60 \\
 	Number of movements for sorting & 40 \\
-	\hline \hline
+	\bottomrule \bottomrule
 \end{tabular}
 \caption{Variables and assumptions used in the calculations for estimation of data transfer time and memory usage under the consideration of the experiment discussed in this thesis.}
 \end{table}
 
-Now in order to find the time to transfer an atom adiabatically from the initial tweezer grid into the \ac{aod} tweezer grid (and back again), the relation $\dot{w} > w^2$ needs to be fulfilled, where $w$ is the trap frequency in transverse direction. In our case, this is on the order of $\SI{20}{\kilo\hertz}$ and is fulfilled for a transfer time of $t_{transfer} = \SI{1}{\milli\second}$. In order to calculate the moving time $t_{move}$ for an atom from one grid point to another, the shape of the trap is considered, according to~\ref{Leseleuc2018}. If the atom is accelerated in the first half of the movement, and decelerated in the second half of the movement, the total distance to transfer the atom is given as $L=a t_{move}^2$. The maximal acceleration is found from the trap waist $w = \SI{1}{\micro\meter}$ and its radial frequency $f_{rad} = \SI{100}{\kilo\hertz}$, as $a_{max} \approx w f_{rad}^2 = 10^4\SI{}{\meter\per\second\squared}$. This means, accelerating three orders of magnitude slower than the maximum allowed value ofer $L=\SI{10}{\micro\meter}$ results in a moving speed speed $t_{move} = \SI{1}{\milli\second}$.
+Now in order to find the time to transfer an atom adiabatically from the initial tweezer grid into the \ac{aod} tweezer grid (and back again), the relation $\dot{w} > w^2$ needs to be fulfilled, where $w$ is the trap frequency in transverse direction. In our case, this is on the order of $\SI{20}{\kilo\hertz}$ and is fulfilled for a transfer time of $t_{transfer} = \SI{1}{\milli\second}$. In order to calculate the moving time $t_{move}$ for an atom from one grid point to another, the shape of the trap is considered, according to~\ref{Leseleuc2018}. If the atom is accelerated in the first half of the movement, and decelerated in the second half of the movement, the total distance to transfer the atom is given as $L=a t_{move}^2$. The maximal acceleration is found from the trap waist $w = \SI{1}{\micro\meter}$ and its radial frequency $f_{rad} = \SI{100}{\kilo\hertz}$, as $a_{\max} \approx w f_{rad}^2 = 10^4\SI{}{\meter\per\second\squared}$. This means, accelerating three orders of magnitude slower than the maximum allowed value ofer $L=\SI{10}{\micro\meter}$ results in a moving speed speed $t_{move} = \SI{1}{\milli\second}$.
 
 With the transfer time, moving time, and sampling rate in place, the size of one signal, in order to move and transfer an atom can be calculated as:
 
@@ -324,28 +327,28 @@ With the transfer time, moving time, and sampling rate in place, the size of one
 	M_{sig} &= \SI{2}{\byte} * n_{points} = \SI{2.5}{\mega\byte},
 \end{align}
 
-where $\SI{1}{\byte}$ is one byte and $t=T_{move}=t_{transfer}$. From the simulations of the algorithms in Figure~\ref{fig:sorting_algos}, we see that assuming a 10x10 grid, there are about 60 tweezer transfers and 40 movements for one sorting. This means 100 sequences need to be played per channel, which is $n_{seq}=200$ in total. Lastly, the memory for all signals needs to be aligned to a power of two. Therefore, from the transfer speed $v_{transfer}$ in Table~\ref{tbl:spec_m4i} follows the time it takes for one transfer $t_{transfer}$:
+where $\SI{1}{\byte}$ is one byte and $t=T_{move}=t_{transfer}$. From the simulations of the algorithms in Figure~\ref{fig:sorting_algos}, we see that assuming a $10\times10$ grid, there are about 60 tweezer transfers and 40 movements for one sorting. This means 100 sequences need to be played per channel, which is $n_{seq}=200$ in total. Lastly, the memory for all signals needs to be aligned to a power of two. Therefore, from the transfer speed $v_{transfer}$ in Table~\ref{tbl:spec_m4i} follows the time it takes for one transfer $t_{transfer}$:
 
 \begin{align}
 	t_{transfer} = \lceil n_{seq} M_{sig}\rceil_2\, v_{transfer} = \SI{183}{\milli\second},
 \end{align}
 
-where the symbol $\lceil ... \rceil_2$ refers to rounding up to the next power of two.
-These calculations set the limit for the single replay mode, however, in the sequence replay mode, the limiting factor is the memory it takes to store all possible sequences. The storage of the sequences already assumes knowledge of the composition of both channels. Therefore it is necessary to upload every relevant combination of signals for both channels. Working again with a 10x10 grid of atoms, all relevant signals are found from the following table:
+where the symbol $\lceil \ldots \rceil_2$ refers to rounding up to the next power of two.
+These calculations set the limit for the single replay mode, however, in the sequence replay mode, the limiting factor is the memory it takes to store all possible sequences. The storage of the sequences already assumes knowledge of the composition of both channels. Therefore it is necessary to upload every relevant combination of signals for both channels. Working again with a $10\times10$ grid of atoms, all relevant signals are found from the following table:
 
-\begin{table}[h!]
+\begin{table}[h!]%
 \label{tbl:eom_crystals}
 \centering
-\begin{tabular}{l|l|l}
-	\hline \hline
-		Signals on channel 1 & Signals on channel 2 & Usage \\ \thickhline
+\begin{tabular}{l l l}
+	\toprule \toprule
+		Signals on channel 1 & Signals on channel 2 & Usage \\ \thickhline%
 		10 intensity ramps up & 10 intensity ramps up & Transfer into \ac{aod} grid \\
 		10 intensity ramps down & 10 intensity ramps down & Transfer out of \ac{aod} grid \\
 		9 frequency ramps up & 10 constant frequencies & Move along x-axis \\
 		9 frequency ramps down & 10 constant frequencies & Move along x-axis \\
 		10 constant frequencies & 9 frequency ramps up & Move along y-axis \\
 		10 constant frequencies & 9 frequency ramps down & Move along y-axis \\
-	\hline \hline
+	\bottomrule \bottomrule
 \end{tabular}
 \end{table}
 
@@ -361,7 +364,7 @@ and therefore the required memory is
 
 With the calculations above, it is possible to apply the pathfinding sorting algorithm to the atoms in a timely manner. However for the compression algorithm, a much larger amount of signals needs to be sampled to cover all possible combinations. Considering, that two sides of the target area are sorting at the same time, and that slices of one row (or column) is selected at the same time, the number of sequences, in one channel, to move one row is then given by
 \begin{align}
-	n_{seq,row} = \left(\sum_{N=1}^{M-1} N\right)^2 = \frac{1}{4} (M^2-M)^2.
+	n_{seq,row} = {\left(\sum_{N=1}^{M-1} N\right)}^2 = \frac{1}{4} {(M^2-M)}^2.
 \end{align}
 
 The square comes frome the fact, that for every frequency ramp on one side, a frequency ramp on the other side of the target area needs to be matched. A similar relation (replacing $M$ by $N$) is found for the number of sequences for the columns. Then, taking into account, that the total number of sequences, considering that the channels aren't independent, is found by:
@@ -370,7 +373,7 @@ The square comes frome the fact, that for every frequency ramp on one side, a fr
 	n_{seq} = M n_{seq,col} + N n_{seq,row}.
 \end{align}
 
-Taking then also into account, that after the compression phase follows a pathfinding phase, it is already easy to see, that the memory requirement would greatly exceed the available memory of $\SI{4}{\giga\byte}$ on the spectrum M4i on a 10x10 grid.
+Taking then also into account, that after the compression phase follows a pathfinding phase, it is already easy to see, that the memory requirement would greatly exceed the available memory of $\SI{4}{\giga\byte}$ on the spectrum M4i on a $10\times10$ grid.
 
 This means, in order to use the compression algorithm, the sequences need to be sample on-the-fly. This is in general slow, compared to the sorting time. However, it is possible to use parallelization of \acp{gpu}. On a NVIDIA Geforce GTX 1080 Ti, 3584 cores are available, which can all sample part of a signal individually. This means for a sequence of $\SI{5}{\mega\byte}$, about 1400 calculations are made in parallel. Assuming only rectangles are sampled, this gives one comparison per sampled value and one insertion (into an array). At a clock speed of $\SI{1480}{\mega\hertz}$,\todo{ref website?} results in $\SI{1}{\micro\second}$ computation time, meaning only transfer speed from the \ac{gpu} to the digitizer card is relevant. The transfer speed is then given from Table~\ref{tbl:spec_m4i}, adding $\SI{1.8}{\milli\second}$ per move of one row (or column) of atoms.
 
@@ -378,4 +381,4 @@ Since one channel always has a fixed frequency, it is possible to use a \ac{vco}
 
 \section{Conclusion and outlook}
 
-It was shown how crossed \acp{aod} are used, in order to generate movable tweezers. As loading of atoms can only guarantee 50\% filling, the tweezers are then used to sort atoms into the gaps, in order to guarantee a perfectly occupied grid, as long as the sorting happens faster than the lifetime of the atoms. Two different algorithms were discussed in order to move the atoms to their new locations, which are a pathfinding algorithm, moving single atoms and a compression algorithm, which is able to use parallelization, such that multiple atoms are moved at the same time. It was shown that this reduces computation and sorting time of the atoms. Lastly, it was explained how the signals are generated using a digitizer card and the memory requirement for both algorithms were stated. It was shown, that as long as the grid is small enough, the pathfinding algorithm can be used with the digitizer card, as it has a smaller memory footprint. However, for a grid size of 12x12 already, the memory of the digitizer card (Spectrum M4i.6680-x8) is not sufficient, such that on-the-fly calculations are inevitable and the compression algorithm, with smaller computation time, can be used.
+It was shown how crossed \acp{aod} are used, in order to generate movable tweezers. As loading of atoms can only guarantee 50\% filling, the tweezers are then used to sort atoms into the gaps, in order to guarantee a perfectly occupied grid, as long as the sorting happens faster than the lifetime of the atoms. Two different algorithms were discussed in order to move the atoms to their new locations, which are a pathfinding algorithm, moving single atoms and a compression algorithm, which is able to use parallelization, such that multiple atoms are moved at the same time. It was shown that this reduces computation and sorting time of the atoms. Lastly, it was explained how the signals are generated using a digitizer card and the memory requirement for both algorithms were stated. It was shown, that as long as the grid is small enough, the pathfinding algorithm can be used with the digitizer card, as it has a smaller memory footprint. However, for a grid size of $12\times12$ already, the memory of the digitizer card (Spectrum M4i.6680-x8) is not sufficient, such that on-the-fly calculations are inevitable and the compression algorithm, with smaller computation time, can be used.
