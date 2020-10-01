@@ -10,29 +10,20 @@
 	%\item Give experimental results of the two pockels cells that were tested (because we are finding the extinction ratio, I should also give an error and maybe implement the other fit (sign(sin(x))) (maybe 1-2 pages longer).
 %\end{itemize}
 %Maybe the problem (chopping can be better) could be written in its own section and explained in more detail.
-%\todo{chapter start}
 
-In the experiment, optical tweezers are used to generate two-dimensional arrays of single atoms. By using optical tweezers, each atom can be addressed individually and therefore parameters such as inter-atomic distances and trap depths can be adjusted freely. In order to load atoms into the optical tweezers, they have to undergo some cooling stages first. Being vaporized from a solid sample of \ce{^{39}K}, the atoms move towards the center of a vacuum chamber through a Zeeman slower. The slower cools the atoms longitudinally, after which they are trapped and compressed in a \ac{mot}. Cooling is done in a gray molasses on the D1-line, after which the atoms will be loaded into the tweezers. However, loading directly from the gray molasses proves difficult, due to the large light shifts of the D1 excited state, making it highly anti-trapped. To overcome this issue, trapping and cooling beams can be alternated~\cite{Hutzler2017}. By having the frequency of alternating the beams much larger than the trapping frequency, the atoms see an effective, averaged, trap. This way, they don't scatter near-resonant photons, effectively eliminating light shifts.
+In the experiment, optical tweezers are used to generate two-dimensional arrays of single atoms. By using optical tweezers, each atom can be addressed individually and therefore parameters such as inter-atomic distances and trap depths can be adjusted freely. In order to load atoms into the optical tweezers, they have to undergo some cooling stages first. Being vaporized from a solid sample of \ce{^{39}K}, the atoms move towards the center of a vacuum chamber through a Zeeman slower. The slower cools the atoms longitudinally, after which they are trapped and compressed in a \ac{mot}. Atoms are already cooled inside the \ac{mot}, however the temperature limit is the doppler limit, therefore gray molasses and then a normal molasses is used in order to cool even further. When the atoms have reached their minimal temperature, they will be loaded into the \ac{slm} tweezers. However, loading directly from the molasses proves difficult, due to the large light shifts of the D2 excited state, making it highly anti-trapped. To overcome this issue, trapping and cooling beams can be alternated~\cite{Hutzler2017}. By having the frequency of alternating the beams much larger than the trapping frequency, the atoms see an effective, averaged, trap. This way, they don't scatter near-resonant photons, effectively eliminating light shifts.
 
-So far, alternating between molasses cooling and trapping light, called chopping, was achieved using an \ac{aom}. However, the switching speed in an \ac{aom} is limited by the speed of sound in the medium (here, TeO2 has \SI{4.2}{\milli\meter\per\micro\second}) and results in a chopping frequency of $\SI{1.4}{\mega\hertz}$, governed by the \ac{aom} with the slowest rise time, which can be seen in Figure~\ref{fig:aom_chopping}. By increasing the chopping frequency, the atoms will heat less during each trapping cycle. However, more importantly, as the atoms only see an averaged trap given by the duty cycle of the trapping beam, more laser power can be used per tweezer if the beam remains on for a longer time. This also means, that more tweezers can be deployed and larger systems explored.
-\todo{Why does it say Figure 3?}
+So far, alternating between molasses cooling and trapping light, called chopping, was achieved using an \ac{aom}. However, the switching speed in an \ac{aom} is limited by the speed of sound in the medium (here, TeO2 has \SI{4.2}{\milli\meter\per\micro\second}) and results in a chopping frequency of $\SI{1.4}{\mega\hertz}$, governed by the \ac{aom} with the slowest rise time, which can be seen in Figure~\ref{fig:aom_chopping}. By increasing the chopping frequency, the atoms will heat less during each trapping cycle. However, more importantly, as the atoms only see an averaged trap given by the duty cycle of the trapping beam, this means the relevant parameter for trapping is the average power per chopping cycle. This means, if the pulse shape during the chopping is better, more laser power can be used per tweezer. This in turn means, more tweezers can be deployed, as the average power increases when the pulse shape is more rectangular. Figure~\ref{fig:aom_chopping} shows how the pulse shape is limiting the average power during the cooling cycle as well as during trapping.
 
 \begin{figure}[t]%
-\label{fig:aom_chopping}
 \centering{%
-	\includegraphics{figures/chopping_155.pdf}
-	\caption{Chopping in the experiment. Laser beams alternate between each other, with blue being the MOT cooler, orange the MOT repumper and green the SLM tweezer. The amplitude of the MOT beams is limited due to the risetime of the \acp{aom}.}
+\includegraphics{figures/chopping_155.pdf}
+\caption{Chopping in the experiment. Laser beams alternate between each other, with blue being the \ac{mot} cooler, orange the \ac{mot} repumper and green the \ac{slm} tweezer. The amplitude of the \ac{mot} beams is limited due to the risetime of the \acp{aom}. The label on the y axis was omitted, since the \ac{mot} beams have been rescaled to be the same scale as the \ac{slm} tweezer.}%
+\label{fig:aom_chopping}
 }
 \end{figure}
-\todo{acronyms? MOT, SLM}
-\todo{explain figure again}
 
 Achieving larger duty cycles and higher chopping frequencies is possible by using \acp{eom}, which are not limited by acoustic waves. The optical medium is modulated using electric fields, and in fact, can be switched as fast as common condensators. Light entering the modulator will have its polarization turned, depending on the electric field that is applied. Therefore, in the following, polarization of electro-magnetic waves is discussed briefly, which is followed by the main effect governing the devices tested in this thesis --- the pockels effect. The devices are then evaluated by filtering one polarization component and the rise times and extinction ratio measured. The new system will be able to switch with rise times on the order of nanoseconds, improving the current system by at least two orders of magnitude.
-
-The devices tested in this thesis are both capable of switching on nanosecond scales, improving the current chopping rate by three orders of magnitude. The theory behind the linear electro-optical effect is discussed after a short recourse on polarization of electromagnetic waves. Lastly, experimental evaluations for two \acp{eom} are presented and discussed.
-
-\todo{say something about that chopping reduces lifetime}
-
 
 \section{Theory on Polarization}%
 \label{sec:pol}
@@ -118,10 +109,10 @@ then the phase difference becomes:
 \end{align}
 
 \begin{figure}[t]%
-\label{fig:eom_schem}
 \centering{%
-	\import{figures}{eom_schematic.pdf_tex}
-	\caption{Schematic view of light passing through an \ac{eom} of length $L$. The electrodes are positioned on the front and back side of the modulator, the same faces the light enters and exits. The light exiting the \ac{eom} has a relative phase shift $\Delta \Phi$ depending on the change of refractive index due to the applied voltage $V$.}
+\import{figures}{eom_schematic.pdf_tex}
+\caption{Schematic view of light passing through an \ac{eom} of length $L$. The electrodes are positioned on the front and back side of the modulator, the same faces the light enters and exits. The light exiting the \ac{eom} has a relative phase shift $\Delta \Phi$ depending on the change of refractive index due to the applied voltage $V$.}%
+\label{fig:eom_schem}
 }
 \end{figure}
 
@@ -149,18 +140,18 @@ With an understanding of the pockels effect governing the \acp{eom} tested in th
 %When using \acp{eom} for switching of laser light, rise and fall times are a direct consequence of the electronics used to apply the respective voltages to the pockels cell. 
 %Rise and fall times of pockels cells can go as low as nanoseconds. To make use of this speed, one has to deploy clever ways to drive the voltages, especially when these potentials are in the kilovolt-regime. For the two Pockels cells discussed in this thesis, specialized drivers by BME-Bergmann were used.
 
-The pockels cell drivers discussed in the following contain the switching electronics necessary to drive the \acp{eom}. Moreover, it contains viewports for the laser light, such that the pockels cell can be integrated into the driver to not expose the high voltage to any parts of the experiment but the modulators. \todo{pic of driver in appendix and ref}The driver has an input for the high voltage and option for watercooling in order to compensate temperature instabilities on the pockels cell. Furthermore, it contains four inputs, in order to have full control over the switching of the voltages. These inputs are connected via SMB-connectors to any pulse synthesizers, such as waveform generators or delay cards and require TTL signals to operate switches inside the driver.
+The pockels cell drivers discussed in the following contain the switching electronics necessary to drive the \acp{eom}. Moreover, it contains viewports for the laser light, such that the pockels cell can be integrated into the driver to not expose the high voltage to any parts of the experiment but the modulators. The driver has an input for the high voltage and option for watercooling in order to compensate temperature instabilities on the pockels cell. Furthermore, it contains four inputs, in order to have full control over the switching of the voltages. This means, the \acp{eom} can be switched on and off by applying TTL signals to the inputs of the driver.
 
 Therefore, it is necessary to understand the switching logic used inside the driver, in order to correctly drive the pockels cell and therefore turn the polarization of the light. Schematically, the driver is divided into the four switches mentioned above, that are controlled from the user: ON A, ON B, OFF A and OFF B. Two switches are connected to either side of the pockels cell, so A controls one electrode and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X will also send a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure~\ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side. The figure shows switching logics for two different drives used in the experiment. These are named by the manufacturer as dpp-type and bpp-type.
 
 \begin{figure}[t]%
-\label{fig:eom_driver_switches}
 \centering{%
-	\begin{multicols}{2}
-	\import{figures}{bpp_switches.pdf_tex}
-	\import{figures}{dpp_switches.pdf_tex}
-	\end{multicols}
-	\caption{Schematic of the high voltage switches used inside the bpp-type (left) and dpp-type (right) pockels cell driver from BME Bergmann. Not-Gates on both A and B sides ensure that there is always a potential over the pockels cell. The blue and red paths indicate the connection to apply a positive and negative voltage over the pockels cell respectively.}
+\begin{multicols}{2}
+\import{figures}{bpp_switches.pdf_tex}
+\import{figures}{dpp_switches.pdf_tex}
+\end{multicols}
+\caption{Schematic of the high voltage switches used inside the bpp-type (left) and dpp-type (right) pockels cell driver from BME Bergmann. Not-Gates on both A and B sides ensure that there is always a potential over the pockels cell. The blue and red paths indicate the connection to apply a positive and negative voltage over the pockels cell respectively.}%
+\label{fig:eom_driver_switches}
 }
 \end{figure}
 
@@ -169,10 +160,10 @@ A requirement for our experiment is to have the \acp{eom} work consistently. Thi
 For the bpp-type driver, this is straightforward, as closing high side A and low side B gives a positive voltage across the \ac{eom} and the inverse connects ground to ground through the \ac{eom}, giving zero voltage. The dpp-type driver on the other hand, has high and low voltages on either side of the pockels cell. Therefore, the sequence that results in positive and then no voltage across the \ac{eom} is, to close high side A and low side B switch, resulting in a positive voltage across the \ac{eom}. Afterwards, connecting high side A and high side B gives the same voltage on either side of the pockels cell, resulting in a net zero voltage. After this point, low side B is closed again, giving the same state as before. In the timing diagram, the low side A switch would be closed at this point. It is possible to keep high side A closed the entire time, however it is recommended in the documentation to alternate both switches in order to relax their states.
 
 \begin{figure}[t]%
-\label{fig:eom_timings}
 \centering{%
-	\import{figures}{bpp_timings.pdf_tex}
-	\caption{Timing diagrams for the pockels cell drivers to turn the polarization of the \ac{eom} $\SI{90}{\degree}$. To get a positive high voltage from the bpp-type driver, the A and B side ON/OFF switches are flipped simultaneously. The dpp-type driver is more flexible, since it also allows negative voltages. The timings displayed here are an example to only apply positive voltages across the pockels cell.}
+\import{figures}{bpp_timings.pdf_tex}
+\caption{Timing diagrams for the pockels cell drivers to turn the polarization of the \ac{eom} $\SI{90}{\degree}$. To get a positive high voltage from the bpp-type driver, the A and B side ON/OFF switches are flipped simultaneously. The dpp-type driver is more flexible, since it also allows negative voltages. The timings displayed here are an example to only apply positive voltages across the pockels cell.}%
+\label{fig:eom_timings}
 }
 \end{figure}
 
@@ -181,15 +172,14 @@ For the bpp-type driver, this is straightforward, as closing high side A and low
 In the following is discussed two pockels cells (from Leysop Ltd.). The \acp{eom} in contrast to the \acp{aom} in the current setup allow for longer duty cycles for the tweezer light. This means, the laser light needs to be switched on and off, which is achieved in pockels cells by exploiting the fact, that linearly polarized light can be filtered out. This is best achieved by placing a \ac{pbs} directly after the modulator as seen in Figure~\ref{fig:eom_setup}. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter, save for a fraction of light, given by the extinction ratio of the beam splitter (typically for the ones used in the experiment, the extinction ratio is about 200:1).
 
 \begin{figure}[t]%
-\label{fig:eom_setup}
 \centering{%
-	\import{figures}{eom_setup.pdf_tex}
-	\caption{The efficiency of the \acp{eom} were evaluated by setting the polarization of the incoming light either horizontal or vertical using the waveplate. The pockels cell will then periodically turn the polarization $\SI{90}{\degree}$, which can be seen by measuring the voltage on the photodiode.}
+\import{figures}{eom_setup.pdf_tex}
+\caption{The efficiency of the \acp{eom} were evaluated by setting the polarization of the incoming light either horizontal or vertical using the waveplate. The pockels cell will then periodically turn the polarization $\SI{90}{\degree}$, which can be seen by measuring the voltage on the photodiode.}%
+\label{fig:eom_setup}
 }
 \end{figure}
 
 Two  pockels cells were characterized by placing a photodiode on one end of the beam splitter. The \acp{eom} are labeled by the material of their nonlinear crystal, \ac{rtp} and \ac{bbo}. Their characteristics are summarized in Table~\ref{tbl:eom_crystals}, where half wave voltage is given for $\SI{1064}{\nano\meter}$ light. Both \acp{eom} are used in the chopping discussed earlier, where the \ac{rtp} crystal will be used for the $\SI{770}{\nano\meter}$. Consequently, \ac{bbo} will be for the $\SI{1064}{\nano\meter}$ tweezer light.
-\todo{dont like this paragraph}
 
 \begin{table}%
 \label{tbl:eom_crystals}
@@ -214,14 +204,13 @@ The first measure is finding the rise and fall times of the \acp{eom}. Light who
 \end{align}
 
 where $high$ and $low$ refer to the high and low level of the signal respectively, which will come in useful later when evaluating the extinction ratio. The signals in Figure~\ref{fig:eom_rise} were recorded for both \acp{eom}, however from the low number of sampled points it is clear, that the oscilloscope used for the measurement is a limiting factor. Moreover, harmonics appear when the signal has risen to the upper level, indicating that the bandwidth of either the photodiode or the oscilloscope is too low. For this measurement, the oscilloscope (Teledyne Lecroy Wafesurfer 510) has a samplerate of $\SI{10}{\giga\samples\per\second}$ and a bandwidth of $\SI{1}{\giga\hertz}$. The photodiode is a home-built model, whose bandwidth has not been evaluated as of yet. The fit can't be applied to the data, due to the low number of points, however an upper bound for the rise time can still be given by measuring the distance between the last point on the lower level and the first point on the upper level. For both crystals, this means that the rise time is at least a fraction of a microsecond. In contrast to the \acp{aom} that are currently in use, this is already an improvement by at least one order of magnitude (see Figure~\ref{fig:aom_chopping}).
-\todo{\textbf{Reviewer} I feel like I need to quantize the rise time better if I want to compare it to the AOM?}
 
 The manufacturer of the pockels cell driver has done independent tests on the same \acp{eom} used here. The data is available on their website~\cite{Bergmann2020} and they found rise times for \ac{rtp} and \ac{bbo} as $\SI{3}{\nano\second}$ and $\SI{4}{\nano\second}$ respectively, which would improve on the \ac{aom} setup by three orders of magnitude in rise times.
 \begin{figure}[t]%
-\label{fig:eom_rise}
 \centering{%
-	\includegraphics{figures/eom_rise_155.pdf}
-	\caption{The efficiency of the \acp{eom} were evaluated by setting the polarization of the incoming light either horizontal or vertical using the waveplate. The pockels cell will then periodically turn the polarization $\SI{90}{\degree}$, which can be seen by measuring the voltage on the photodiode.}
+\includegraphics{figures/eom_rise_155.pdf}
+\caption{The \ac{eom} was turned on, in order to measure rise times. However, the photodiode and oscilliscope both limit the measurement with their bandwidth and sampling rate. However, an approximation to the rise time can be given, by subtracting the last data point on the low level and the first level on the high level, giving at least a fraction of a microsecond for both \ac{eom} types.}%
+\label{fig:eom_rise}
 }
 \end{figure}
 
@@ -239,28 +228,26 @@ Not considering the standard deviation on the dark level, already the standard d
 \end{tabular}
 \end{center}
 
-However, the lower bound is the mean of the level, which for \ac{rtp} gives $51:1$ and for \ac{bbo} gives $57:1$. The manufacturer provides an extinction ratio for the \ac{rtp} crystal of $> 200:1$, however no value is given for \ac{bbo}. This means, that our measurement is limited by the photodiode and in order to validate the value given by the manufacturer, it is necessary to reduce the dark noise for example by cooling the diode.
+However, the lower bound is the mean of the level, which for \ac{rtp} gives $51:1$ and for \ac{bbo} gives $57:1$. The manufacturer provides an extinction ratio for the \ac{rtp} crystal of $> 200:1$, however no value is given for \ac{bbo}. This means, that our measurement is limited by the photodiode and in order to validate the value given by the manufacturer, it is necessary to reduce the dark noise for example by cooling the diode or alternatively, using a faster, low noise photodiode.
 
 \begin{figure}[t]%
-\label{fig:eom_extinction}
 \centering{%
-	\includegraphics{figures/eom_extinction_155.pdf}
+\includegraphics{figures/eom_extinction_155.pdf}
+\caption{Measurements of extinction ratio for \ac{rtp} (left) and \ac{bbo} (right). The highlighted values were used to find the high and low level, by taking their mean. However the uncertainty on the low level is too high to give a fair value on the extinction ratio.}%
+\label{fig:eom_extinction}
 }
-\caption{Measurements of extinction ratio for \ac{rtp} (left) and \ac{bbo} (right). The dashed lines indicate the fourier series fit in order to find the high and low level of the signal. The results are $>108:1$ for \ac{rtp} and $>129:1$ for \ac{bbo}.}
 \end{figure}
-\todo{make plot nicer}
-
 
 As the pockels cell will be used in the chopping, which currently has a frequency of $\SI{1.4}{\mega\hertz}$, limits for the repetition rate of the \acp{eom} were tested. During this process, it was noted that the amplitude of the signal from the pockels cell was incosistent and in fact, changed depending on the repetition rate. This was most notable in the \ac{rtp} crystal. To quantize this in more detail, a program was written, that ramped the repetition rate up in $\SI{60}{\second}$ intervals, after which the resulting signal was recorded and the amplitude evaluated. This results in the diagram shown in Figure~\ref{fig:eom_amp_time}, however it needs to be noted, that alternating voltages were applied to the pockels cell, contrary to the argument before. This was found simply, because the behaviour was worse if only one type of voltage was applied. The diagram clearly shows resonant-like behaviour for \ac{rtp}. This means, that in the future, the chopping will have to be done around $\SI{1.5}{\mega\hertz}$, where the amplitude of the signal is close to the maximum and therefore loss of laser power is mostly only insertion loss into the \ac{eom}.
 
 \begin{figure}[t]%
-\label{fig:eom_amp_time}
 \centering{%
-	\setlength{\figureheight}{2in}
-	\setlength{\figurewidth}{\textwidth-1.2em}
-	%\input{figures/eom_amp_time.tikz}
-	\includegraphics{figures/eom_amp_time_155.pdf}
+\setlength{\figureheight}{2in}
+\setlength{\figurewidth}{\textwidth-1.2em}
+%\input{figures/eom_amp_time.tikz}
+\includegraphics{figures/eom_amp_time_155.pdf}
+\caption{Shown is the amplitude of a laser whose polarization was rotated by a pockels cell and then filtered using a polarizing beam splitter. The frequency is the repetition rate of the voltage placed into the \ac{eom}. The two materials are \ac{rtp} (orange) \ac{bbo} (blue). The curves are normalized to their maximum value.}%
+\label{fig:eom_amp_time}
 }
-\caption{Shown is the amplitude of a laser whose polarization was rotated by a pockels cell and then filtered using a polarizing beam splitter. The frequency is the repetition rate of the voltage placed into the \ac{eom}. The two materials are \ac{rtp} (orange) \ac{bbo} (blue). The curves are normalized to their maximum value.}
 \end{figure}
 
