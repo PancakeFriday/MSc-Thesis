@@ -154,6 +154,26 @@ This means a distance $x$, appearing on the $\SI{75}{\milli\meter}$ lens, is pro
 
 given an optical laser wavelength of $\lambda$. Taking into account the magnification, this means a typical atomic distance of $\SI{10}{\micro\meter}$, requires a change in frequency of $\Delta f = \SI{3.6}{\kilo\hertz}$.
 
+\subsection{Tweezer homogeneity}
+
+With all the building blocks in place, in order to drive the \ac{aod}, the tweezers are now ready to be imaged and tested. For this, the beam path shown in Figure~\ref{fig:setup_aod} was used, except the objective at the very end was replaced by a $f=\SI{500}{\milli\meter}$ lens and a camera (XIMEA MD028MU-SY). This way, the tweezers are visible directly on the camera. Moreover, in order to measure the homogeneity more accurately, after the $f=\SI{500}{\milli\meter}$ lens, a part of the beam split and coupled into a photodiode. This way, an image was taken with a camera and an oscilloscope. Although it is technically possible, to draw a grid with the \acp{aod}, by applying a superposition of multiple frequencies, the measurement discussed in the following was taken by turning on each tweezer separately one after another. This way, they can be distinguished on the oscilloscope.
+
+The Figures~\ref{fig:aod_grid} and~\ref{fig:aod_hom} show the results of these measurements. It can be seen in the camera image, that there is a slight field of view effect in the top-left corner. The first tweezer to be activated is in the lower left hand corner, then the following tweezer is to the left. This way, the tweezers are activated row-by-row, which allows to map them back to the intensity seen in the oscilloscope picture. The oscilloscope also shows an intensity ramp towards the end, which suggests the same field of view and therefore being an effect of the beam not perfectly aligned. Nonetheless, the intensity difference between the first and last set of tweezers is about $\SI{0.1}{\volt}$ or $5\%$ and can most likely be improved further.
+
+\begin{figure}[t]%
+\centering
+\includegraphics{figures/aod_grid_155.pdf}
+\caption{An image of tweezers was acquired by activating a set of $11\times11$ frequency combinations on the crossed \acp{aod}. A slight field of view effect is visible in the top-left corner.}%
+\label{fig:aod_grid}
+\end{figure}
+
+\begin{figure}[t]%
+\centering
+\includegraphics{figures/aod_hom_155.pdf}
+\caption{The same tweezer picture as in Figure~\ref{fig:aod_grid} was acquired using a photodiode. There is a trend of intensities growing towards the later tweezers. Between the last set of tweezers and the first, the difference is about $\SI{0.1}{\volt}$ or $5\%$.}%
+\label{fig:aod_hom}
+\end{figure}
+
 \section{Sorting algorithms}
 
 With the laser now passing through the crossed \acp{aod} and being shaped for the objective, it is time to rearrange the atoms for the experiment. To do so requires the knowledge about gaps in the pattern, which means when the atoms are loaded into the initial tweezers, an image is acquired. For this, the imaging beam is chopped together with the cooling, such that no atoms are lost in the process. From then on, atoms need to be moved along paths in order to fill the gaps. They can be lost, if the move is on the order of the scattering rate, as then the trap moves out of range while an atom is in the excited state. Generally speaking, the move needs to be as fast as possible, since heating effects discussed in Chapter~\ref{ch:chopping} lead to $1/e$ lifetimes on the order of 80 seconds. This in turn means, already $1.2\%$ of atoms are lost after one second, or at least one atom in a $10\times10$ grid.
