@@ -14,15 +14,16 @@
 %\end{itemize}
 
 Being able to measure the spin of ground state potassium atoms in many-body quantum experiments gives insight into the full quantum state and thus being able to pinpoint the ground state on the Bloch sphere. In Rydberg dressing experiments~\cite{Zeiher2016, Borish2020}, the spin can be used in a Ramsey sequence, in order to measure correlations~\cite{Boll2016, Zeiher2017}.
-This is, since the ground state atoms in a superposition of two spins, couple to the Rydberg state. In order to measure effects, such as Rydberg blockade, and the resulting correlations, the superposition state acquires a phase on the Bloch sphere, which needs to be evaluated. This is currently achieved, by doing a projection measurement by removing one component out of the system.
+This is, since the ground state atoms in a superposition of two spins, couple to the Rydberg state. In order to measure effects, such as Rydberg blockade~\cite{Urban2009}, and the resulting correlations, the superposition state acquires a phase on the Bloch sphere, which needs to be evaluated. This is currently achieved, by doing a projection measurement by removing one component out of the system.
+\todo{if rydberg dressing wasn't discussed in the Motivation, do it here}
 
-With the new approach, it is possible to evaluate the spin species, by transferring one spin component into a tweezer array. A spin-sensitive tweezer array is then moved, and thus the atoms having this spin component follow this dipole potential. This creates a separation, and by evaluating the geometry from a fluorescence image, it is thus possible to find how the tweezer arrays were previously occupied. Measuring the spins this way, also means the atoms will not heat out during the process, and therefore the system can be reassembled and reused for further investigation.
+With the new approach, it is possible to evaluate the spin species, by separating them in independent tweezers. A spin-sensitive tweezer array is then moved, and thus the atoms having this spin component follow this dipole potential. This creates a separation, and by evaluating the geometry from a fluorescence image, it is thus possible to find how the tweezer arrays were previously occupied. Measuring the spins this way, also means the atoms will not heat out during the process, and therefore the system can be reassembled and reused for further investigation.
 
-The following chapter will discuss the setup in question in more detail, as well as the wavelength in use, in order to have tweezers senstivie to only one spin component. The new laser system is explained in detail, which includes a cavity for frequency stabilization, and therefore stability of the laser is discussed.
+The following chapter will discuss the setup in question in more detail, as well as the wavelength in use, in order to have tweezers sensitive to only one spin component. The new laser system is explained in detail, which includes a cavity for frequency stabilization, and therefore stability of the laser is discussed.
 
 \section{Approaches}
 
-Measuring the spin means in our experiment, to take a flourescence image of the two ground states $F=1$ and $F=2$. However, during imaging, the spins are mixed, such that they can't be distinguished. As the experiment is using tweezers, this allows to move atoms, which was shown in~\ref{sec:sorting}. Therefore the approaches discussed in the following, both work by separating the two spins spatially. However, this requires finding ways of being sensitive to one specific ground-state spin. Two viable approaches are discussed in the following. The first idea is using strong magnetic fields to increase the separation of the spin levels with the Zeeman effect. The second approach is using a state selective light shift, given by selecting a particular wavelength. This allows one spin component to being trapped, while the other will see no trapping effect. In both applications, the idea is to trap one spin state in its own trap and physically move it away from the other. By taking an image, it is then possible to map positions to spins and therefore find out which tweezers contained which spin species. Moving the spin-sensitive tweezers back into its original position, the initial system is the reassembled and new measurements can be taken with more information.
+Measuring the spin means in our experiment, to take a flourescence image of the two ground states $F=1$ and $F=2$. However, during imaging, the spins are mixed, such that they can't be distinguished. As it was shown in Chapter~\ref{sec:sorting}, it is possible to move selected tweezers. Therefore two approaches are discussed in the following, both work by separating the two spins spatially. However, this requires finding ways of being sensitive to one specific ground-state spin. The first idea is using strong magnetic fields to increase the separation of the spin levels with the Zeeman effect. The second approach is using a state selective light shift, given by selecting a particular wavelength. This allows one spin component to be trapped, while the other will not see a trapping effect. In both applications, the idea is to trap one spin state in its own trap and physically move it away from the other. By taking an image, it is then possible to map positions to spins and therefore find out which tweezers contained which spin species. Moving the spin-sensitive tweezers back into its original position, the initial system is the reassembled and new measurements can be taken with more information.
 
 \subsection{Zeemann induced potential separation}
 
@@ -50,7 +51,7 @@ Using this, the idea is to create a position dependent trap for the two spin-sta
 	V_{dip}(r) = -\frac{\pi c^2 \Gamma}{2 w_0^3 \Delta} I(r),
 \end{align}
 
-where $\Gamma$ is the line width of the transition, in this case the D2 line, $\Delta$ the detuning, $w_0$ the resonance frequency and $I(r)$ the intensity of the laser beam. By applying the magnetic field gradient, the atoms see a total potential $V$:
+where $\Gamma$ is the line width of the transition, in this case the D2 line, $\Delta$ the detuning, $w_0$ the resonance frequency and $I(r)$ the intensity of the laser beam. By applying the magnetic field gradient, the atoms see a total potential $V(r)$:
 
 \begin{align}
 	V(r) = V_{dip}(r) + V_{mag}(B(r)),
@@ -62,13 +63,15 @@ These results are further illustrated in Figure~\ref{fig:pot_separation}.
 \begin{figure}[t]%
 \centering{%
 \includegraphics{figures/pot_zeeman_155.pdf}
-\caption{The spectrum of ground state potassium is split into magnetic sublevels and shifted depending on a magnetic field applied to the atoms. Shown are two spin states $F=1$ in blue and $F=2$ in purple, relative to the ground state energy of $\ce{^2S_{1/2}}$.}%
+\caption{The spectrum of ground state potassium is split into magnetic sublevels and shifted depending on a magnetic field applied to the atoms. Shown are two spin states $F=1$ in blue and $F=2$ in purple, relative to the ground state energy of $\ce{4S_{1/2}}$.}%
 \label{fig:pot_zeeman}
 }
 \end{figure}
 
-As such, given generous, but realistic experimental parameters, it is apparent, that this approach would only work for very high magnetic fields.
-From these calculations, given generous, but realistic parameters, we can conclude that this approach only works when very high magnetic fields are applied. From simulations, this means, applying a magnetic field slope of $B=\SI{4000}{\gauss\per\centi\meter}$ in order to get a separation of $\SI{0.2}{\micro\meter}$. Luckily, there is another approach, which works by using only the light from frequency stable lasers, which is discussed in the following.
+
+%As such, given generous, but realistic experimental parameters, it is apparent, that
+%Although generous parameters were given for the calculation, we see that this approach would only work for very high magnetic fields.
+The parameters used in the calculations are already on the optimistic end, which leads to the conclusion that this approach only works when very high magnetic fields are applied. Simulations show, that applying a magnetic field slope of $B=\SI{4000}{\gauss\per\centi\meter}$ results in a separation of $\SI{0.2}{\micro\meter}$. Luckily, there is another approach, which works by using only the light from frequency stable lasers, which is discussed in the following.
 
 \begin{figure}[t]%
 \centering{%
@@ -110,18 +113,18 @@ Due to the light shifts, the atoms see an induced potential, given by the energy
 \begin{figure}[t]%
 \centering{%
 \includegraphics{figures/light_shift_cross_155.pdf}
-\caption{The light shift of the $F=1,m_F=1$ (purple) and $F=2,m_F=2$ (blue) states is shown against wavelength for a laser power of $\SI{0.1}{\milli\watt}$ and positive circular polarization. At $\SI{768.40}{\nano\meter}$, the $F=1$ component is transparent to the laser, therefore making it possible to trap only the $F=2$ state.}%
+\caption{The light shift of the $F=1,m_F=1$ (purple) and $F=2,m_F=2$ (blue) states against wavelength for a laser power of $\SI{0.1}{\milli\watt}$ and positive circular polarization. At $\SI{768.40}{\nano\meter}$, the $F=1$ component is transparent to the laser, therefore making it possible to trap only the $F=2$ state.}%
 \label{fig:light_shift_cross}
 }%
 \end{figure}%
 
-In the experiment then, the light is produced as optical tweezers and mapped over the initial grid. To transfer the atoms into the spin-selective tweezer, the resulting trap has to be much deeper than the initial tweezers. These have a power of $\approx\SI{15}{\milli\watt}$, but are highly detuned to the excited state on the D2 line at a wavelength of $\SI{1064}{\nano\meter}$. Moreover, due to laser light having a bandwidth, the transparent atom might actually see a trap, therefore it needs to be verified, if that effect is non-negligible. Therefore, Figure~\ref{fig:relative_trap} shows the trap depth of the spin-sensitive tweezer over the trap depth of the initial tweezer, for both spin-species, when also accounting for a laser bandwidth of $\SI{200}{\giga\hertz}$. It turns out, that the bandwidth does not majorly affect the efficiency of not trapping the transparent state. Therefore, by using the AC-Stark shift, in order to shift atom levels is a viable approach in order to trap a single spin-component, allowing to image specific spin states.
+In the experiment then, the light is produced as optical tweezers and mapped over the initial grid. To transfer the atoms into the spin-selective tweezer, the resulting trap has to be much deeper than the initial tweezers. These have a power of $\approx\SI{15}{\milli\watt}$, but are highly detuned to the excited state on the D2 line at a wavelength of $\SI{1064}{\nano\meter}$. Moreover, due to laser light having a bandwidth, the transparent spin might actually see a trap, therefore it needs to be verified, whether this effect is non-negligible. Figure~\ref{fig:relative_trap} shows the trap depth of the spin-sensitive tweezer over the trap depth of the initial tweezer, for both spin-species, when also accounting for a laser bandwidth of $\SI{200}{\giga\hertz}$. It turns out, that the bandwidth does not majorly affect the efficiency of not trapping the transparent state. Consequently, using the AC-Stark shift to shift atom levels is a viable approach in order to trap a single spin-component, allowing to image specific spin states.
 
 
 \begin{figure}[t]%
 \centering{%
 \includegraphics{figures/spin_rel_pot_155.pdf}
-\caption{Shown is the fraction of trap depths for the spin-tweezer and initial tweezers as a function of the spin-tweezer laser power. It is shown for the $F=1,m_F=1$ (purple) and $F=2,m_F=2$ (blue) state, to highlight that only one state is trapped. The colored area shows the effect of the laser bandwidth on the spin-tweezer, if a bandwidth of $\SI{200}{\giga\hertz}$ is assumed. Already at $\SI{2}{\milli\watt}$ power, the spin tweezer is more than 10 times deeper than the initial tweezer.}%
+\caption{Fraction of trap depths for the spin-tweezer and initial tweezers as a function of the spin-tweezer laser power. For the $F=1,m_F=1$ (purple) and $F=2,m_F=2$ (blue) state, only one state is trapped. Already at $\SI{2}{\milli\watt}$ power, the spin tweezer is more than 10 times deeper than the \ac{slm} tweezer. To argue that the bandwidth of the laser is not relevant for the efficiency of the spin-selective trapping, a bandwidth of $\SI{100}{\giga\hertz}$ was assumed and results in the shaded area surrounding the lines.}%
 \label{fig:relative_trap}
 }
 \end{figure}
@@ -132,9 +135,12 @@ We have seen, how light shifts can be used to trap a single spin species. Doing 
 
 \subsection{Laser classification}
 
-The first step in building a stable laser source for spin-selective imaging, is having a laser to work with. This means, collimating light from a laser diode and forming a standing wave inside the laser cavity. The laser diode (Eagleyard EYP-RWE-0760-02010-1500-SOT12-0000) used, is tunable in the range from $\SI{752}{\nano\meter}$ to $\SI{772}{\nano\meter}$ with a maximum power of $\SI{80}{\milli\watt}$. Since the diode is also used as the active medium, the cavity simplifies to being just a mirror, that reflects back into the diode and transmits part of the light out of the laser casing.
+The laser classified in the following is a homebuilt model, the design of which is given in Appendix~\ref{aaaa}\todo{ref}. It has room for a laser diode, whose light is collimated, filtered and reflected through a partially reflective mirror, which also serves as the output of the housing.
+The laser diode (Eagleyard EYP-RWE-0760-02010-1500-SOT12-0000) used, is tunable in the range from $\SI{752}{\nano\meter}$ to $\SI{772}{\nano\meter}$ with a maximum power of $\SI{80}{\milli\watt}$. Since the diode is also used as the active medium, the cavity simplifies to being just a mirror, that reflects back into the diode and transmits part of the light out of the laser casing.
 
-The light emitted from the laser device is then evaluated, based on the laser curve. This means, by increasing the current supplied to the laserdiode, there will be a point at which the power emitted from the cavity suddenly jumps. After that point, increasing the current on the laserdiode will increase the power in equal parts. This curve has been measured for the diode in question, verifying that the system is actually lasing, and is shown in Figure~\ref{fig:laser_curve}.
+The laser power is classified as a function of current supplied to the laserdiode. At the point where the device starts to lase, the power is linear with current and the diagram for the model built here is given in Figure~\ref{fig:laser_curve}.
+
+%The light emitted from the laser device is then evaluated, based on the laser curve. This means, by increasing the current supplied to the laserdiode, there will be a point at which the power emitted from the cavity suddenly jumps. After that point, increasing the current on the laserdiode will increase the power in equal parts. This curve has been measured for the diode in question, verifying that the system is actually lasing, and is shown in Figure~\ref{fig:laser_curve}.
 
 \begin{figure}[t]%
 \centering{%
@@ -156,22 +162,25 @@ Now that there is a laser, the beam path in order to have a laser for spin-selec
 }
 \end{figure}
 
-The main path will then be coupled into a fibre, going towards to \ac{aod} discussed previously. However, the beam needs to be turned on and off at certain times during the experiment, for this, it first passes through an \ac{aom} and finally a shutter to block any leftover stray light. As discussed previously, in~\ref{sec:tweezer_beams}, the light coming out of the fibre is then intensity stabilized and coupled into the \ac{aod}, which can be programmed to move the spin-sensitive tweezers.
+The main path is then coupled into a fibre, going towards the \ac{aod} discussed previously. However, the beam needs to be turned on and off at certain times during the experiment, for this, it first passes through an \ac{aom} and finally a shutter to block any leftover stray light. As shown previously, in~\ref{sec:tweezer_beams}, the light coming out of the fibre is then intensity stabilized and coupled into the \ac{aod}, which can be programmed to move the spin-sensitive tweezers.
 
 \subsection{Cavity classification}
 
-The laser has been built and characterized and can be coupled into the \ac{aod}, in order to generate movable tweezer for spin-selective imaging. However, the process requires a stable frequency at $\SI{768.40}{\nano\meter}$. As a matter of fact, not only are there resonances at $\SI{766.7}{\nano\meter}$ and $\SI{770.1}{\nano\meter}$, this spin-selecting procedure works on the fact, that one spin state is completely transparent to the laser light, in terms of seeing a dipole potential. In order to have the laser emit a stable frequency, a piezo electronically controls the mirror inside the laser cavity. This way, the length of the cavity, and therefore the standing wave, can be adjusted in length. However, pressure and temperature can both affect the mirror, and therefore there needs to be a system in place, to compensate for these factors.
+The laser has been built and characterized and can be coupled into the \ac{aod}, in order to generate movable tweezer for spin-selective imaging. However, the process requires a stable frequency at $\SI{768.40}{\nano\meter}$. As a matter of fact, not only are there resonances at $\SI{766.7}{\nano\meter}$ and $\SI{770.1}{\nano\meter}$, this spin-selecting procedure works by requires that one spin state is completely transparent to the laser light, in terms of seeing a dipole potential. In order to have the laser emit a stable frequency, a piezo tunes the position of the mirror inside the laser cavity based on an input signal. This way, the length of the cavity, and therefore the standing wave, can be selected. However, pressure and temperature can both affect the mirror, and therefore there needs to be a system in place, to compensate for these factors.
 
-Therefore, it is necessary to have a device, that measures the instability, and feeds back a signal to the piezo. In order to do this, a part of the laser is split off and sent into a stable cavity. The light that has passed the cavity is measured using a photodiode and it is then possible to measure resonances of this cavity. When this is the case, a signal is generated, that is fed into the piezo, whenever the light on the photodiode is not on the resonance. This electronic signal is generated using the \acl{pdh} locking method and has been used and described in the experiment before~\cite{Hirthe2018}.
+Consequently, it is necessary to have a device, that measures the instability, and feeds back a signal to the piezo. In order to do so, a part of the laser is split off and sent into a stable cavity. The light that has passed the cavity is measured using a photodiode and it is then possible to measure resonances of this cavity. With the \ac{pdh} method, an error signal is generated, that gives a feedback to the piezo. This generates a feedback loop, which is stable when the error signal is at a minimum. The process has been used and described in the experiment before~\cite{Hirthe2018}. The error signal recorded for this specific setup was recorded and is given in Chapter~\ref{ch:app_pdh}.
+%When this is the case, a signal is generated, that is fed into the piezo, whenever the light on the photodiode is not on the resonance. This electronic signal is generated using the \acl{pdh} locking method and has been used and described in the experiment before~\cite{Hirthe2018}. An image of the \ac{pdh} from the cavity is given in Chapter~\ref{ch:app_pdh}.
 
 The stable cavity in place for locking the laser frequency is made from a \ac{ule} glass, that has two mirrors attached to it. The material is not explicitly necessary, however the full extent of this specific \ac{ule} couldn't be used anymore, as only one side has the mirror contacted, while the other mirror is glued. Therefore, due to the glue, this cavity is still prone to some wavelength drifts, induced by temperature expanding and compressing the material. This specific application can deal with these instabilities and therefore the glass was recycled for this setup. In order to stabilize the cavity against temperature fluctuations, it rests in a copper housing. This copper housing further rests in a stainless steel container. This container is then evacuated with a vacuum pump, which stabilizes the cavity against pressure fluctuations. A picture of the cavity is given in Appendix~\ref{ch:app_cavity}.
 
-In order to quantize the stability this cavity can provide, the frequency drift is measured. However, at $\SI{768.40}{\nano\meter}$, the frequency is in the hundreds of terahertz, which is difficult to measure conventionally. However, by superimposing a reference laser onto the spin-laser, that has a very stable frequency, it is possible to measure the beat mode. Mathematically, this means adding two sine-signals together:
+In order to quantize the stability this cavity can provide, the frequency drift is measured. However, at $\SI{768.40}{\nano\meter}$, the frequency is in the hundreds of terahertz, which is difficult to measure conventionally. However, by superimposing a reference laser onto the spin-laser, that has a very stable frequency, it is possible to measure the beat note. Mathematically, this means adding two sine-signals together:
 
 \begin{align}
 	\sin{\left(2\pi f_1 t\right)} + \sin{\left( 2 \pi f_2 t \right)}
-	= 2 \sin{\left( 2\pi \frac{f_1+f_2}{2}t \right)} \cos{\left( 2\pi \frac{f_1-f_2}{2}t \right)}.
+	= 2 \sin{\left( 2\pi \frac{f_1+f_2}{2}t \right)} \cos{\left( 2\pi \frac{f_1-f_2}{2}t \right)},
 \end{align}
+
+where $f_1$ and $f_2$ are the frequencies of the reference and spin-laser respectively.
 
 This relation turns two modulations, which have the frequencies added and subtracted. The first one still can't be resolved, however if the difference frequency is low enough, it is possible to see it on a spectrum analyzer. This means, the frequency of the ``unstable'' laser was first matched to the stable laser, such that the difference frequency was at least in the Megahertz regime. Then, it is possible to observe the drift of the cavity, which is the change in frequency with time. This usually happens due to temperature drifts affecting the cavity. The measurement was taken over several days and recorded as in Figure~\ref{fig:cavity_drift}. Close to the end of the measurement, the drift was at a minimum of around $\SI{33}{\mega\hertz}$ per day, which is well within the limits, which can be verified with Figure~\ref{fig:relative_trap}.
 

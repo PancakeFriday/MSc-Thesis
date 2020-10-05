@@ -115,6 +115,10 @@
 % BraKets
 \usepackage{braket}
 
+% Math mode
+\usepackage{amsmath}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
 % Tables
 \usepackage{array} % for math mode in tables
 \usepackage{booktabs} % for hline rules
