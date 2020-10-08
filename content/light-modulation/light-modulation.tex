@@ -1,6 +1,5 @@
-\chapter{Chopping}%
+\chapter{Loading atoms into optical tweezers}%
 \label{ch:chopping}
-\todo{Better headline}
 
 %\subsection*{General idea and length}
 %\begin{itemize}
@@ -23,7 +22,7 @@ So far, alternating between molasses cooling and trapping light, called chopping
 }
 \end{figure}
 
-Achieving larger duty cycles and higher chopping frequencies is possible by using \acp{eom}, which are not limited by acoustic waves. The optical medium is modulated using electric fields, and in fact, can be switched as fast as common condensators. Light entering the modulator will have its polarization turned, depending on the electric field that is applied. In the following, the polarization of electro-magnetic waves is briefly discussed, which is followed by the main effect governing the devices tested in this thesis --- the Pockels effect. The devices are then evaluated by filtering one polarization component and by measuring the intensity of the light after the filter, the rise times and extinction ratio are determined. The new system allows to switch with rise times on the order of nanoseconds, improving the current system by at least two orders of magnitude.
+Achieving larger duty cycles and higher chopping frequencies is possible by using \acp{eom}, which are not limited by acoustic waves. The optical medium is modulated using electric fields, and in fact, can be switched as fast as common condensators\docite{}\todo{cite}. Light entering the modulator will have its polarization turned, depending on the electric field that is applied. In the following, the polarization of electro-magnetic waves is briefly discussed, which is followed by the main effect governing the devices tested in this thesis --- the Pockels effect. The devices are then evaluated by filtering one polarization component and by measuring the intensity of the light after the filter, the rise times and extinction ratio are determined. The new system allows to switch with rise times on the order of nanoseconds, improving the current system by at least two orders of magnitude.
 
 \section{Theory on Polarization}%
 \label{sec:pol}
@@ -47,23 +46,23 @@ Changing the phases of the wave relative to each other gives the ability to infl
 	\phi_y(z) = k_0 n_y z
 \end{align}
 
-where $k_0$ is the free space wave vector of the light. Then a device that retards the phase difference $\Delta \phi$ by $\pi/2$, which is a quarter of the wavelength, can change linearly polarized light to circularly polarized light (or vice-versa) and is therefore called a $\lambda / 4$ waveplate. Similarily, if the phase difference is changed by $\Delta \phi = \pi$, or a half wavelength, then we can turn linear polarization around a given axis or change the orientation of circularly polarized light. This is then called a $\lambda / 2$ waveplate. In the experiment, linearly polarized light will enter the \ac{eom}, which will act as a $\lambda / 2$ waveplate, turning the polarization by $\SI{90}{\degree}$, making it easy to filter unwanted polarization components and switching the light on and off.
+where $k_0$ is the free space wave vector of the light. Then a device that retards the phase difference $\Delta \phi$ by $\pi/2$, which is a quarter of the wavelength, can change linearly polarized light to circularly polarized light (or vice-versa) and is therefore called a $\lambda / 4$ waveplate. Similarily, if the phase difference is changed by $\Delta \phi = \pi$, or a half wavelength, then we can turn linear polarization around a given axis or change the orientation of circularly polarized light. This is then called a $\lambda / 2$ waveplate. In the experiment, linearly polarized light enters the \ac{eom}, which will act as a $\lambda / 2$ waveplate, turning the polarization by $\SI{90}{\degree}$, making it easy to filter unwanted polarization components and switching the light on and off.
 
 \section{Electro-optical modulators}%
 \label{sec:eom}
 
-Light travelling through a material generally has a speed smaller than the speed of light. This property of the material is the refractive index and is the ratio of the speed of light in the material to the speed of light in vacuum. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a crystal connected to two electrodes. There are two prominent electro-optical effects that need to be distinguished. If the refractive index changes linearly with the electric field, the effect is called Pockels effect and the \ac{eom} is called a Pockels cell. The effect is discussed in the following and the Pockels cells evaluated afterwards.
+Light travelling through a material generally has a speed smaller than the speed of light, given by dividing the speed of light in vacuum by the material-dependent refractive index. Materials can change their refractive index by being exposed to an electric field, which in \acp{eom} is generally a crystal connected to two electrodes. The electro-optical effect discussed in the following is the Pockels effect and applies, when the refractive index changes linearly with the electric field, at which point the \ac{eom} is called a Pockels cell. The effect is discussed in the following and the Pockels cells evaluated afterwards.
 
 \subsection{Pockels effect}%
 \label{sec:Pockels_effect}
 
-As motivated in the previous section, the goal of modulating the light polarization is to change the relative refractive index of a medium in two axes. Following the argumentation from the book Fundamentals of Photonics~\cite{Saleh1991}, the Pockels effect can be found by evaluating the refractive index with respect to the electric field applied to the modulator. Writing this as $n(E)$ and applying a Taylor expansion, we get the following expression:
+As motivated in the previous section, the goal of modulating the light polarization is to change the relative refractive index of a medium in two axes. Following the argumentation from the book Fundamentals of Photonics~\cite{Saleh1991}, the Pockels effect can be described by evaluating the refractive index with respect to the electric field applied to the modulator. Writing this as $n(E)$ and applying a Taylor expansion, we get the following expression:
 
 \begin{equation}
 	n(E) = n_0 + \frac{dn}{dE} E + \mathcal{O}(E^2)
 \end{equation}
 
-The Pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor $dn / dE$ can be found from the change of electric impermeability $\Delta \eta$, which is the ability of a material to be penetrated by an electromagnetic field. From
+The Pockels effect is the linear dependence of the refractive index to the electric field, therefore higher orders are neglected. The prefactor $dn / dE$ relates to the change of electric impermeability $\Delta \eta$, which is the ability of a material to be penetrated by an electromagnetic field. From
 
 \begin{align}
 	\eta & = \frac{1}{n^2},
@@ -91,7 +90,7 @@ As was seen in Equation~\ref{eq:pol,phases}, the refractive index directly affec
 
 where the relation $k_0 = 2 \pi / \lambda_0$ of the wave number was used.
 
-In this application, the Pockels cells act as dynamic wave retarders. With the results from Section~\ref{sec:pol} we can tune the phase difference $\Delta \phi = \phi_x - \phi_y$ along the axes $x$ and $y$ by applying an electric field. With the correct parameters, the phase difference lets the \ac{eom} act as a $\lambda / 2$ or $\lambda / 4$ waveplate. The following relations will help find the main formula governing Pockels cells, resulting in the voltage that needs to be applied to the \ac{eom} in order to turn the polarization by a given amount.
+In this application, the Pockels cells act as dynamic wave retarders. Given results from Section~\ref{sec:pol} we can tune the phase difference $\Delta \phi = \phi_x - \phi_y$ along the axes $x$ and $y$ by applying an electric field. With the correct parameters, the phase difference lets the \ac{eom} act as a $\lambda / 2$ or $\lambda / 4$ waveplate. The following relations will help find the main formula governing Pockels cells, resulting in the voltage that needs to be applied to the \ac{eom} in order to turn the polarization by a given amount.
 
 By labeling the refractive index in two dimensions as:
 
@@ -116,7 +115,7 @@ the phase difference becomes:
 }
 \end{figure}
 
-The next step is to replace the electric field by a voltage that can be applied to the Pockels cell. For this, two electrodes are connected to the \ac{eom}, separated by a distance $d$, giving the electric field as $E=V/d$. This quantity is replaced into Equation~\ref{eq:eom_phase_diff}. By realizing that the phase is unitless, all other prefactors of the voltage can be combined into one quantity, called the half-wave voltage $V_\pi$:
+The next step is to replace the electric field by a voltage that can be applied to the Pockels cell. For this, two electrodes are connected to the electro-optical material, separated by a distance $d$, giving the electric field as $E=V/d$. This quantity is replaced into Equation~\ref{eq:eom_phase_diff}. By realizing that the phase is unitless, all other prefactors of the voltage can be combined into one quantity, called the half-wave voltage $V_\pi$:
 
 \begin{align}
 	V_\pi = \frac{d}{L} \frac{\lambda_0}{\mathfrak{r}_x n_x^3 - \mathfrak{r}_y n_y^3}.
@@ -129,21 +128,18 @@ Thus, the phase difference can be rewritten as:
 	\Delta \phi = \Delta \phi_0 - \pi \frac{V}{V_\pi}.
 \end{align}
 
-With this it is clear, that applying the voltage $V_\pi$, the Pockels cell will act as a $\lambda/2$ waveplate. A visual represantation of the modulator and the light passing through it is given in Figure~\ref{fig:eom_schem}, highlighting the change in relative phase of the two components of the electro-magnetic wave.
+Therefore, applying the voltage $V_\pi$, the Pockels cell will acts a $\lambda/2$ waveplate. A visual represantation of the modulator and the light passing through it is given in Figure~\ref{fig:eom_schem}, highlighting the change in relative phase of the two components of the electro-magnetic wave.
 
 We have seen, how applying a voltage to an electro-optical medium changes the refractive index and therefore affects the phase of an electromagnetic wave. By having two refractive indices in two axes, whose relative change depends on the applied voltage, it is therefore possible to modify the circularity and linearity of the polarization in an \acl{eom}.
 
-\subsection{Driving a Pockels cell}
+\subsection{Driving a Pockels cell}%
 \label{sec:pockels_cell_drive}
 
-With an understanding of the Pockels effect governing the \acp{eom} tested in this thesis, the next step is driving the Pockels cells with the voltages used for switching. As the rise and fall times of the switched Pockels cells are crucial and depend only on the speed of applying the electric field, it is important to build electronics that can provide these fast rise and fall times. However, materials suitable for use as \acp{eom}, such as \ac{bbo} and \ac{rtp} have half-wave voltages in the kilovolt-regime, meaning not only does the hardware need to be able to handle high voltages, but it is also necessary to switch those voltages on a fast timescale. This is going to turn out the be on the order of nanoseconds for the drivers used here (by BME Bergmann).
+With an understanding of the Pockels effect governing the \acp{eom} tested in this thesis, the next step is driving the Pockels cells with the voltages used for switching. As the rise and fall times of the switched Pockels cells are crucial and depend only on the speed of applying the electric field, it is important to build electronics that can provide these fast rise and fall times. However, materials suitable for use as \acp{eom}, such as \ac{bbo} and \ac{rtp} have half-wave voltages in the kilovolt-regime, meaning not only does the hardware have to switch on fast timescales, but it also needs to be able to handle high voltages.
 
-%When using \acp{eom} for switching of laser light, rise and fall times are a direct consequence of the electronics used to apply the respective voltages to the Pockels cell. 
-%Rise and fall times of Pockels cells can go as low as nanoseconds. To make use of this speed, one has to deploy clever ways to drive the voltages, especially when these potentials are in the kilovolt-regime. For the two Pockels cells discussed in this thesis, specialized drivers by BME-Bergmann were used.
+The Pockels cell drivers discussed in the following (by BME Bergmann) fulfill these requirements. Moreover, it contains viewports for the laser light, such that the Pockels cell can be integrated into the driver to not expose the high voltage to any parts of the experiment but the modulators. The driver has an input for the high voltage and option for watercooling in order to compensate temperature instabilities on the Pockels cell. Furthermore, it contains four inputs, that allow to have full control over the switching of the voltages. This means, the \acp{eom} can be switched on and off by applying TTL signals to the inputs of the driver.
 
-The Pockels cell drivers discussed in the following contain the switching electronics necessary to drive the \acp{eom}. Moreover, it contains viewports for the laser light, such that the Pockels cell can be integrated into the driver to not expose the high voltage to any parts of the experiment but the modulators. The driver has an input for the high voltage and option for watercooling in order to compensate temperature instabilities on the Pockels cell. Furthermore, it contains four inputs, in order to have full control over the switching of the voltages. This means, the \acp{eom} can be switched on and off by applying TTL signals to the inputs of the driver.
-
-It is necessary to understand the switching logic used inside the driver, in order to correctly drive the Pockels cell and therefore turn the polarization of the light. Schematically, the driver is divided into the four switches mentioned above, that are controlled from the user: ON A, ON B, OFF A and OFF B. Two switches are connected to either side (labeled A and B) of the Pockels cell, such that A controls one electrode and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X also sends a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure~\ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side. The figure shows switching logics for two different drives used in the experiment. These are named by the manufacturer as dpp-type and bpp-type.
+In order to correctly drive the Pockels cell and therefore turn the polarization of the light, it is necessary to understand the switching logic used inside the driver. Schematically, the driver is divided into the four switches mentioned above, that are controlled from the user: ON A, ON B, OFF A and OFF B. Two switches are connected to either side (labeled A and B) of the Pockels cell, such that A controls one electrode and B the other. Most importantly, the ON X and OFF X (X referring to either A or B) switches work exclusively, so sending a high to ON X also sends a low to OFF X and vice-versa. It is then possible to apply either a positive high voltage or a negative high voltage, depending on the state of the switches. For full identification of the circuit, which is given in Figure~\ref{fig:eom_driver_switches}, the side containing the positive voltage information is called high side and similarily the side containing the negative voltage information is called low side. The figure shows switching logics for two different drives used in the experiment. These are named by the manufacturer as dpp-type and bpp-type.
 
 \begin{figure}[t]%
 \centering{%
@@ -156,9 +152,9 @@ It is necessary to understand the switching logic used inside the driver, in ord
 }
 \end{figure}
 
-A requirement for our experiment is to have the \acp{eom} work consistently. This means it is preferrable to only apply one type of voltage, because it can not be guaranteed that applying the same voltage with different polarity results in the same shift in polarization. This is due to the high fidelity of the Pockels cell with respect to the input polarization and therefore highly depends on the alignment of the Pockels cell. The diagram in Figure~\ref{fig:eom_timings} shows pulses applied to the switches on the A and B side, necessary to only drive positive voltages to the Pockels cell.
+A requirement for our experiment is, to have the \acp{eom} work consistently. This means it is preferrable to only apply one type of voltage, because it can not be guaranteed that applying the same voltage with different polarity results in the same shift in polarization. This is due to the high fidelity of the Pockels cell with respect to the input polarization and therefore highly depends on the alignment of the Pockels cell. The diagram in Figure~\ref{fig:eom_timings} shows pulses applied to the switches on the A and B side, necessary to only drive positive voltages to the Pockels cell.
 
-For the bpp-type driver, this is straightforward, as closing high side A and low side B gives a positive voltage across the \ac{eom} and the inverse connects ground to ground through the \ac{eom}, giving zero voltage. The dpp-type driver on the other hand, has high and low voltages on either side of the Pockels cell. Therefore, the sequence that results in positive and then no voltage across the \ac{eom} is, to close high side A and low side B switch, resulting in a positive voltage across the \ac{eom}. Afterwards, connecting high side A and high side B gives the same voltage on either side of the Pockels cell, resulting in a net zero voltage. After this point, low side B is closed again, giving the same state as before. In the timing diagram, the low side A switch would be closed at this point. It is possible to keep high side A closed the entire time, however it is recommended in the documentation to alternate both switches in order to relax their states.
+For the bpp-type driver, this is straightforward, as closing high side A and low side B gives a positive voltage across the \ac{eom} and the inverse connects ground to ground through the \ac{eom}, giving zero voltage. The dpp-type driver on the other hand, has high and low voltages on either side of the Pockels cell. Therefore, the sequence that results in positive and then no voltage across the \ac{eom} is, to close high side A and low side B switch, providing a positive voltage across the \ac{eom}. Afterwards, connecting high side A and high side B gives the same voltage on either side of the Pockels cell, resulting in a net zero voltage. After this point, low side B is closed again, providing the same state as before. In the timing diagram, the low side A switch would be closed at this point. It is possible to keep high side A closed the entire time, however it is recommended in the documentation to alternate both switches in order to relax their states.
 
 \begin{figure}[t]%
 \centering{%
@@ -168,9 +164,9 @@ For the bpp-type driver, this is straightforward, as closing high side A and low
 }
 \end{figure}
 
-\subsection{Evaluation of Leysop Pockels cells}
+\subsection{Testing and evaluating pockels cells}
 
-Two pockels cells (from Leysop Ltd.) are characterized in the following. The \acp{eom} in contrast to the \acp{aom} implemented in the current setup allow longer duty cycles of the tweezer light. Switching laser light is achieved in Pockels cells by exploiting the fact, that linearly polarized light can be filtered out. In the following, a \ac{pbs} acts as the filter directly after the modulator as seen in Figure~\ref{fig:eom_setup}. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter, save for a fraction of light, given by the extinction ratio of the beam splitter (typically for the ones used in the experiment, the extinction ratio is about 200:1).
+Two pockels cells (from Leysop Ltd.) are characterized in the following. The \acp{eom} in contrast to the \acp{aom} implemented in the current setup allow longer duty cycles of the tweezer light. Switching laser light is achieved in Pockels cells by exploiting the fact, that linearly polarized light can be filtered out. In the following, a \ac{pbs} acts as the filter directly after the modulator as seen in Figure~\ref{fig:eom_setup}. This way, the setup can be configured such that applying no voltage means light passes through the beam splitter, while applying $V_\pi$ means the light gets reflected $\SI{90}{\degree}$ off the beam splitter, save for a fraction of light, given by the extinction ratio of the beam splitter (typically for the ones used in the experiment, manufactured by Thorlabs, the extinction ratio is about 1000:1).
 
 \begin{figure}[t]%
 \centering{%
@@ -206,7 +202,8 @@ First of all, the rise and fall times of the \acp{eom} are determined. Light who
 
 where $high$ and $low$ refer to the high and low level of the signal respectively, which will come in useful later when evaluating the extinction ratio. The signals in Figure~\ref{fig:eom_rise} were recorded for both \acp{eom}, however from the low number of sampled points it is clear, that the oscilloscope used for the measurement is a limiting factor. Moreover, harmonics appear when the signal has risen to the upper level, indicating that the bandwidth of either the photodiode or the oscilloscope is too low. For this measurement, the oscilloscope (Teledyne Lecroy Wafesurfer 510) has a samplerate of $\SI{10}{\giga\samples\per\second}$ and a bandwidth of $\SI{1}{\giga\hertz}$. The photodiode is a home-built model, whose bandwidth has not been evaluated. The fit can't be applied to the data, due to the low number of points, however an upper bound for the rise time can still be given by measuring the distance between the last point on the lower level and the first point on the upper level. For both crystals, this means that the rise time is at least a fraction of a microsecond. In contrast to the \acp{aom} that are currently in use, this is already an improvement by at least one order of magnitude (see Figure~\ref{fig:aom_chopping}).
 
-The manufacturer of the Pockels cell driver has done independent tests on the same \acp{eom} used here. The data is available on their website~\cite{Bergmann2020} and they measured rise times for \ac{rtp} and \ac{bbo} as $\SI{3}{\nano\second}$ and $\SI{4}{\nano\second}$ respectively, which would improve on the \ac{aom} setup by three orders of magnitude in rise times.
+However, the manufacturer of the Pockels cell driver has done independent tests on the same \acp{eom} used here. The data is available on their website~\cite{Bergmann2020} and they measured rise times for \ac{rtp} and \ac{bbo} as $\SI{3}{\nano\second}$ and $\SI{4}{\nano\second}$ respectively, which therefore improves on the \ac{aom} setup by three orders of magnitude in rise times.
+
 \begin{figure}[t]%
 \centering{%
 \includegraphics{figures/eom_rise_155.pdf}
@@ -215,7 +212,7 @@ The manufacturer of the Pockels cell driver has done independent tests on the sa
 }
 \end{figure}
 
-Moving on from the rise times, it is important to measure how much light is left when it is supposed to be off, filtering it from the \ac{pbs}. The measure in question is the extinction ratio and is evaluated by the ratio of the $high$ to the $low$ level of the signal. Figure~\ref{fig:eom_extinction} shows signals taken for both crystals using the same setup as before. In order to correctly evaluate both levels, it is necessary to note that photodiodes are susceptible to dark noise, which is electrical noise falsely registered as light. This means a dark image was taken, with the laser beam off, and the mean of the dark image was subtracted from the signals used to evaluate the extinction ratio. The high and low levels are then given by selecting points of the respective level after it has stabilized, which are highlighted in Figure~\ref{fig:eom_extinction}.
+Another important parameter is the extinction ratio, which is the amount of light that is left, when the device is supposed to be off. It is evaluated by the ratio of the $high$ to the $low$ level of the signal. Figure~\ref{fig:eom_extinction} shows signals taken for both crystals using the same setup as before. In order to correctly evaluate both levels, it is necessary to note, that photodiodes are susceptible to dark noise, which is electrical noise falsely registered as light. To compensate for this, a dark image was taken, with the laser beam off, and the mean of the dark image was subtracted from the signals used to evaluate the extinction ratio. The high and low levels are then given by selecting points of the respective level after it has stabilized, which are highlighted in Figure~\ref{fig:eom_extinction}.
 Giving an upper bound to the extinction proves difficult, as already the standard deviation on the low level for both crystals is on the order of the mean. Nonetheless, relevant parameters for the extinction ratio for both crystals are given in Table~\ref{tbl:extc_ratio}.
 
 \begin{table}
@@ -233,7 +230,7 @@ Giving an upper bound to the extinction proves difficult, as already the standar
 \end{center}
 \end{table}
 
-However, the lower bound is the mean of the level, which for \ac{rtp} gives $51:1$ and for \ac{bbo} gives $57:1$. The manufacturer provides an extinction ratio for the \ac{rtp} crystal of $> 200:1$, however no value is given for \ac{bbo}. This means, that our measurement is limited by the photodiode and in order to validate the value given by the manufacturer, it is necessary to reduce the dark noise for example by cooling the photodiode or alternatively, using a faster, low noise photodiode.
+However, the lower bound is the fraction of the mean values from the two levels, which for \ac{rtp} gives $51:1$ and for \ac{bbo} $57:1$. The manufacturer provides an extinction ratio for the \ac{rtp} crystal of $> 200:1$, however no value is given for \ac{bbo}. This means, that our measurement is limited by the photodiode and in order to validate the value given by the manufacturer, it is necessary to reduce the dark noise for example by cooling the photodiode or alternatively, using a faster, low noise photodiode.
 
 \begin{figure}[t]%
 \centering{%

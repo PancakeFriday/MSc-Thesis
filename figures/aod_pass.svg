@@ -107,7 +107,7 @@
      inkscape:cx="355.05646"
      inkscape:cy="700.06367"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer6"
      showgrid="false"
      inkscape:snap-global="true"
      showguides="false"
@@ -148,7 +148,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -423,7 +423,7 @@
          id="tspan1824-2-0"
          x="83.891777"
          y="99.865372"
-         style="font-size:3.52777767px;stroke-width:0.26458332">\textsf{AOD2}</tspan></text>
+         style="font-size:3.52777767px;stroke-width:0.26458332">\textsf{AOD 2}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -434,6 +434,6 @@
          id="tspan1824-2"
          x="59.983768"
          y="121.6754"
-         style="font-size:3.52777767px;stroke-width:0.26458332">\textsf{AOD1}</tspan></text>
+         style="font-size:3.52777767px;stroke-width:0.26458332">\textsf{AOD 1}</tspan></text>
   </g>
 </svg>

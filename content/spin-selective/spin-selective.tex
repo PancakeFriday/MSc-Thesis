@@ -1,4 +1,4 @@
-\chapter{Spin-selective imaging}%
+\chapter{State selective light shifts for spin-sensitive imaging}%
 \label{ch:spin_resolved}
 %\subsection*{General idea and length}
 
@@ -13,7 +13,7 @@
 %\item Conclude with outlook on building it in? (1-2 pages)
 %\end{itemize}
 
-Being able to measure the spin of ground state potassium atoms in many-body quantum experiments gives insight into the full quantum state and thus being able to pinpoint the ground state on the Bloch sphere. In Rydberg dressing experiments~\cite{Zeiher2016, Borish2020}, the spin can be used in a Ramsey sequence, in order to measure correlations~\cite{Boll2016, Zeiher2017}.
+Being able to measure the spin of ground state potassium atoms in many-body quantum experiments gives insight into the full quantum state and thus being able to pinpoint the ground state on the Bloch sphere. In Rydberg dressing experiments~\cite{Zeiher2016, Borish2020}, where the atom is in a ground state and fractionally in an excited Rydberg state, the spin can be used in a Ramsey sequence, in order to measure correlations~\cite{Boll2016, Zeiher2017}.
 This is, since the ground state atoms in a superposition of two spins, couple to the Rydberg state. In order to measure effects, such as Rydberg blockade~\cite{Urban2009}, and the resulting correlations, the superposition state acquires a phase on the Bloch sphere, which needs to be evaluated. This is currently achieved, by doing a projection measurement by removing one component out of the system.
 \todo{if rydberg dressing wasn't discussed in the Motivation, do it here}
 
@@ -27,7 +27,7 @@ Measuring the spin means in our experiment, to take a flourescence image of the 
 
 \subsection{Zeemann induced potential separation}
 
-In the previous paragraphs, it was highlighted how the spin levels are too close in energy space, to address them individually with optical lasers. However, by having a position dependent potential, that is different for each spin state, is enough to spatially separate them and thus there is no need of resonantly driving each spin. One way of achieving this, is by applying magnetic fields. In 1896, Pieter Zeeman wrote about how magnetic fields were affecting spectroscopy of atoms~\cite{Zeeman1896}. From this followed the Zeeman effect, which explains how spectral lines of atoms are split and shifted when applying magnetic fields. This can be calculated perturbatively~\cite{Griffiths2004}, by modelling the atom as a magnetic dipole. In analaogue to the classic description of magnetic dipoles, this gives an energy $V_M$ depending on the magnetic field $\bm{B}$:
+In the previous paragraphs, it was highlighted how the spin levels are too close in energy space, to address them  with imaging lasers. However, having a position dependent potential, that is different for each spin state, is enough to spatially separate them. One way of achieving this, is by applying magnetic fields. In 1896, Pieter Zeeman wrote about how magnetic fields were affecting spectroscopy of atoms~\cite{Zeeman1896}. From this followed the Zeeman effect, which explains how spectral lines of atoms are split and shifted when applying magnetic fields. This can be calculated perturbatively~\cite{Griffiths2004}, by modelling the atom as a magnetic dipole. In analaogue to the classic description of magnetic dipoles, this gives an energy $V_M$ depending on the magnetic field $\bm{B}$:
 
 \begin{align}
 	V_M = - \bm{\mu} \bm{B}
@@ -39,13 +39,13 @@ and is then the perturbation in the total Hamiltonian $H = H_0 + V_M$. The magne
 	E_z = B_z \mu_B \left(g_l m_l + g_s m_s\right).
 \end{align}
 
-It has contributions from the nuclear spin ($g_l m_l$) and electron spin ($g_s m_s$) and depends on the Bohr magneton $\mu_B$. The magnetic quantum numbers $m_i, i\in\{l,s\}$ depend on the value of the associated quantum numbers, which are the orbital angular momentum $L$ and electron angular momentum $S$, such that $m_l \in \{-L, -L+1, \ldots, L-1, L\}$ and $\m_s \in \{-S, -S+1, \ldots, S-1, S\}$. This means, not only is the hyperfine state shifted by the magnetic field, it is also split into more energy sublevels. However, a complete description of the energy shift, needs to integrate the shifts of the hyperfine levels, which has been done in the Breit-Rabi model~\cite{Breit1931}.
+It has contributions from the nuclear spin ($g_l m_l$) and electron spin ($g_s m_s$) and depends on the Bohr magneton $\mu_B$. The magnetic quantum numbers $m_i, i\in\{l,s\}$ depend on the value of the associated quantum numbers, which are the orbital angular momentum $L$ and electron angular momentum $S$, such that $m_l \in \{-L, -L+1, \ldots, L-1, L\}$ and $m_s \in \{-S, -S+1, \ldots, S-1, S\}$. This means, not only is the hyperfine state shifted by the magnetic field, it is also split into more energy sublevels. However, a complete description of the energy shift, needs to integrate the shifts of the hyperfine levels, which has been done in the Breit-Rabi model~\cite{Breit1931}.
 
 Figure~\ref{fig:pot_zeeman} gives an illustration of how the two spin components $F=1$ and $F=2$ in the potassium ground state are affected due to a magnetic field. Visible is a splitting of the spin-states into sublevels. In order to maximally separate the spin states, the $F=1$ spin would be pumped into the $m_F=1$ state, and consequently, $F=2$ into the $m_F=2$ state.
 
 %The experiment is already able to generate a magnetic field of $\SI{40}{\gauss}$ with the use of the \ac{mot} coils, which are used to trap and cool the atoms initially. At this field strength, the separation is almost $\SI{600}{\mega\hertz}$.
 
-Using this, the idea is to create a position dependent trap for the two spin-states. To do this, we need to note, that from the figure, the $F=1, m_F=1$ state has a negative slope, while the $F=2, m_F=2$ state has a positive slope. This means, simply by generating a magnetic field ramp, the atoms in different spin states, will see a position dependent energy $V_{mag}$. Since the atoms are trapped inside optical tweezers, the potential given by the dipole force is:
+Using this, the idea is to create a position dependent trap for the two spin-states. To do this, we need to note, that from the figure, the $F=1, m_F=1$ state has a negative slope, while the $F=2, m_F=2$ state has a positive slope. This means, simply by generating a magnetic field ramp, the atoms in different spin states, will see a position dependent energy $V_{mag}$. Since the atoms are trapped inside optical tweezers, the potential given by the dipole force is~\cite{LeKien2013}:
 
 \begin{align}
 	V_{dip}(r) = -\frac{\pi c^2 \Gamma}{2 w_0^3 \Delta} I(r),
@@ -57,7 +57,7 @@ where $\Gamma$ is the line width of the transition, in this case the D2 line, $\
 	V(r) = V_{dip}(r) + V_{mag}(B(r)),
 \end{align}
 
-where the position dependence was explicitly noted. This way, the potential minimum, which was originally just given by the dipole trap, is now shifted in the direction of the potential induced by the Zeeman effect. Thus, the two spin states will see different potentials, which are shifted in position space with respect to each other. However, numerical calculations of the potential minimum show that the shift is too small in order to spatially separate the atoms. For this, it is assumed, the atom is trapped on the D2-line and the laser power is $\SI{1}{\micro\watt}$, where the spatial separation is favorable towards lower laser powers. Moreover, the magnetic field gradient is set to $B(r) = \SI{40}{\gauss\per\centi\meter}$. This gives a separation of $\Delta x = \SI{2.1}{\nano\meter}$. Given a beam waist of $\omega=\SI{1}{\micro\meter}$ and assuming the atoms have a temperature of $\SI{20}{\micro\kelvin}$ means, at peak energy, the potential walls are separated by $\Delta x_V = \SI{1}{\micro\meter}$.
+where the position dependence was explicitly noted. This way, the potential minimum, which was originally just given by the dipole trap, is now shifted in the direction of the potential induced by the Zeeman effect. Thus, the two spin states will see different potentials, which are shifted in position space with respect to each other. However, numerical calculations of the potential minimum show that the shift is too small in order to spatially separate the atoms. For this, it is assumed, the atom is trapped on the D2-line and the laser power is $\SI{1}{\micro\watt}$, where the spatial separation is favorable towards lower laser powers. Moreover, the magnetic field gradient is set to $B(r) = \SI{40}{\gauss\per\centi\meter}$. This gives a separation of $\Delta x = \SI{2.1}{\nano\meter}$, which is much less than typical beam waists of $w = \SI{1}{\micro\meter}$.
 These results are further illustrated in Figure~\ref{fig:pot_separation}.
 
 \begin{figure}[t]%
@@ -118,7 +118,7 @@ Due to the light shifts, the atoms see an induced potential, given by the energy
 }%
 \end{figure}%
 
-In the experiment then, the light is produced as optical tweezers and mapped over the initial grid. To transfer the atoms into the spin-selective tweezer, the resulting trap has to be much deeper than the initial tweezers. These have a power of $\approx\SI{15}{\milli\watt}$, but are highly detuned to the excited state on the D2 line at a wavelength of $\SI{1064}{\nano\meter}$. Moreover, due to laser light having a bandwidth, the transparent spin might actually see a trap, therefore it needs to be verified, whether this effect is non-negligible. Figure~\ref{fig:relative_trap} shows the trap depth of the spin-sensitive tweezer over the trap depth of the initial tweezer, for both spin-species, when also accounting for a laser bandwidth of $\SI{200}{\giga\hertz}$. It turns out, that the bandwidth does not majorly affect the efficiency of not trapping the transparent state. Consequently, using the AC-Stark shift to shift atom levels is a viable approach in order to trap a single spin-component, allowing to image specific spin states.
+In the experiment then, the light is produced as optical tweezers and mapped over the initial grid. To transfer the atoms into the spin-selective tweezer, the resulting trap has to be much deeper than the initial tweezers. These have a power of $\approx\SI{15}{\milli\watt}$, but are highly detuned to the excited state on the D2 line at a wavelength of $\SI{1064}{\nano\meter}$. Moreover, due to laser light having a bandwidth, the transparent spin might actually see a trap, therefore it needs to be verified, whether this effect is non-negligible. Figure~\ref{fig:relative_trap} shows the trap depth of the spin-sensitive tweezer over the trap depth of the initial tweezer, for both spin-species, when also accounting for a laser bandwidth of $\SI{100}{\giga\hertz}$. It turns out, that the bandwidth does not majorly affect the efficiency of not trapping the transparent state. Consequently, using the AC-Stark shift to shift atom levels is a viable approach in order to trap a single spin-component, allowing to image specific spin states.
 
 
 \begin{figure}[t]%
@@ -131,21 +131,21 @@ In the experiment then, the light is produced as optical tweezers and mapped ove
 
 \section{Setup}
 
-We have seen, how light shifts can be used to trap a single spin species. Doing so, it is possible to spatially separate and image them onto a camera. However, it is necessary to have a stable laser at $\SI{768.40}{\nano\meter}$. The following section highlights the steps in order to build such a laser system, which includes setting up a cavity and a \ac{pdh} lock, in order to frequency stabilize the system. The laser is then coupled into the same setup as in~\ref{sec:sorting}, allowing to generate acousto-optically, spin-sensitive tweezers, allowing to move the spin state in space.
+We have seen, how light shifts can be used to trap a single spin species. Doing so, it is possible to spatially separate and image them onto a camera. However, it is necessary to have a stable laser at $\SI{768.40}{\nano\meter}$. The following section highlights the steps in order to build such a laser system, which includes setting up a cavity and a \ac{pdh} lock, in order to frequency stabilize the system. The laser is then coupled into the same setup as in~\ref{sec:sorting}, allowing to generate acousto-optically deflected, spin-sensitive tweezers, allowing to move the spin state in space.
 
 \subsection{Laser classification}
 
 The laser classified in the following is a homebuilt model, the design of which is given in Appendix~\ref{aaaa}\todo{ref}. It has room for a laser diode, whose light is collimated, filtered and reflected through a partially reflective mirror, which also serves as the output of the housing.
 The laser diode (Eagleyard EYP-RWE-0760-02010-1500-SOT12-0000) used, is tunable in the range from $\SI{752}{\nano\meter}$ to $\SI{772}{\nano\meter}$ with a maximum power of $\SI{80}{\milli\watt}$. Since the diode is also used as the active medium, the cavity simplifies to being just a mirror, that reflects back into the diode and transmits part of the light out of the laser casing.
 
-The laser power is classified as a function of current supplied to the laserdiode. At the point where the device starts to lase, the power is linear with current and the diagram for the model built here is given in Figure~\ref{fig:laser_curve}.
+The laser power is classified as a function of current supplied to the laserdiode. After the laser threshold, the power is linear with current and the diagram for the model built here is given in Figure~\ref{fig:laser_curve}.
 
 %The light emitted from the laser device is then evaluated, based on the laser curve. This means, by increasing the current supplied to the laserdiode, there will be a point at which the power emitted from the cavity suddenly jumps. After that point, increasing the current on the laserdiode will increase the power in equal parts. This curve has been measured for the diode in question, verifying that the system is actually lasing, and is shown in Figure~\ref{fig:laser_curve}.
 
 \begin{figure}[t]%
 \centering{%
 \includegraphics{figures/lasercurve_155.pdf}
-\caption{Shown is the lasercurve for the home-built laser, driven with a Thorlabs LDC205C current controller. The power was measured using a Thorlabs PM100D power meter and the Thorlabs S121C sensor.}%
+\caption{Shown is the laser threshold for the home-built laser, driven with a Thorlabs LDC205C current controller. The power was measured using a Thorlabs PM100D power meter and the Thorlabs S121C sensor.}%
 \label{fig:laser_curve}
 }
 \end{figure}
