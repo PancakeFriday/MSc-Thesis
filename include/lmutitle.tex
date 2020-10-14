@@ -1,0 +1,53 @@
+\newcommand{\LMUTitle}[9]{
+	\thispagestyle{empty}
+	\vspace*{\stretch{1}}
+	{\parindent0cm
+		\rule{\linewidth}{.3ex}}
+	\begin{flushright}
+	\bfseries\Huge
+#1\\
+		\vspace*{\stretch{1}}
+		\LARGE
+#3
+		\end{flushright}
+	\rule{\linewidth}{.3ex}
+
+	\vspace*{\stretch{4}}
+	\begin{center}
+	\includegraphics[width=2.5in]{include/LMU_Siegel.png}
+	\end{center}
+	\vspace*{\stretch{2}}
+	\begin{center} \LARGE{#5}\end{center}
+
+	\thispagestyle{empty}
+	\newpage
+		\thispagestyle{empty}
+	\cleardoublepage
+		\thispagestyle{empty}
+	\vspace*{\stretch{1}}
+	{\parindent0cm
+		\rule{\linewidth}{.7ex}}
+	\begin{flushright}
+	\bfseries \Huge
+#2\\
+		\vspace*{\stretch{1}}
+		\end{flushright}
+	\rule{\linewidth}{.7ex}
+	\vspace*{\stretch{2}}
+	\vspace*{\stretch{1}}
+	\begin{center}
+	\Large Masterarbeit an der Fakultät für Physik\\
+		\Large Ludwig-Maximilians-Universität München\\
+		\Large #4\\
+		\vspace*{\stretch{2}}
+	\Large vorgelegt von\\
+		\vspace*{\stretch{0.5}}
+	{\bfseries\LARGE #3}\\
+	\vspace*{\stretch{3}}
+	\Large München, den #6
+		\end{center}
+	\thispagestyle{empty}
+	\clearpage
+		\thispagestyle{empty}
+	\clearpage
+}

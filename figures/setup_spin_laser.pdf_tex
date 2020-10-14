@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{439.37007874bp}%
+    \setlength{\unitlength}{453.67753015bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,26 +50,26 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.87211176)%
+  \begin{picture}(1,0.8445352)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{setup_spin_laser.pdf}}%
-    \put(0.51971206,0.46937673){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AOD tweezers\end{tabular}}}}%
-    \put(0.48124697,0.69268567){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Monitoring\end{tabular}}}}%
+    \put(0.50716718,0.45450108){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AOD tweezers\end{tabular}}}}%
+    \put(0.46991515,0.6707676){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Monitoring\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{setup_spin_laser.pdf}}%
-    \put(0.88392055,0.70085542){\color[rgb]{0,0,0}\rotatebox{-90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f=600$\end{tabular}}}}}%
+    \put(0.85988977,0.67867971){\color[rgb]{0,0,0}\rotatebox{-90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f=600$\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{setup_spin_laser.pdf}}%
-    \put(0.06977736,0.09063597){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Laser housing}\end{tabular}}}}%
-    \put(0.27279045,0.09063597){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Isolator}\end{tabular}}}}%
-    \put(0.48275015,0.09063597){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Mirror}\end{tabular}}}}%
-    \put(0.67990739,0.09063597){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Beamsampler}\end{tabular}}}}%
-    \put(0.67990739,0.02192958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Fibre coupler}\end{tabular}}}}%
-    \put(0.88986705,0.09063597){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{AOM}\end{tabular}}}}%
-    \put(0.06977736,0.02192958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Photodiode}\end{tabular}}}}%
-    \put(0.27279045,0.02192958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Waveplate}\end{tabular}}}}%
-    \put(0.48275015,0.02192958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{EOM}\end{tabular}}}}%
-    \put(0.88986705,0.02192958){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Cavity}\end{tabular}}}}%
-    \put(0.4509562,0.34202806){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1st order\end{tabular}}}}%
+    \put(0.0714219,0.08770451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Laser housing}\end{tabular}}}}%
+    \put(0.26803264,0.08770451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Isolator}\end{tabular}}}}%
+    \put(0.47137093,0.08770451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Mirror}\end{tabular}}}}%
+    \put(0.6623105,0.08770451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Beamsampler}\end{tabular}}}}%
+    \put(0.6623105,0.02116489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Fibre coupler}\end{tabular}}}}%
+    \put(0.86564874,0.08770451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{AOM}\end{tabular}}}}%
+    \put(0.0714219,0.02116489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Photodiode}\end{tabular}}}}%
+    \put(0.26803264,0.02116489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Waveplate}\end{tabular}}}}%
+    \put(0.47137093,0.02116489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{EOM}\end{tabular}}}}%
+    \put(0.86564874,0.02116489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsf{Cavity}\end{tabular}}}}%
+    \put(0.44057965,0.33116855){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1st order\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{setup_spin_laser.pdf}}%
   \end{picture}%
 \endgroup%
