@@ -108,7 +108,6 @@ With the derivations from the previous chapter, it is possible to calculate the 
 The deflectors ((AA DTSXY-400--800.860) from Pegasus optics) and their characteristics are given in Table~\ref{tbl:pegasus_aod}. The \acp{aod} are driven by RF-frequencies, which map 1:1 to the frequency of the sound wave.  In order to deflect in two dimensions, two deflectors are placed in series, which are turned by $\SI{90}{\degree}$ with respect to each other. This way, the first order on the first \ac{aod} will extend e.g.\ into the x-axis, while the first order of the second \ac{aod} will then extend along the y-axis. Together, exiting the deflectors will be a $2\times2$ grid of laser beams, which can be seen in Figure~\ref{fig:aod_pass}. These are the $(x=0, y=0)$, $(1, 0)$, $(0, 1)$ and $(1, 1)$ orders, however, only the $(1,1)$ order will be used, as this is the one that is deflected based on the sound wave placed into the \ac{aod}.
 
 \begin{table}[tbp]%
-\label{tbl:pegasus_aod}
 \centering
 \begin{tabular}{l l}
 	%\hline \hline
@@ -121,8 +120,9 @@ The deflectors ((AA DTSXY-400--800.860) from Pegasus optics) and their character
 	Material (speed of sound) & TeO2 ($\SI{650}{\meter\per\second}$) \\
 	Scan angle & ${(\SI{44}{\milli\radian})}^2$ \\
 	\bottomrule \bottomrule
-\end{tabular}
-\caption{Properties of AA DTSXY-400--800.860 crossed \acp{aod} from Pegasus optics.}
+\end{tabular}%
+\caption{Properties of AA DTSXY-400--800.860 crossed \acp{aod} from Pegasus optics.}%
+\label{tbl:pegasus_aod}
 \end{table}
 
 \begin{figure}[tbp]%
@@ -241,7 +241,6 @@ The results in Figure~\ref{fig:sorting_algos} show that the compression algorith
 \end{figure}
 
 \begin{table}[tbp]%
-\label{tbl:sorting_algo_fit}
 \centering
 \begin{tabular}{l l l}
 	\toprule \toprule
@@ -262,6 +261,7 @@ The results in Figure~\ref{fig:sorting_algos} show that the compression algorith
 	\bottomrule
 \end{tabular}
 \caption{Comparison of scaling of the two sorting algorithms. For each quantity given in the left-most column, a polynomial $f(x) = aN^m$ was fitted to the points shown in Figure~\ref{fig:sorting_algos}. This gives $m$ as the scaling and the parameter of interest, resulting in better scaling in every aspect for the compression algorithm.}
+\label{tbl:sorting_algo_fit}
 \end{table}
 
 \section{Driving an RF-synthesizer for arbitrary pattern generation}
@@ -275,7 +275,6 @@ To overcome this issue, we implement a digitizer card (M4i.6600-x8, Spectrum Ins
 Communication with the card is provided through a low-level interface from the official drivers over a PCIe slot. In the following, two replay modes of the spectrum card are discussed, which are standard replay mode and sequence replay mode. In single replay mode, a signal is sent onto the card, which is played back a set number of times, from start to finish. The sequence replay mode allows to upload sequences during initialization. It is then possible to play any arbitrary combination of the sequences one after another.
 
 \begin{table}[tbp]%
-\label{tbl:spec_m4i}
 \centering
 \begin{tabular}{l l}
 	\toprule \toprule
@@ -286,6 +285,7 @@ Communication with the card is provided through a low-level interface from the o
 	\bottomrule \bottomrule
 \end{tabular}
 \caption{Relevant parameters of the Spectrum M4i.6600-x8 card from the specifications given by the manufacturer.}
+\label{tbl:spec_m4i}
 \end{table}
 
 The functionality of the card depends on two factors: The layout of the memory, and the readout speed (the sampling rate) of the memory. In the following implementation, two output channels of the spectrum card are used. Doing so, the memory is formatted, such that two bytes of channel 1 data are followed by two bytes of channel 2 data as seen in Figure~\ref{fig:spectrum_memory}. Transferring data onto the memory then requires to fill a buffer, that is, memory on the computer running the driver, that has the same layout as the spectrum card's memory.
@@ -299,7 +299,6 @@ The functionality of the card depends on two factors: The layout of the memory, 
 With this information, the structure of a program driving the digitizer card follows the format given in Table~\ref{tbl:replay_modes}.
 
 \begin{table}[tbp]%
-	\label{tbl:replay_modes}
 	\centering
 	\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
 		\midrule \midrule
@@ -324,6 +323,7 @@ With this information, the structure of a program driving the digitizer card fol
 		\bottomrule \bottomrule
 	\end{tabular}
 	\caption{Difference in programming when using either the single replay or the sequence replay mode of the Spectrum M4i card. In this case, it is instructive to see, that the single replay mode has an overhead during the main loop compared to the sequence replay mode, which has all sequences stored in memory already.}
+	\label{tbl:replay_modes}
 \end{table}
 
 The maximum transfer speed for transferring data from the PC to the spectrum card is limited by the hardware to $\SI{2.8}{\giga\byte\per\second}$. This means that it will always be preferable to move as few data as possible. Consequently, if possible, it is advantageous to use the sequence replay mode, as here, almost all data is already transferred in the initialization phase. All that is left to transfer, is the sequence the data pointer is following.
@@ -336,7 +336,6 @@ There are some considerations to make when using a digitizer card as a driver fo
 In order to calculate the transfer time and memory usage, some assumptions need to be made. The assumptions and all necessary variables are summarized in Table~\ref{tbl:spectrum_assumptions}. First of all, the central frequency of the AOD is approximately $f_{AOD} = \SI{100}{\mega\hertz}$. Therefore, in order to sample a sine at this frequency with at least 10 points per oscillation, means a sampling rate of at least $\SI{1}{\giga\samples\per\second}$ needs to be applied. For the M4i digitizer card, this means the next available setting is $\SI{1.25}{\giga\samples\per\second}$ and gives about 13 samples per oscillation. Being able to resolve the signal clearly, has the advantage to generate the frequency more accurately, therefore the $10$ samples per oscillation is a good limit.
 
 \begin{table}[tbp]%
-\label{tbl:spectrum_assumptions}
 \centering
 \begin{tabular}{l l}
 	\toprule \toprule
@@ -351,6 +350,7 @@ In order to calculate the transfer time and memory usage, some assumptions need 
 	\bottomrule \bottomrule
 \end{tabular}
 \caption{Variables and assumptions used in the calculations for estimation of data transfer time and memory usage under the consideration of the experiment discussed in this thesis.}
+\label{tbl:spectrum_assumptions}
 \end{table}
 
 Now in order to calculate the time to transfer an atom adiabatically from the \ac{slm} tweezer grid into the \ac{aod} tweezer grid (and back again), the relation $\dot{w} > w^2$ needs to be fulfilled, where $w$ is the trap frequency in transverse direction. The following argumentation follows the directions in~\cite{Leseleuc2018}. In our case, this is on the order of $\SI{20}{\kilo\hertz}$ and is fulfilled for a transfer time of $t_{transfer} = \SI{1}{\milli\second}$. To calculate the moving time $t_{move}$ for an atom from one grid point to another, the shape of the trap is considered. If the atom is accelerated in the first half of the movement, and decelerated in the second half of the movement, the total distance to transfer the atom is given as $L=a t_{move}^2$. The maximal acceleration is found from the trap waist $w = \SI{1}{\micro\meter}$ and its radial frequency $f_{rad} = \SI{100}{\kilo\hertz}$, as $a_{\max} \approx w f_{rad}^2 = 10^4\SI{}{\meter\per\second\squared}$. Therefore, choosing a conservative acceleration $a=\SI{10}{\meter\per\second\squared}$ results in a moving time $t_{move} = \SI{1}{\milli\second}$ over a distance $L=\SI{10}{\micro\meter}$.
